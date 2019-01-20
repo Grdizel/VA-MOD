@@ -1,0 +1,136 @@
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+	  <title>Анализ объемов рынка - горизонтальный и вертикальный объем</title>
+	  <meta name="viewport" content="width=device-width" >
+      <meta name="keywords" content="forex объемы, индикатор объема свечи forex" >
+	  <meta name="description" content="Вертикальный и горизонтальный объем - Формирование рынка определяется тремя факторами – объемом, ценой и временем. Ежедневно внутри рынка развивается определенная область стоимости в соответствии с законом равновесия, который предполагает определенное количество продавцов и покупателей." >
+	  <META NAME="AUTHOR" CONTENT="Бывалый Трейдер" >
+	  <META name="copyright" content="© 2017 Бывалый Трейдер">
+	  <link rel="icon" type="image/png" href="icon.png"/>
+	  <link rel="shortcut icon" type="image/png" href="icon.png"/>
+  <script src="js/jquery-3.2.1.min.js" ></script>
+  <script src="js/jquery-ui.min.js" ></script>
+  <script src="js/tv.js" ></script>
+<link rel="stylesheet" href="css/styleshi.css" >
+
+</head>
+
+<body>
+<!-- <div class="tradingview-widget-container"> -->
+
+<!-- </div> -->
+<canvas id="valx" ></canvas>
+<div class="divinp" >
+  <div class="select selectdiv" >
+    <div id="pair" val="EURO" class="sel" ><img class="imgsel" src="img/Binomo.png" width="18px" height="18px" />EUR/USD</div>
+    <div class="divscrol" >
+        <div title="AUD/CAD - Binomo" val="AUD/CAD" id="AUD_CAD" data="Binomo" class="sel sels" ><img class="imgsel" src="img/Binomo.png" width="18px" height="18px" />AUD/CAD</div>
+        <div title="AUD/JPY - Binomo" val="AUD/JPY" id="AUD_JPY" data="Binomo" class="sel sels" ><img class="imgsel" src="img/Binomo.png" width="18px" height="18px" />AUD/JPY</div>
+        <div title="AUD/USD - Binomo" val="AUD/USD" id="AUD_USD" data="Binomo" class="sel sels" ><img class="imgsel" src="img/Binomo.png" width="18px" height="18px" />AUD/USD</div>
+        <div title="CAD/CHF - Binomo" val="CAD/CHF" id="CAD_CHF" data="Binomo" class="sel sels" ><img class="imgsel" src="img/Binomo.png" width="18px" height="18px" />CAD/CHF</div>
+        <div title="EUR/CAD - Binomo" val="EUR/CAD" id="EUR_CAD" data="Binomo" class="sel sels" ><img class="imgsel" src="img/Binomo.png" width="18px" height="18px" />EUR/CAD</div>
+        <div title="EUR/GBP - Binomo" val="EUR/GBP" id="EUR_GBP" data="Binomo" class="sel sels" ><img class="imgsel" src="img/Binomo.png" width="18px" height="18px" />EUR/GBP</div>
+        <div title="EUR/JPY - Binomo" val="EUR/JPY" id="EUR_JPY" data="Binomo" class="sel sels" ><img class="imgsel" src="img/Binomo.png" width="18px" height="18px" />EUR/JPY</div>
+        <div title="EUR/USD - Binomo" val="EURO" id="EURO" data="Binomo" class="sel sels" ><img class="imgsel" src="img/Binomo.png" width="18px" height="18px" />EUR/USD</div>
+        <div title="GBP/AUD - Binomo" val="GBP/AUD" id="GBP_AUD" data="Binomo" class="sel sels" ><img class="imgsel" src="img/Binomo.png" width="18px" height="18px" />GBP/AUD</div>
+        <div title="GBP/JPY - Binomo" val="GBP/JPY" id="GBP_JPY" data="Binomo" class="sel sels" ><img class="imgsel" src="img/Binomo.png" width="18px" height="18px" />GBP/JPY</div>		
+		<div title="GBP/USD - Binomo" val="GBP/USD" id="GBP_USD" data="Binomo" class="sel sels" ><img class="imgsel" src="img/Binomo.png" width="18px" height="18px" />GBP/USD</div>
+        <div title="NZD/USD - Binomo" val="NZD/USD" id="NZD_USD" data="Binomo" class="sel sels" ><img class="imgsel" src="img/Binomo.png" width="18px" height="18px" />NZD/USD</div>
+        <div title="USD/CAD - Binomo" val="USD/CAD" id="USD_CAD" data="Binomo" class="sel sels" ><img class="imgsel" src="img/Binomo.png" width="18px" height="18px" />USD/CAD</div>
+        <div title="USD/CHF - Binomo" val="USD/CHF" id="USD_CHF" data="Binomo" class="sel sels" ><img class="imgsel" src="img/Binomo.png" width="18px" height="18px" />USD/CHF</div>
+        <div title="USD/JPY - Binomo" val="USD/JPY" id="USD_JPY" data="Binomo" class="sel sels" ><img class="imgsel" src="img/Binomo.png" width="18px" height="18px" />USD/JPY</div>
+        <div title="CRYPTO IDX - Binomo" val="CRY/IDX" id="CRY_IDX" data="Binomo" class="sel sels" ><img class="imgsel" src="img/Binomo.png" width="18px" height="18px" />CRYPTO IDX</div>
+        <div title="Bitcoin - Binomo" val="XBT/USD" id="XBT_USD" data="Binomo" class="sel sels" ><img class="imgsel" src="img/Binomo.png" width="18px" height="18px" />Bitcoin</div>
+        <div title="Litecoin - Binomo" val="LTC/USD" id="LTC_USD" data="Binomo" class="sel sels" ><img class="imgsel" src="img/Binomo.png" width="18px" height="18px" />Litecoin</div>
+        <div title="AUD/CAD-OTC - Binomo" val="AUDCAD-OTC" id="AUDCAD-OTC" data="Binomo" class="sel sels"><img class="imgsel" src="img/Binomo.png" width="18px" height="18px" />AUD/CAD (OTC)</div>
+        <div title="EUR/USD-OTC - Binomo" val="EURUSD-OTC" id="EURUSD-OTC" data="Binomo" class="sel sels"><img class="imgsel" src="img/Binomo.png" width="18px" height="18px" />EUR/USD (OTC)</div>
+		<div title="EUR/CAD-OTC - Binomo" val="EURCAD-OTC" id="EURCAD-OTC" data="Binomo" class="sel sels"><img class="imgsel" src="img/Binomo.png" width="18px" height="18px" />EUR/CAD (OTC)</div>
+        <div title="USD/JPY-OTC - Binomo" val="USDJPY-OTC" id="USDJPY-OTC" data="Binomo" class="sel sels"><img class="imgsel" src="img/Binomo.png" width="18px" height="18px" />USD/JPY (OTC)</div>
+        <div title="GBP/USD-OTC - Binomo" val="GBPUSD-OTC" id="GBPUSD-OTC" data="Binomo" class="sel sels"><img class="imgsel" src="img/Binomo.png" width="18px" height="18px" />GBP/USD (OTC)</div>
+        <div title="GBP/JPY-OTC - Binomo" val="GBPJPY-OTC" id="GBPJPY-OTC" data="Binomo" class="sel sels"><img class="imgsel" src="img/Binomo.png" width="18px" height="18px" />GBP/JPY (OTC)</div>
+		<div title="Ethereum - OlympTrade" val="ETHUSD" id="ETHUSD" data="OlympTrade" class="sel sels" ><img class="imgsel" src="img/OlympTrade.png" width="18px" height="18px" />Ethereum</div>
+      </div></div>
+  <select id="size" class="select" >
+    <option value="15" id="15" >15c.</option>
+    <option value="60" id="60" >M1</option>
+	<option value="120" id="60" >M2</option>
+	<option value="180" id="60" >M3</option>
+	<option value="240" id="60" >M4</option>
+    <option value="300" id="300" >M5</option>
+    <option value="600" id="600" >M10</option>
+    <option value="900" id="900" >M15</option>
+    <option value="1800" id="1800" >M30</option>
+    <option value="3600" id="3600" >H1</option>
+	<option value="14400" id="14400" >H4</option>
+	<option value="86400" id="86400" >D1</option>
+	<option value="604800" id="604800" >W1</option>
+  </select>
+  <input id="period" value="10" placeholder="Период" class="select" />
+  <br>
+	<div class="hiden" id="url1">
+		<input class="checkbox" type="checkbox" id="open_menu" title="Показать настройки"><label>меню</label>
+		<br>
+		<!-- <div id="VA_MOD" title="Тут можно скачать последнюю версию и обсудить дальнейшие разработки">Подпишись :)</div> -->
+		<br>
+	</div>
+	<div id="Menu">
+	  <select id="background" class="select" title="Выбери желаемый цвет фона">
+		<option value="0" id="21252c" >Родной фон</option>
+		<option value="1" id="000000" >Чёрный фон</option>
+		<option value="2" id="00008b" >Тёмный ультрамариновый фон</option>
+		<option value="3" id="808080" >Серый фон</option>
+		<option value="4" id="686c5e" >Серый бетон фон</option>
+		<option value="5" id="964b00" >Коричневый фон</option>			
+		<option value="6" id="ffd700" >Золотой фон</option>
+		<!-- <option value="7" id="blok_shema" >Блок схема</option> -->
+		<option value="8" id="none_fon" >Прозрачный</option>
+		
+	  </select>
+		<input class="checkbox" type="checkbox" id="color" title="Добавлены цвета на объёмы в зависимости от колличества"><label>Цвета значений</label>
+		<br>
+		<input class="checkbox" type="checkbox" id="invert" title="Инвертировать местами цвета объёмов (если галку снять получим оригинал)"><label>Цвета по тренду</label>
+		<br>
+		<input class="checkbox" type="checkbox" id="timer" title="Включить обратный отсчёт времени а также прировнять время минут к графику биномо(время закрытия свечи)"><label>Убывающий таймер</label>
+		<br>
+		<input class="checkbox" type="checkbox" id="max_obj" title="Включить значения максимального объёма над каждой свечкой"><label>Макс. объём</label>
+		<br>
+		<input class="checkbox" type="checkbox" id="strelki_check" title="Отображает стрелку в зависимости от закрытия последней свечи выше или ниже максимального объёма в ней."><label>Показать стрелки</label>
+		<input class="checkbox" type="checkbox" id="strelki_procent" title="Отображает маленькие стрелки в зависимости от цвета свечи. Если свеча зелёная значит внизу "><label>%</label>
+		<br>
+		<input class="checkbox" type="checkbox" id="blok_shema" title="Отображает на фоне картинку ориентир."><label>картинка фоном</label>
+		<br>
+		<input class="checkbox" type="checkbox" id="max_obj_color" title="Если закрытие свечи выше максимального объёма то окрасить объём залёный иначе красный"><label>Цвет макс. объёма</label>
+		<br>
+		<input class="checkbox" type="checkbox" id="odinak" title="Искать такой же уровень в соседних свечах и боковой гистограмме"><label>Поиск одинаковых значений</label>
+		<br>
+		<input class="checkbox" type="checkbox" id="trading_view_graff" title="Показать граффик от TradingView в реальном времени."><label>Граффик TradingView</label>
+		<br>
+		<input type="number" id="obrez" value="0" min="0" max="15" title="Сколько знаков нужно отрезать в начале значения объёмов(от 0 до 15)"><label>Отрезание начала значения</label>
+		<br>
+
+		<!-- <input type="number" id="razmer_obj" value="5" min="1" max="30" title="Размер шрифта значений объёма"><label>Объём шрифт</label> -->
+		<!-- <br><br><br> -->
+		<select id="font" class="select" title="Где менеяем шрифт?">
+			<option value="0" id="vremya_size" >шрифт время</option>
+			<option value="1" id="max_size" >шрифт мак. объёма</option>
+			<option value="2" id="gis_size" >шрифт цена гистограммы</option>
+			<option value="3" id="ur_gist" >шрифт макс. гистограммы</option>
+			<option value="4" id="ur_str_size" >шрифт больших стрелок</option>
+			<option value="5" id="str_min_size" >шрифт мелких стрелок</option>
+		</select>
+		<br>
+		<input type="number" id="font_size" value="14" min="1" max="100" title="Размер шрифта"><label>Размер шрифта</label>
+		<br>
+	</div>
+	<div id="Strelki_On" hidden="true" >
+		<!-- <div class="str_green"><img id="upa" src="img/upa.png" width="150" height="150"></div> -->
+		<!-- <div class="str_red"><img id="downa" src="img/downa.png" width="150" height="150"></div> -->
+		<div class="close_1"><label id="close_1"></label></div>
+	</div>
+</div>
+<div class="preload" ></div>
+<script src="js/javas_MOD.js" ></script>
+</body>
+</html>
