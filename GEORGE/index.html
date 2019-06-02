@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <script src="js/jquery-3.2.1.min.js"></script>
+  <script src="js/jquery-ui.min.js"></script>
+
+  <link rel="stylesheet" href="css/styleshi.css">
+  <title>Document</title>
+</head>
+
+<body>
+  <ul class="divinp">
+    <li>
+      <div>
+        ТаймФрейм:
+        <select id="size" class="select">
+          <option value="15" id="15">15c.</option>
+          <option value="60" id="60" selected="selected">M1</option>
+          <option value="120" id="120">M2</option>
+          <option value="180" id="180">M3</option>
+          <option value="300" id="300">M5</option>
+          <option value="600" id="600">M10</option>
+          <option value="900" id="900">M15</option>
+          <option value="1800" id="1800">M30</option>
+          <option value="3600" id="3600">H1</option>
+        </select>
+      </div>
+    </li>
+    <li>
+      <div id="inputs">
+        к-во кластеров:
+        <input id="period" value="10" placeholder="Период" class="select">
+      </div>
+    </li>
+    <li>
+      <div id="inputs">
+        смещение по кластера:
+        <input id="clusterShift" value="0" placeholder="Период" class="select">
+      </div>
+    </li>
+    <li>
+      <div id="inputs">
+        внутрикластерный расчёт max:
+        <input id="acumulate" value="1" type="checkbox">
+      </div>
+
+    </li>
+    <li>
+      <div class="select selectdiv">
+        <div id="pair" val="CRY/IDX" class="sel">
+          <img class="imgsel" src="img/Binomo.png" width="18px" height="18px">CRYPTO</div>
+        <div class="divscrol">
+          <div title="EUR/USD - Binomo" val="EURO" id="EURO" data="Binomo" class="sel sels">
+            <img class="imgsel" src="img/Binomo.png" width="18px" height="18px">EUR/USD</div><br>
+          <div title="USD/JPY - Binomo" val="USD/JPY" id="USD_JPY" data="Binomo" class="sel sels">
+            <img class="imgsel" src="img/Binomo.png" `="" width="18px" height="18px">USD/JPY</div><br>
+          <div title="AUD/USD - Binomo" val="AUD/USD" id="AUD_USD" data="Binomo" class="sel sels">
+            <img class="imgsel" src="img/Binomo.png" width="18px" height="18px">AUD/USD</div><br>
+          <div title="AUD/CAD - Binomo" val="AUD/CAD" id="AUD_CAD" data="Binomo" class="sel sels">
+            <img class="imgsel" src="img/Binomo.png" width="18px" height="18px">AUD/CAD</div><br>
+          <div title="USD/CHF - Binomo" val="USD/CHF" id="USD_CHF" data="Binomo" class="sel sels">
+            <img class="imgsel" src="img/Binomo.png" width="18px" height="18px">USD/CHF</div><br>
+          <div title="USD/CAD - Binomo" val="USD/CAD" id="USD_CAD" data="Binomo" class="sel sels">
+            <img class="imgsel" src="img/Binomo.png" width="18px" height="18px">USD/CAD</div><br>
+          <div title="NZD/USD - Binomo" val="NZD/USD" id="NZD_USD" data="Binomo" class="sel sels">
+            <img class="imgsel" src="img/Binomo.png" width="18px" height="18px">NZD/USD</div><br>
+          <div title="EUR/JPY - Binomo" val="EUR/JPY" id="EUR_JPY" data="Binomo" class="sel sels">
+            <img class="imgsel" src="img/Binomo.png" width="18px" height="18px">EUR/JPY</div><br>
+          <div title="AUD/JPY - Binomo" val="AUD/JPY" id="AUD_JPY" data="Binomo" class="sel sels">
+            <img class="imgsel" src="img/Binomo.png" width="18px" height="18px">AUD/JPY</div><br>
+          <div title="GBP/JPY - Binomo" val="GBP/JPY" id="GBP_JPY" data="Binomo" class="sel sels">
+            <img class="imgsel" src="img/Binomo.png" width="18px" height="18px">GBP/JPY</div><br>
+          <div title="GBP/USD - Binomo" val="GBP/USD" id="GBP_USD" data="Binomo" class="sel sels">
+            <img class="imgsel" src="img/Binomo.png" width="18px" height="18px">GBP/USD</div><br>
+          <div title="CRYPTO IDX" val="CRY/IDX" id="CRY_IDX" data="Binomo" class="sel sels">
+            <img class="imgsel" src="img/Binomo.png" width="18px" height="18px">CRYPTO</div><br>
+          <!--<div title="BTC/USD - Binomo" val="XBT/USD" id="XBT_USD" data="Binomo" class="sel sels">
+                                          <img class="imgsel" src="img/Binomo.png" width="18px" height="18px" />BTC/USD</div><br>
+                                          <div title="LTC/USD - Binomo" val="LTC/USD" id="LTC_USD" data="Binomo" class="sel sels">
+                                          <img class="imgsel" src="img/Binomo.png" width="18px" height="18px" />LTC/USD</div><br> -->
+          <div title="EURUSD-OTC" val="EURUSD-OTC" id="EURUSD-OTC" data="Binomo" class="sel sels">
+            <img class="imgsel" src="img/Binomo.png" width="18px" height="18px">EURUSD-OTC</div><br>
+          <div title="AUDCAD-OTC" val="AUDCAD-OTC" id="AUDCAD-OTC" data="Binomo" class="sel sels">
+            <img class="imgsel" src="img/Binomo.png" width="18px" height="18px">AUDCAD-OTC</div><br>
+          <div title="USDJPY-OTC" val="USDJPY-OTC" id="USDJPY-OTC" data="Binomo" class="sel sels">
+            <img class="imgsel" src="img/Binomo.png" width="18px" height="18px">USDJPY-OTC</div><br>
+          <div title="GBPUSD-OTC" val="GBPUSD-OTC" id="GBPUSD-OTC" data="Binomo" class="sel sels">
+            <img class="imgsel" src="img/Binomo.png" width="18px" height="18px">GBPUSD-OTC</div><br>
+        </div>
+      </div>
+    </li>
+  </ul>
+  <canvas id="valx" width="1920" height="920"></canvas>
+  <script src="js/javas_new_footprint.js"></script>
+</body>
+
+</html>
