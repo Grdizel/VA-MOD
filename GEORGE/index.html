@@ -2,23 +2,6 @@
 <html>
 
 <head>
- 
-<!-- Yandex.Metrika counter -->
-<script type="text/javascript" >
-   (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
-   m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
-   (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
-
-   ym(54036346, "init", {
-        clickmap:true,
-        trackLinks:true,
-        accurateTrackBounce:true,
-        webvisor:true
-   });
-</script>
-<noscript><div><img src="https://mc.yandex.ru/watch/54036346" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
-<!-- /Yandex.Metrika counter -->
-
   <script src="js/jquery-3.2.1.min.js"></script>
   <script src="js/jquery-ui.min.js"></script>
 
@@ -39,7 +22,7 @@
           <option value="300" id="300">M5</option>
           <option value="600" id="600">M10</option>
           <option value="900" id="900">M15</option>
-          <option value="1800" id="1800">M30</option>
+          <option value="1800" id="1800" selected="">M30</option>
           <option value="3600" id="3600">H1</option>
         </select>
       </div>
@@ -61,7 +44,12 @@
         внутрикластерный расчёт max:
         <input id="acumulate" value="1" type="checkbox">
       </div>
-
+    </li>
+    <li>
+      <div id="inputs">
+        альтернативная раскраска кластеров:
+        <input id="colors" value="1" type="checkbox">
+      </div>
     </li>
     <li>
       <div class="select selectdiv">
@@ -108,7 +96,8 @@
       </div>
     </li>
   </ul>
-  <canvas id="valx" width="1920" height="920"></canvas>
+  <canvas id="valx" width="1920" height="920" style="
+  position: absolute;"></canvas>
   <script src="js/javas_new_footprint.js"></script>
 </body>
 
