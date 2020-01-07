@@ -134,12 +134,12 @@ ws.onmessage = function(msg) {
 			if(i==0) mType = "circle";
 			else mType = "circle";
 			if(yVal==Math.max.apply(null,spot)){
-				mColor = "#29abe2";
+				mColor = "blue";
 				mType = "circle";
 				mSize = 10;// размер синего кружка на графике (макс точка)
 				MindLab = digit[i]
 			} else if(yVal==Math.min.apply(null,spot)){
-				mColor = "#c03";
+				mColor = "red";
 				mType = "circle";
 				mSize = 10// размер красного кружка на графике (мин точка)
 				MindLab = digit[i]
@@ -207,16 +207,16 @@ ws.onmessage = function(msg) {
 		for (var i=1; i<cnt+1; i++) {
 			document.querySelector("#digits > span:nth-child("+i+")").innerHTML = digit[i];
 			yVal2 = parseFloat(spot[20]);
-			if(yVal2==Math.max.apply(null,spot)){
-			var HeadThick= "up";
-			mColorHead = "#29abe2";
-			} else if(yVal2==Math.min.apply(null,spot)){
-			var HeadThick= "down";
-			mColorHead = "#c03";
-			} else{
-			var HeadThick= "mid";
-			mColorHead = "#32cd32";
-			}
+			// if(yVal2==Math.max.apply(null,spot)){
+			// var HeadThick= "up";
+			// mColorHead = "#29abe2";
+			// } else if(yVal2==Math.min.apply(null,spot)){
+			// var HeadThick= "down";
+			// mColorHead = "#c03";
+			// } else{
+			// var HeadThick= "mid";
+			// mColorHead = "#32cd32";
+			// }
 			if (spot[i-1] < spot[i]) {
 				toggleDigit(i,"up");
 				if(digit[i] !=0) {
@@ -250,8 +250,8 @@ ws.onmessage = function(msg) {
 		tic.shift(0);
 		tic.push(tic2nd);
 		}
-		thick.shift(0);
-		thick.push(HeadThick);
+		// thick.shift(0);
+		// thick.push(HeadThick);
 			for (var i=1; i<14; i++) {
 			if (spot[i-1] > spot[i+5]) {
 				document.querySelector("#SpotArrow > span:nth-child("+(i+7)+")").innerHTML = "&#241";
@@ -484,6 +484,8 @@ chart = new CanvasJS.Chart("chartContainer", {
 	axisX: {
 		includeZero: false,
 		// titleFontSize: 20,
+		maximum: 20.5,
+		minimum: 0.5,
 		interval: 1,
 		labelFontSize: 10,
 		gridThickness: 1,
