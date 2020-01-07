@@ -637,7 +637,7 @@ chart0 = new CanvasJS.Chart("chartContainerAxisCord", {
 	data: [{
 		type: "line",
 		showInLegend: true,
-		name: "Even",
+		name: "Even Чёт",
 		markerType: "none",
 		// xValueFormatString: "DD MMM, YYYY",
 		color: "#F08080",
@@ -646,7 +646,7 @@ chart0 = new CanvasJS.Chart("chartContainerAxisCord", {
 	{
 		type: "line",
 		showInLegend: true,
-		name: "Odd",
+		name: "Odd Нечет",
 		lineDashType: "dash",
 		markerType: "none",
 		dataPoints: dpsOdd
