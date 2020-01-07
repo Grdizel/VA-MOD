@@ -638,8 +638,8 @@ chart0 = new CanvasJS.Chart("chartContainerAxisCord", {
 		type: "line",
 		showInLegend: true,
 		name: "Even Чёт",
-		markerType: "none",
-		// xValueFormatString: "DD MMM, YYYY",
+		markerType: "circle",  //"circle", "square", "cross", "none"
+		markerSize: 5,
 		color: "#F08080",
 		dataPoints: dpsEven
 	},
@@ -648,7 +648,8 @@ chart0 = new CanvasJS.Chart("chartContainerAxisCord", {
 		showInLegend: true,
 		name: "Odd Нечет",
 		lineDashType: "dash",
-		markerType: "none",
+		markerType: "circle",  //"circle", "square", "cross", "none"
+		markerSize: 5,
 		dataPoints: dpsOdd
 	}]
 });
