@@ -546,18 +546,18 @@ chart0 = new CanvasJS.Chart("chartContainerAxisCord", {
 			{
 			startValue:0,
 			endValue:10,
-			color:"#98ff98",
+			color:"#c7fcec",
 			},
 			{
 			startValue:0,
 			endValue:-10,
-			color:"#ff9baa",
+			color:"#fff0f5",
 			}
 			],valueFormatString:"#000",
 		includeZero: false,
 		// titleFontSize: 5,
 		// label: digit[i],
-		// interval: 1,
+		interval: 1,
 		maximum: 10,
 		minimum: -10,
 		labelFontSize: 10,
