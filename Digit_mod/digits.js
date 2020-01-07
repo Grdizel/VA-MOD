@@ -1,7 +1,8 @@
 window.addEventListener('load', function() {
-var ws,b,rnd,spot,time,dps,dpsb,dps1,dps1b,dps2,dps3,ready,stripLinesValue,xd,digit,cnt,random,id,lng,str,chart,xVal,yVal,mType,mColor,rndMenu;
+var ws,b,rnd,spot,time,dps_spot,dps_digit,dps_red,dps_blue,dpsEven,dpsOdd,ready,stripLinesValue,xd,digit,cnt,random,id,lng,str,chart,xVal,yVal,mType,mColor,rndMenu;
+var OddLength, EvenLength, temp = 0, temp_odd=0,temp_even=0;
 let start = 0;
-str=["R_100","R_10","R_25","R_50","R_75","RDBEAR","RDBULL"];thick=[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]; dps=[]; dpsb=[]; dps1=[];dps1b=[]; dps2=[]; dps3=[]; stripLinesValue=[]; time=[0]; spot=[0];tic=[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];digit=[0]; mType="none"; mColor="#32cd32"; lng="EN"; xVal=0; yVal=0; cnt=20;
+str=["R_100","R_10","R_25","R_50","R_75","RDBEAR","RDBULL"];thick=[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]; dps_spot=[]; dps_digit=[]; dps_red=[];dps_blue=[]; dpsEven=[]; dpsOdd=[]; stripLinesValue=[]; time=[0]; spot=[0];tic=[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];digit=[0]; mType="none"; mColor="#32cd32"; lng="EN"; xVal=0; yVal=0; cnt=20;
 rndMenu = document.querySelectorAll('div.menu > span');
 for (var i = 0; i < rndMenu.length; i++) {
 	clickMenu(rndMenu[i]);
@@ -51,6 +52,14 @@ function toggleSpotArrow(d,m) {
 		document.querySelector("#SpotArrow > span:nth-child("+d+")").classList.remove(nameClass);
 		document.querySelector("#SpotArrow > span:nth-child("+d+")").classList.add("Spot_Arrow_"+m);
 	}
+}
+function toogleDataSeries(e){
+	if (typeof(e.dataSeries.visible) === "undefined" || e.dataSeries.visible) {
+		e.dataSeries.visible = false;
+	} else{
+		e.dataSeries.visible = true;
+	}
+	chart.render();
 }
 function rndGet() {
 	random = document.querySelector("body > div.menu > span.menu-active").title;
@@ -182,7 +191,7 @@ ws.onmessage = function(msg) {
 				// mSize = 3// размер остальных кружков на графике
 				MindLab = digit[i]
 			}
-				dps.push({
+				dps_spot.push({
 					x: 20-i,// xVal
 					y: yVal,
 				indexLabel: MindLab,
@@ -196,9 +205,9 @@ ws.onmessage = function(msg) {
 				markerBorderColor: "#ccc"
 				});
 			}
-			if(dps.length > cnt+1) {
-				while(dps.length != cnt+1) {
-					dps.shift();
+			if(dps_spot.length > cnt+1) {
+				while(dps_spot.length != cnt+1) {
+					dps_spot.shift();
 				}
 			}
 			chart.render();
@@ -308,10 +317,10 @@ ws.onmessage = function(msg) {
 		var yDigitRevPos = (10) -	Math.abs(parseFloat(tic[i-1]));
 		var yDigitRevneg =	Math.abs(parseFloat(tic[i-1]));
 		}
-if (digit[i-1] - digit[i] == 1 || digit[i-1] - digit[i] == -1 ) {
-				var StartSignal = "Start";
-				var LblSize = 16;
-				var LblBGcolor = "yellow";
+		if (digit[i-1] - digit[i] == 1 || digit[i-1] - digit[i] == -1 ) {
+			var StartSignal = "Start";
+			var LblSize = 16;
+			var LblBGcolor = "yellow";
 		} else {
 		var StartSignal = "";
 			var LblSize = 14;
@@ -319,67 +328,33 @@ if (digit[i-1] - digit[i] == 1 || digit[i-1] - digit[i] == -1 ) {
 		}
 		xDigitEven = (i);
 		xDigitOdd = (i);
-		if (parseFloat(tic[i-1]) % 2 == 0){
-		yDigitEven = parseFloat(tic[i-1]);
-		var DigiLabelEven = digit[i];
-		} else if (parseFloat(tic[i-1]) % 2 != 0){
-		yDigitEven = 0;
-		var DigiLabelEven = " ";
-		} else if (parseFloat(tic[i-1]) == 0 ) {
-		yDigitEven = 0.2;
+		// console.log("tik", i);
+		if ( parseFloat(tic[i-1]) & 1 ){
+			temp_odd+=1
+		} else {
+			temp_even+=1
 		}
-		//|| parseFloat(tic[i-1]) == -0
-		if (parseFloat(tic[i-1]) % 2 != 0){
-		yDigitOdd = parseFloat(tic[i-1]);
-		var DigiLabelOdd = digit[i];
-		} else if (parseFloat(tic[i-1]) % 2 == 0 ){
-		yDigitOdd = 0;
-		var DigiLabelOdd = " ";
+		if (i==20) {
+			temp = 1
+
+			// console.log(dpsOdd.length, " Odd Нечет " );
+			OddLength = temp_odd
+			// console.log(dpsEven.length, " Even Чет " );
+			EvenLength = temp_even
+			console.log('odd Н', temp_odd, 'even Ч', temp_even);
+			temp_odd = 0
+			temp_even = 0
 		}
-			dpsb.push({
-				x: xDigit,
-				y: yDigit,
-				indexLabel: digit[i],
-				indexLabelFontWeight: "bold",
-				indexLabelFontSize: 18,
-				markerType: "circle",
-				markerColor: mColorDigit,
-				markerBorderColor: "#ccc",
-				 });
-			dps1.push({
-				x: xDigit,
-				y: yDigitRevPos,
-				indexLabel: lblDigit1,
-				//indexLabelFontWeight: "bold",
-				indexLabelFontSize: 18,
-				indexLabelFontColor: fontCol,
-				indexLabelPlacement: lblPlace,
-				color: colRev1,
-				markerBorderColor: "#ccc",
-				});
-			dps1b.push({
-				x: xDigit,
-				y: yDigitRevneg,
-				indexLabel: lblDigit2,
-				//indexLabelFontWeight: "bold",
-				indexLabelFontSize: 18,
-				indexLabelFontColor: fontCol ,
-				indexLabelPlacement: lblPlace,
-				color: colRev2,
-				markerBorderColor: "#ccc",
-				});
-			dps2.push({
-				x: xDigitEven,
-				y: yDigitEven,
-				indexLabel: DigiLabelEven,
-				indexLabelFontWeight: "bold",
-				indexLabelFontSize: LblSize,
-				indexLabelFontColor:mColorDigit,
-				indexLabelBackgroundColor:LblBGcolor,
-				color: mColorBarEven,
-				markerBorderColor: "#ccc",
-				});
-			dps3.push({
+
+
+		if ( parseFloat(tic[i-1]) & 1 ){
+			// console.log(i, " Odd Нечет " );
+			yDigitOdd = parseFloat(tic[i-1]);
+			yDigitEven = '';
+			var DigiLabelOdd = digit[i];
+			// console.log(digit[i], " Odd Нечет ")
+
+			dpsOdd.push({
 				x: xDigitOdd,
 				y: yDigitOdd,
 				indexLabel: DigiLabelOdd,
@@ -390,30 +365,116 @@ if (digit[i-1] - digit[i] == 1 || digit[i-1] - digit[i] == -1 ) {
 				color: mColorBarOdd,
 				markerBorderColor: "#ccc",
 				});
+
+			// if(dpsOdd.length >= cnt+1) {
+				// while(dpsOdd.length != cnt) {
+					// dpsOdd.shift();
+				// }
+			// }
+
+		} else {
+			// console.log(i, " Even Чет " );
+			yDigitEven = parseFloat(tic[i-1]);
+			yDigitOdd = '';
+			var DigiLabelEven = digit[i];
+			// console.log(digit[i], " Even Чет " );
+			
+			dpsEven.push({
+				x: xDigitEven,
+				y: yDigitEven,
+				indexLabel: DigiLabelEven,
+				// indexLabelFontWeight: "bold",
+				indexLabelFontSize: LblSize,
+				indexLabelFontColor:mColorDigit,
+				indexLabelBackgroundColor:LblBGcolor,
+				color: mColorBarEven,
+				markerBorderColor: "#ccc",
+				});
+			
+			
+			// if(dpsEven.length >= cnt+1) {
+				// while(dpsEven.length != cnt) {
+					// dpsEven.shift();
+				// }
+			// }
+
+		}
+			// if (temp == 1)  {
+				// console.log("tik", i);
+				console.log("Нечет dpsOdd.length", dpsOdd.length);
+				console.log("Нечет OddLength", OddLength);
+				if (dpsOdd.length > OddLength) {
+					console.log("Нечет >");
+					dpsOdd.shift();
+				}else if (dpsOdd.length < OddLength){
+					console.log("Нечет <");
+					// dpsOdd.shift();
+				}else{
+					console.log("Нечет ? =");
+					// dpsOdd.shift();
+				}
+				console.log("Чет dpsEven.length", dpsEven.length);
+				console.log("Чет EvenLength", EvenLength);
+				if (dpsEven.length > EvenLength) {
+					dpsEven.shift();
+					console.log("Чет >");
+				}else if (dpsEven.length < EvenLength){
+					console.log("Чет <");
+					// dpsEven.shift();
+				}else{
+					console.log("Чет ? =");
+					// dpsEven.shift();
+				}
+
+			// }
+			dps_digit.push({
+				x: xDigit,
+				y: yDigit,
+				indexLabel: digit[i],
+				indexLabelFontWeight: "bold",
+				indexLabelFontSize: 18,
+				markerType: "circle",
+				markerColor: mColorDigit,
+				markerBorderColor: "#ccc",
+				 });
+			dps_red.push({
+				x: xDigit,
+				y: yDigitRevPos,
+				indexLabel: lblDigit1,
+				//indexLabelFontWeight: "bold",
+				indexLabelFontSize: 18,
+				indexLabelFontColor: fontCol,// цвет красных цифр ни нижнем графике
+				indexLabelPlacement: lblPlace,
+				color: colRev1,
+				markerBorderColor: "#ccc",
+				});
+			dps_blue.push({
+				x: xDigit,
+				y: yDigitRevneg,
+				indexLabel: lblDigit2,
+				indexLabelFontWeight: "bold",
+				indexLabelFontSize: 18,
+				indexLabelFontColor: fontCol,// цвет синих цифр ни нижнем графике
+				indexLabelPlacement: lblPlace,
+				color: colRev2,
+				markerBorderColor: "#ccc",
+				});
+
+
 			}
-			if(dpsb.length > cnt+1) {
-				while(dpsb.length != cnt) {
-					dpsb.shift();
+			if(dps_digit.length > cnt+1) {
+				while(dps_digit.length != cnt) {
+					dps_digit.shift();
 				}
 			 }
-			if(dps1.length > cnt+1) {
-				while(dps1.length != cnt) {
-					dps1.shift();
+			if(dps_red.length > cnt+1) {
+				while(dps_red.length != cnt) {
+					dps_red.shift();
 				}
 			}
-			if(dps1b.length > cnt+1) {
-				while(dps1b.length != cnt) {
-					dps1b.shift();
-				}
-			}
-			if(dps2.length > cnt+1) {
-				while(dps2.length != cnt) {
-					dps2.shift();
-				}
-			}
-			if(dps3.length > cnt+1) {
-				while(dps3.length != cnt) {
-					dps3.shift();
+			if(dps_blue.length > cnt+1) {
+				while(dps_blue.length != cnt) {
+					dps_blue.shift();
 				}
 			}
 			chart0.render();
@@ -510,7 +571,7 @@ chart = new CanvasJS.Chart("chartContainer", {
 		markerColor: "#6B8E23",
 		markerSize: 20,
 		// markerBorderThickness: 0,
-		dataPoints: dps
+		dataPoints: dps_spot
 	}]
 });
 chart0 = new CanvasJS.Chart("chartContainerAxisCord", {
@@ -566,14 +627,29 @@ chart0 = new CanvasJS.Chart("chartContainerAxisCord", {
 		// tickLength: 0,
 		// lineThickness: 1
 	},
+	legend:{
+		cursor:"pointer",
+		verticalAlign: "bottom",
+		horizontalAlign: "left",
+		dockInsidePlotArea: true,
+		itemclick: toogleDataSeries
+	},
 	data: [{
 		type: "line",
-		lineColor: "#ccc",
-		lineThickness: 1,
-		markerType: "none",  //"circle", "square", "cross", "none"
-		markerSize: 6,
-		markerBorderThickness: 0,
-		dataPoints: dpsb
+		showInLegend: true,
+		name: "Even",
+		markerType: "none",
+		// xValueFormatString: "DD MMM, YYYY",
+		color: "#F08080",
+		dataPoints: dpsEven
+	},
+	{
+		type: "line",
+		showInLegend: true,
+		name: "Odd",
+		lineDashType: "dash",
+		markerType: "none",
+		dataPoints: dpsOdd
 	}]
 });
 chart2 = new CanvasJS.Chart("chartContainerDigitEven", {
@@ -624,7 +700,7 @@ chart2 = new CanvasJS.Chart("chartContainerDigitEven", {
 		markerType: "none",
 		markerSize: 6,
 		markerBorderThickness: 0,
-		dataPoints: dps2
+		dataPoints: dpsEven
 	}]
 });
 chart3 = new CanvasJS.Chart("chartContainerDigitOdd", {
@@ -675,7 +751,7 @@ chart3 = new CanvasJS.Chart("chartContainerDigitOdd", {
 		markerType: "none",
 		markerSize: 6,
 		markerBorderThickness: 0,
-		dataPoints: dps3
+		dataPoints: dpsOdd
 	}]
 });
 //////
@@ -705,18 +781,20 @@ chart1 = new CanvasJS.Chart("chartContainerDigit", {
 		tickLength: 0,
 		lineThickness: 1
 	},dataPointMaxWidth: 50,
-	axisY: {stripLines:[
-			{
-				value:1,
-				opacity: 50,
-				thickness:2,
-				color:"red",
-				value:100,
-				opacity: 50,
-				thickness:2,
-				color:"blue"
-			}
-			],valueFormatString:"#000",
+	axisY: {
+		// stripLines:[
+			// {
+				// value:1,
+				// opacity: 50,
+				// thickness:2,
+				// color:"red",
+				// value:100,
+				// opacity: 50,
+				// thickness:2,
+				// color:"blue"
+			// }
+			// ],
+		valueFormatString:"#000",
 		includeZero: false,
 		titleFontSize: 0,
 		labelFontSize: 0,
@@ -730,14 +808,14 @@ chart1 = new CanvasJS.Chart("chartContainerDigit", {
 		lineColor: "#ccc",
 		markerType: "none",
 		markerBorderThickness: 0,
-		dataPoints: dps1
+		dataPoints: dps_red
 	}, {
 		labelFontFamily: "Arial,sans-serif",
 		type: "stackedColumn100",
 		lineColor: "#ccc",
 		markerType: "none",
 		markerBorderThickness: 0,
-		dataPoints: dps1b
+		dataPoints: dps_blue
 	}]
 });
 }, false);
