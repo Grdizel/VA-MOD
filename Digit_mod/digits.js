@@ -341,7 +341,7 @@ if (digit[i-1] - digit[i] == 1 || digit[i-1] - digit[i] == -1 ) {
 				y: yDigit,
 				indexLabel: digit[i],
 				indexLabelFontWeight: "bold",
-				// indexLabelFontSize: "Default",
+				indexLabelFontSize: 18,
 				markerType: "circle",
 				markerColor: mColorDigit,
 				markerBorderColor: "#ccc",
@@ -484,6 +484,7 @@ chart = new CanvasJS.Chart("chartContainer", {
 	axisX: {
 		includeZero: false,
 		// titleFontSize: 20,
+		interval: 1,
 		labelFontSize: 10,
 		gridThickness: 1,
 		gridDashType: "dash",
@@ -531,11 +532,12 @@ chart0 = new CanvasJS.Chart("chartContainerAxisCord", {
 	axisX: {
 		includeZero: false,
 		// titleFontSize: 0,
-		labelFontSize: 15,
+		labelFontSize: 10,
+		interval: 1,
 		gridThickness: 1,
 		gridDashType: "dash",
-		// tickLength: 0,
-		// lineThickness: 1
+		tickLength: 0,
+		lineThickness: 1
 	},
 	axisY: {stripLines:[
 			{
@@ -547,7 +549,8 @@ chart0 = new CanvasJS.Chart("chartContainerAxisCord", {
 		includeZero: false,
 		// titleFontSize: 5,
 		// label: digit[i],
-		labelFontSize: 15,
+		// interval: 1,
+		labelFontSize: 10,
 		gridThickness: 1,
 		gridDashType: "dash",
 		// tickLength: 0,
