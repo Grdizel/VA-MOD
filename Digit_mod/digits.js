@@ -521,6 +521,7 @@ chart0 = new CanvasJS.Chart("chartContainerAxisCord", {
 		// titleFontSize: 0,
 		// text: ""
 	// },
+	// backgroundColor: "#F5DEB3",
 	toolTip: {
 		enabled: true,
 		animationEnabled: true,
@@ -541,15 +542,22 @@ chart0 = new CanvasJS.Chart("chartContainerAxisCord", {
 	},
 	axisY: {stripLines:[
 			{
-			startValue:10,
+			startValue:0,
+			endValue:10,
+			color:"#98ff98",
+			},
+			{
+			startValue:0,
 			endValue:-10,
-			color:"white",
+			color:"#ff9baa",
 			}
 			],valueFormatString:"#000",
 		includeZero: false,
 		// titleFontSize: 5,
 		// label: digit[i],
 		// interval: 1,
+		maximum: 10,
+		minimum: -10,
 		labelFontSize: 10,
 		gridThickness: 1,
 		gridDashType: "dash",
