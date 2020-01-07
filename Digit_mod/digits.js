@@ -84,46 +84,17 @@ ws.onmessage = function(msg) {
 	if (b.tick) {
 		rndGet();
 		if (b.echo_req.ticks == rnd) {
-		id = b.tick.id;
-		ws.send(JSON.stringify({ticks_history:rnd,end:"latest",start:1,style:"ticks",count:cnt+1}));
+			id = b.tick.id;
+			ws.send(JSON.stringify({ticks_history:rnd,end:"latest",start:1,style:"ticks",count:cnt+1}));
 		} else {
-		ws.send(JSON.stringify({forget:id}));
-		ws.send(JSON.stringify({forget_all:"ticks"}));
-		ws.send(JSON.stringify({ticks:rnd}));
+			ws.send(JSON.stringify({forget:id}));
+			ws.send(JSON.stringify({forget_all:"ticks"}));
+			ws.send(JSON.stringify({ticks:rnd}));
 		};
 	};
 	if (b.history) {
 		if (b.echo_req.ticks_history == rnd) {
-		// if(document.querySelector("#chartContainerDigit > div > a")) {
-			// if(document.querySelector("#chartContainerDigit > div > a").innerText!="				") {
-				// document.querySelector("#chartContainerDigit > div > a").innerHTML="				";
-				// document.querySelector("#chartContainerDigit > div > a").href="https://www.binary.com"
-			// }
-		// }
-		// if(document.querySelector("#chartContainer > div > a")) {
-			// if(document.querySelector("#chartContainer > div > a").innerText!="				") {
-				// document.querySelector("#chartContainer > div > a").innerHTML="				";
-				// document.querySelector("#chartContainer > div > a").href="https://www.binary.com"
-			// }
-		// }
-		// if(document.querySelector("#chartContainerDigitEven > div > a")) {
-			// if(document.querySelector("#chartContainerDigitEven > div > a").innerText!="				") {
-				// document.querySelector("#chartContainerDigitEven > div > a").innerHTML="				";
-				// document.querySelector("#chartContainerDigitEven > div > a").href="https://www.binary.com"
-			// }
-		// }
-		// if(document.querySelector("#chartContainerDigitOdd > div > a")) {
-			// if(document.querySelector("#chartContainerDigitOdd > div > a").innerText!="				") {
-				// document.querySelector("#chartContainerDigitOdd > div > a").innerHTML="				";
-				// document.querySelector("#chartContainerDigitOdd > div > a").href="https://www.binary.com"
-			// }
-		// }
-		// if(document.querySelector("#chartContainerAxisCord > div > a")) {
-			// if(document.querySelector("#chartContainerAxisCord > div > a").innerText!="				") {
-				// document.querySelector("#chartContainerAxisCord > div > a").innerHTML="				";
-				// document.querySelector("#chartContainerAxisCord > div > a").href="https://www.binary.com"
-			// }
-		// }
+
 		for (var i=0; i<cnt+1; i++) {
 			time[i]=b.history.times[cnt-i];
 			spot[i] = b.history.prices[cnt-i];
@@ -131,7 +102,7 @@ ws.onmessage = function(msg) {
 			digit[i] = spot[i].slice(-1);
 		}
 		for(var i=0; i<cnt+1; i++){
-																	// console.log(spot[i] + ' : '+	i)
+			// console.log(spot[i] + ' : '+	i)
 			// console.log(spot[i] + ' : '+	i)
 		if (spot[i] > spot[i+1]) {
 			var mWmColorDigit = "#29abe2";//цвет цифр в верхнем графике
@@ -157,13 +128,12 @@ ws.onmessage = function(msg) {
 				mSize = 10// размер кружка последнего тика на графике (средняя точка)
 				MindLab = digit[i]
 			} else {
-				
 				// console.log(i)
 				if (i < 7){
 					mType = "circle"
 					mSize = 3
 					mColor = "black";
-				} else { 
+				} else {
 					// console.log(spot[6], ' ', spot[1])
 					for (var fi=0; fi<=20; fi++)
 					{
@@ -186,7 +156,6 @@ ws.onmessage = function(msg) {
 							// console.log(spot[0])
 						}
 					}
-					
 				}
 				// mSize = 3// размер остальных кружков на графике
 				MindLab = digit[i]
@@ -229,31 +198,31 @@ ws.onmessage = function(msg) {
 			if (spot[i-1] < spot[i]) {
 				toggleDigit(i,"up");
 				if(digit[i] !=0) {
-				var tic2nd= (digit[i]*1);
+					var tic2nd= (digit[i]*1);
 				}
 				if(((digit[i-1]) > 5) && digit[i] ==0) {
-				var tic2nd= (10);
+					var tic2nd= (10);
 				//console.log("ok")
 				}
 				if(((digit[i-1]) <= 5) && digit[i] ==0) {
-				var tic2nd= (0);
+					var tic2nd= (0);
 				}
 				} else if(spot[i-1] > spot[i]) {
-				toggleDigit(i,"down");
+					toggleDigit(i,"down");
 				if(digit[i] !=0) {
-				var tic2nd= (digit[i]*-1);
+					var tic2nd= (digit[i]*-1);
 				}
 				if (((digit[i-1]) > 5) && digit[i] ==0) {
-				var tic2nd= (-10);
+					var tic2nd= (-10);
 				}
 				if (((digit[i-1]) <= 5) && digit[i] ==0) {
-				var tic2nd= (-0);
+					var tic2nd= (-0);
 				}
 			} else if(spot[i-1]==spot[i] && i-1>0) {
 				if(document.querySelector("#digits > span:nth-child("+(i-1)+")").className == "digits_moved_up") {
-				toggleDigit(i,"up");
+					toggleDigit(i,"up");
 				} else if(document.querySelector("#digits > span:nth-child("+(i-1)+")").className == "digits_moved_down") {
-				toggleDigit(i,"down");
+					toggleDigit(i,"down");
 				}
 			}
 		tic.shift(0);
@@ -284,11 +253,11 @@ ws.onmessage = function(msg) {
 				mColorBarOdd = "#4682B4";//цвет третьего графика синие столбики
 				var mColorDigit = "#29abe2";//цвет четвёртого графика синие столбики
 				} else if(spot[i-1] > spot[i]) {
-				toggleDigit(i,"down");
-				mColorBarEven = "#DC143C";//цвет второго графика красные столбики
-				mColorBarOdd = "#CD5C5C";//цвет третьего графика красные столбики
-				var mColorDigit = "#c03";//цвет четвёртого графика красные столбики
-			}
+					toggleDigit(i,"down");
+					mColorBarEven = "#DC143C";//цвет второго графика красные столбики
+					mColorBarOdd = "#CD5C5C";//цвет третьего графика красные столбики
+					var mColorDigit = "#c03";//цвет четвёртого графика красные столбики
+				}
 		toggleHead(i,thick[i-1]);
 		document.querySelector("#headcol > span:nth-child("+i+")").innerHTML = tic;
 		xDigit = (i);
@@ -302,27 +271,27 @@ ws.onmessage = function(msg) {
 				var lblPlace =	"outstde"
 				}
 			if (tic[i-1] >= 0){
-			var colRev1 = "White";
-			var colRev2 = mColorDigit;
-			var lblDigit1 =	"";
-			var lblDigit2 = digit[i];
-		var yDigitRevPos = parseFloat(tic[i-1]);
-		var yDigitRevneg = 10 -	parseFloat(tic[i-1]);
-		}
+				var colRev1 = "White";
+				var colRev2 = mColorDigit;
+				var lblDigit1 =	"";
+				var lblDigit2 = digit[i];
+				var yDigitRevPos = parseFloat(tic[i-1]);
+				var yDigitRevneg = 10 -	parseFloat(tic[i-1]);
+			}
 		if (tic[i-1] <= -0){
 			var colRev1 = mColorDigit
 			var colRev2 = "White";
 			var lblDigit1 = digit[i];
 			var lblDigit2 = "";
-		var yDigitRevPos = (10) -	Math.abs(parseFloat(tic[i-1]));
-		var yDigitRevneg =	Math.abs(parseFloat(tic[i-1]));
+			var yDigitRevPos = (10) -	Math.abs(parseFloat(tic[i-1]));
+			var yDigitRevneg =	Math.abs(parseFloat(tic[i-1]));
 		}
 		if (digit[i-1] - digit[i] == 1 || digit[i-1] - digit[i] == -1 ) {
 			var StartSignal = "Start";
 			var LblSize = 16;
 			var LblBGcolor = "yellow";
 		} else {
-		var StartSignal = "";
+			var StartSignal = "";
 			var LblSize = 14;
 			var LblBGcolor = "white";
 		}
@@ -336,24 +305,20 @@ ws.onmessage = function(msg) {
 		}
 		if (i==20) {
 			temp = 1
-
 			// console.log(dpsOdd.length, " Odd Нечет " );
 			OddLength = temp_odd
 			// console.log(dpsEven.length, " Even Чет " );
 			EvenLength = temp_even
-			console.log('odd Н', temp_odd, 'even Ч', temp_even);
+			// console.log('odd Н', temp_odd, 'even Ч', temp_even);
 			temp_odd = 0
 			temp_even = 0
 		}
-
-
 		if ( parseFloat(tic[i-1]) & 1 ){
 			// console.log(i, " Odd Нечет " );
 			yDigitOdd = parseFloat(tic[i-1]);
 			yDigitEven = '';
 			var DigiLabelOdd = digit[i];
 			// console.log(digit[i], " Odd Нечет ")
-
 			dpsOdd.push({
 				x: xDigitOdd,
 				y: yDigitOdd,
@@ -365,20 +330,12 @@ ws.onmessage = function(msg) {
 				color: mColorBarOdd,
 				markerBorderColor: "#ccc",
 				});
-
-			// if(dpsOdd.length >= cnt+1) {
-				// while(dpsOdd.length != cnt) {
-					// dpsOdd.shift();
-				// }
-			// }
-
 		} else {
 			// console.log(i, " Even Чет " );
 			yDigitEven = parseFloat(tic[i-1]);
 			yDigitOdd = '';
 			var DigiLabelEven = digit[i];
 			// console.log(digit[i], " Even Чет " );
-			
 			dpsEven.push({
 				x: xDigitEven,
 				y: yDigitEven,
@@ -390,42 +347,19 @@ ws.onmessage = function(msg) {
 				color: mColorBarEven,
 				markerBorderColor: "#ccc",
 				});
-			
-			
-			// if(dpsEven.length >= cnt+1) {
-				// while(dpsEven.length != cnt) {
-					// dpsEven.shift();
-				// }
-			// }
-
 		}
 			// if (temp == 1)  {
 				// console.log("tik", i);
-				console.log("Нечет dpsOdd.length", dpsOdd.length);
-				console.log("Нечет OddLength", OddLength);
+				// console.log("Нечет dpsOdd.length", dpsOdd.length);
+				// console.log("Нечет OddLength", OddLength);
 				if (dpsOdd.length > OddLength) {
-					console.log("Нечет >");
+					// console.log("Нечет >");
 					dpsOdd.shift();
-				}else if (dpsOdd.length < OddLength){
-					console.log("Нечет <");
-					// dpsOdd.shift();
-				}else{
-					console.log("Нечет ? =");
-					// dpsOdd.shift();
 				}
-				console.log("Чет dpsEven.length", dpsEven.length);
-				console.log("Чет EvenLength", EvenLength);
 				if (dpsEven.length > EvenLength) {
 					dpsEven.shift();
-					console.log("Чет >");
-				}else if (dpsEven.length < EvenLength){
-					console.log("Чет <");
-					// dpsEven.shift();
-				}else{
-					console.log("Чет ? =");
-					// dpsEven.shift();
+					// console.log("Чет >");
 				}
-
 			// }
 			dps_digit.push({
 				x: xDigit,
@@ -459,8 +393,6 @@ ws.onmessage = function(msg) {
 				color: colRev2,
 				markerBorderColor: "#ccc",
 				});
-
-
 			}
 			if(dps_digit.length > cnt+1) {
 				while(dps_digit.length != cnt) {
@@ -477,52 +409,52 @@ ws.onmessage = function(msg) {
 					dps_blue.shift();
 				}
 			}
-			chart0.render();
-			chart1.render();
-			chart2.render();
-			chart3.render();
-		tic1 = tic[19];
-		tic2 = tic[18];
-		tic3 = tic[17];
-		tic4 = tic[16];
-		tic5 = tic[15];
-		tic6 = tic[14];
-		var tic1_level = thick[19];
-		var tic2_level = thick[18];
-		var tic3_level = thick[17];
-		var tic4_level = thick[16];
-		var tic5_level = thick[15];
-		var tic6_level = thick[14];
-		//console.log(tic)
-		//console.log('t1',tic1,'Level tic1',tic1_level)
-		////////////////////
-		//test area
-		//if (tic4_level == 'mid' && tic3_level == 'mid' && tic2_level == 'mid' && tic1_level == 'mid') {
-		if(ready == 1 && start < 6){
-		start++;
-		}
-		if (digit[19] - digit[20] == 1 || digit[19] - digit[20] == -1){
-				document.querySelector("#arrow_up > span:nth-child(1)").innerHTML = "&#241";
-				toggleArrow("#arrow_up",1,"Start");
-				document.querySelector("#arrow_down > span:nth-child(1)").innerHTML = "&#242";
-				toggleArrow("#arrow_down",1,"Start");
-			start =0
-			ready = 1;
-				}
-				if (start == 1) {
-				document.querySelector("#arrow_up > span:nth-child(1)").innerHTML = "&#241";
-				toggleArrow("#arrow_up",1,"Wait");
-				document.querySelector("#arrow_down > span:nth-child(1)").innerHTML = "&#242";
-				toggleArrow("#arrow_down",1,"Wait");
-				} if (start == 1) {
-			document.querySelector("#arrow_up > span:nth-child(1)").classList.remove("Arrow_Bg_Start");
-			document.querySelector("#arrow_down > span:nth-child(1)").classList.remove("Arrow_Bg_Start");
-			} if (start == 5) {
-			document.querySelector("#arrow_up > span:nth-child(1)").classList.remove("Arrow_Bg_Wait");
-			document.querySelector("#arrow_down > span:nth-child(1)").classList.remove("Arrow_Bg_Wait");
-				start =0;
-				ready = 0;
-		}
+			chart_odd_even.render();
+			chartDigit.render();
+			chartEven.render();
+			chartodd.render();
+			tic1 = tic[19];
+			tic2 = tic[18];
+			tic3 = tic[17];
+			tic4 = tic[16];
+			tic5 = tic[15];
+			tic6 = tic[14];
+			var tic1_level = thick[19];
+			var tic2_level = thick[18];
+			var tic3_level = thick[17];
+			var tic4_level = thick[16];
+			var tic5_level = thick[15];
+			var tic6_level = thick[14];
+			//console.log(tic)
+			//console.log('t1',tic1,'Level tic1',tic1_level)
+			////////////////////
+			//test area
+			//if (tic4_level == 'mid' && tic3_level == 'mid' && tic2_level == 'mid' && tic1_level == 'mid') {
+			if(ready == 1 && start < 6){
+			start++;
+			}
+			if (digit[19] - digit[20] == 1 || digit[19] - digit[20] == -1){
+					document.querySelector("#arrow_up > span:nth-child(1)").innerHTML = "&#241";
+					toggleArrow("#arrow_up",1,"Start");
+					document.querySelector("#arrow_down > span:nth-child(1)").innerHTML = "&#242";
+					toggleArrow("#arrow_down",1,"Start");
+				start =0
+				ready = 1;
+					}
+					if (start == 1) {
+					document.querySelector("#arrow_up > span:nth-child(1)").innerHTML = "&#241";
+					toggleArrow("#arrow_up",1,"Wait");
+					document.querySelector("#arrow_down > span:nth-child(1)").innerHTML = "&#242";
+					toggleArrow("#arrow_down",1,"Wait");
+					} if (start == 1) {
+				document.querySelector("#arrow_up > span:nth-child(1)").classList.remove("Arrow_Bg_Start");
+				document.querySelector("#arrow_down > span:nth-child(1)").classList.remove("Arrow_Bg_Start");
+				} if (start == 5) {
+				document.querySelector("#arrow_up > span:nth-child(1)").classList.remove("Arrow_Bg_Wait");
+				document.querySelector("#arrow_down > span:nth-child(1)").classList.remove("Arrow_Bg_Wait");
+					start =0;
+					ready = 0;
+			}
 		////////////////////
 		};
 	};
@@ -574,7 +506,7 @@ chart = new CanvasJS.Chart("chartContainer", {
 		dataPoints: dps_spot
 	}]
 });
-chart0 = new CanvasJS.Chart("chartContainerAxisCord", {
+chart_odd_even = new CanvasJS.Chart("chartContainerAxisCord", {
 	animationEnabled: false,
 	theme: "light2",
 	// title: {padding: {
@@ -603,8 +535,7 @@ chart0 = new CanvasJS.Chart("chartContainerAxisCord", {
 		tickLength: 0,
 		lineThickness: 1
 	},
-	axisY: {stripLines:[
-			{
+	axisY: {stripLines:[{
 			startValue:0,
 			endValue:10,
 			color:"#c7fcec",
@@ -653,7 +584,7 @@ chart0 = new CanvasJS.Chart("chartContainerAxisCord", {
 		dataPoints: dpsOdd
 	}]
 });
-chart2 = new CanvasJS.Chart("chartContainerDigitEven", {
+chartEven = new CanvasJS.Chart("chartContainerDigitEven", {
 	animationEnabled: false,
 	theme: "light2",
 	title: {padding: {
@@ -704,7 +635,7 @@ chart2 = new CanvasJS.Chart("chartContainerDigitEven", {
 		dataPoints: dpsEven
 	}]
 });
-chart3 = new CanvasJS.Chart("chartContainerDigitOdd", {
+chartodd = new CanvasJS.Chart("chartContainerDigitOdd", {
 	animationEnabled: false,
 	theme: "light2",
 	title: {padding: {
@@ -756,7 +687,7 @@ chart3 = new CanvasJS.Chart("chartContainerDigitOdd", {
 	}]
 });
 //////
-chart1 = new CanvasJS.Chart("chartContainerDigit", {
+chartDigit = new CanvasJS.Chart("chartContainerDigit", {
 	animationEnabled: false,
 	theme: "dark1",
 	title: {padding: {
