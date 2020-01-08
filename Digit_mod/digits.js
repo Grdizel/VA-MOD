@@ -519,10 +519,16 @@ ws.onmessage = function(msg) {
 chart = new CanvasJS.Chart("chartContainer", {
 	animationEnabled: false,
 	theme: "light2",
-	// title: {
-		// titleFontSize: 0,
-		// text: ""
-	// },
+	title: {
+		fontColor: "red",
+		text: "mod_0.3",
+		fontSize: 10,
+	},
+    // subtitles: [{
+    	// text: "mod_0.3",		
+    	// fontColor: "green",
+		// fontSize: 10,
+    // }],
 	toolTip: {
 		enabled: true,
 		animationEnabled: true,
