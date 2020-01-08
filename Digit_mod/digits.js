@@ -98,8 +98,22 @@ ws.onmessage = function(msg) {
 		for (var i=0; i<cnt+1; i++) {
 			time[i]=b.history.times[cnt-i];
 			spot[i] = b.history.prices[cnt-i];
-			spot[i] = Number(spot[i]).toFixed(xd);
-			digit[i] = spot[i].slice(-1);
+			digit[i] = spot[i].toFixed(xd).slice(-1);
+			// console.log(i,digit[i])
+			// console.log(i,(spot[i]))
+			// spot[i] = String(spot[i])
+			// console.log(i,(spot[i]))
+			if(digit[i]==0){
+				if(((parseFloat(digit[18]) & 1)==1) && ((parseFloat(digit[19]) & 1)==0) && (parseFloat(digit[20])==0) && ((digit[19])==(digit[18]+1)) && (digit[18]>=5)) {
+					digit[i]== "10"
+					console.log(i,digit[i])
+					console.log(i,(spot[i]))
+				}else if (((parseFloat(digit[18]) & 1)==0) && ((parseFloat(digit[19]) & 1)==1) && (parseFloat(digit[20])==0) && ((digit[19])==(digit[18]+1)) && (digit[18]>=6)){
+					digit[i]== "10"
+					console.log(i,digit[i])
+					console.log(i,(spot[i]))
+				}
+			}
 		}
 		for(var i=0; i<cnt+1; i++){
 			// console.log(spot[i] + ' : '+	i)
@@ -180,44 +194,87 @@ ws.onmessage = function(msg) {
 				}
 			}
 			chart.render();
-		spot.reverse();
-		digit.reverse();
+			spot.reverse();
+			digit.reverse();
 		for (var i=1; i<cnt+1; i++) {
 			document.querySelector("#digits > span:nth-child("+i+")").innerHTML = digit[i];
 			yVal2 = parseFloat(spot[20]);
-			// if(yVal2==Math.max.apply(null,spot)){
-			// var HeadThick= "up";
-			// mColorHead = "#29abe2";
-			// } else if(yVal2==Math.min.apply(null,spot)){
-			// var HeadThick= "down";
-			// mColorHead = "#c03";
-			// } else{
-			// var HeadThick= "mid";
-			// mColorHead = "#32cd32";
-			// }
+			if(yVal2==Math.max.apply(null,spot)){
+			var HeadThick= "up";
+			mColorHead = "#29abe2";
+			} else if(yVal2==Math.min.apply(null,spot)){
+			var HeadThick= "down";
+			mColorHead = "#c03";
+			} else{
+			var HeadThick= "mid";
+			mColorHead = "#32cd32";
+			}
+			// console.log('spot',i ,spot[i] )
+			// console.log('digit',i ,digit[i] )
+			// console.log('digit',i ,parseFloat(digit[i]) & 1 )
+			// (parseFloat(digit[i]) & 1 )
+			// if ((digit[19])==((digit[18])+1)) console.log("up")
+			// if ((digit[19])==((digit[18])-1)) console.log("down")
+				// if (i==20){
+					// console.log(digit[20],"")
+					// if (spot[i-1] < spot[i]) console.log(digit[20],"")
+					// if (spot[i-1] > spot[i]) console.log(digit[20],"_")
+					// if(((parseFloat(digit[18]) & 1)==1) && ((parseFloat(digit[19]) & 1)==0) && (parseFloat(digit[20])==0) && ((digit[19])==(digit[18]+1)) && (digit[18]>=5)) {
+					// if(digit[i]==0){
+						// if (spot[i-1] < spot[i]){
+							// console.log('10')
+							// var tic2nd= (10);
+						// } else if (spot[i-1] > spot[i]){
+							// console.log('-10')
+							// var tic2nd= (-10);
+						// }
+					// }
+					// }else if (((parseFloat(digit[18]) & 1)==0) && ((parseFloat(digit[19]) & 1)==1) && (parseFloat(digit[20])==0) && ((digit[19])==(digit[18]+1)) && (digit[18]>=6)){
+						// if (spot[i-1] < spot[i]){
+							// console.log('10')
+							// var tic2nd= (10);
+						// } else if (spot[i-1] > spot[i]){
+							// console.log('-10')
+							// var tic2nd= (-10);
+						// }
+					// }
+				// }
+
 			if (spot[i-1] < spot[i]) {
 				toggleDigit(i,"up");
 				if(digit[i] !=0) {
 					var tic2nd= (digit[i]*1);
 				}
-				if(((digit[i-1]) > 5) && digit[i] ==0) {
-					var tic2nd= (10);
-				//console.log("ok")
-				}
-				if(((digit[i-1]) <= 5) && digit[i] ==0) {
-					var tic2nd= (0);
-				}
-				} else if(spot[i-1] > spot[i]) {
-					toggleDigit(i,"down");
+				// if(((digit[i-1]) > 5) && digit[i] ==0) {
+				// if ((parseFloat(digit[18]) & 1)==1) console.log(digit[18]," нечёт")
+				// if ((parseFloat(digit[19]) & 1)==0) console.log(digit[19]," нечёт")
+				// if ((parseFloat(digit[18]) & 1)==0) console.log(digit[18]," чёт")
+				// if ((parseFloat(digit[19]) & 1)==1) console.log(digit[19]," чёт")
+				// console.log(digit[20],"_")
+				// if ((digit[i-1]) > 5) console.log(digit[i-1]," >=5")
+				// if (digit[18]<5) console.log(digit[18]," <5")
+				// if(((parseFloat(digit[18]) & 1)==1) && ((parseFloat(digit[19]) & 1)==0) && (parseFloat(digit[20])==0) && ((digit[19])==(digit[18]+1)) && (digit[18]>=5)) {
+					// console.log('10')
+					// var tic2nd= (10);
+				// }else if (((parseFloat(digit[18]) & 1)==0) && ((parseFloat(digit[19]) & 1)==1) && (parseFloat(digit[20])==0) && ((digit[19])==(digit[18]+1)) && (digit[18]>=6)){
+					// console.log('10')
+					// var tic2nd= (10);
+				// }
+				// if(((digit[i-1]) <= 5) && digit[i] ==0) {
+					// var tic2nd= (0);
+				// }
+			} else if(spot[i-1] > spot[i]) {
+				toggleDigit(i,"down");
 				if(digit[i] !=0) {
 					var tic2nd= (digit[i]*-1);
 				}
-				if (((digit[i-1]) > 5) && digit[i] ==0) {
-					var tic2nd= (-10);
-				}
-				if (((digit[i-1]) <= 5) && digit[i] ==0) {
-					var tic2nd= (-0);
-				}
+				// if (((digit[i-1]) > 5) && digit[i] ==0) {
+					// console.log('-10')
+					// var tic2nd= (-10);
+				// }
+				// if (((digit[i-1]) <= 5) && digit[i] ==0) {
+					// var tic2nd= (-0);
+				// }
 			} else if(spot[i-1]==spot[i] && i-1>0) {
 				if(document.querySelector("#digits > span:nth-child("+(i-1)+")").className == "digits_moved_up") {
 					toggleDigit(i,"up");
@@ -225,11 +282,11 @@ ws.onmessage = function(msg) {
 					toggleDigit(i,"down");
 				}
 			}
-		tic.shift(0);
-		tic.push(tic2nd);
+			tic.shift(0);
+			tic.push(tic2nd);
 		}
-		// thick.shift(0);
-		// thick.push(HeadThick);
+		thick.shift(0);
+		thick.push(HeadThick);
 			for (var i=1; i<14; i++) {
 			if (spot[i-1] > spot[i+5]) {
 				document.querySelector("#SpotArrow > span:nth-child("+(i+7)+")").innerHTML = "&#241";
