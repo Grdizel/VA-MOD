@@ -498,7 +498,7 @@ chart = new CanvasJS.Chart("chartContainer", {
 	theme: "light2",
 	title: {
 		fontColor: "red",
-		text: "mod_0.3",
+		text: "mod_0.3.1",
 		fontSize: 10,
 	},
     // subtitles: [{
