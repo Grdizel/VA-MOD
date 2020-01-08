@@ -104,17 +104,20 @@ ws.onmessage = function(msg) {
 			// console.log(i,(spot[i]))
 			// spot[i] = String(spot[i])
 			// console.log(i,(spot[i]))
-			if(digit[i]==0){
-				if(((parseFloat(digit[18]) & 1)==1) && ((parseFloat(digit[19]) & 1)==0) && (parseFloat(digit[20])==0) && ((digit[19])==(digit[18]+1)) && (digit[18]>=5)) {
+			// if(digit[i]==0){
+				
+				// if ((parseFloat(digit[0]) & 1)==1) console.log(digit[0], "нечёт")
+				// if ((parseFloat(digit[0]) & 1)==0) console.log(digit[0], "чёт")
+				if(((parseFloat(digit[i+1]) & 1)==1) && ((parseFloat(digit[i]) & 1)==0) && (parseFloat(digit[i-1])==0) && ((digit[i])==((digit[i+1])+1)) && (digit[i+1]>=5)) {
 					digit[i]== "10"
 					console.log(i,digit[i])
 					console.log(i,(spot[i]))
-				}else if (((parseFloat(digit[18]) & 1)==0) && ((parseFloat(digit[19]) & 1)==1) && (parseFloat(digit[20])==0) && ((digit[19])==(digit[18]+1)) && (digit[18]>=6)){
+				}else if(((parseFloat(digit[i+1]) & 1)==0) && ((parseFloat(digit[i]) & 1)==1) && (parseFloat(digit[i-1])==0) && ((digit[i])==((digit[i+1])+1)) && (digit[i+1]>=6)) {
 					digit[i]== "10"
 					console.log(i,digit[i])
 					console.log(i,(spot[i]))
 				}
-			}
+			// }
 		}
 		for(var i=0; i<cnt+1; i++){
 			// console.log(spot[i] + ' : '+	i)
@@ -299,11 +302,11 @@ ws.onmessage = function(msg) {
 		yDigit = parseFloat(tic[i-1]);
 			if (Math.abs(parseInt(tic[i-1])) != 8 || Math.abs(parseInt(tic[i-1])) != 9  || Math.abs(parseInt(tic[i-1])) != 10) {
 				fontCol	= "white";
-				lblPlace = "inside";
+				lblPlace = "inside";//inside
 				}
 			if (Math.abs(parseInt(tic[i-1])) == 8 ||	Math.abs(parseInt(tic[i-1])) == 9 ||	Math.abs(parseInt(tic[i-1])) == 10) {
 				fontCol = "black";
-				lblPlace =	"outstde"
+				lblPlace =	"outstde"//outstde
 				}
 			if (tic[i-1] >= 0){
 				colRev1 = "White";
