@@ -1,6 +1,7 @@
 window.addEventListener('load', function() {
 var ws,b,rnd,spot,time,dps_spot,dps_digit,dps_red,dps_blue,dpsEven,dpsOdd,ready,stripLinesValue,xd,digit,cnt,random,id,lng,str,chart,xVal,yVal,mType,mColor,rndMenu;
 var OddLength, EvenLength, temp = 0, temp_odd=0,temp_even=0;
+var colRev1, colRev2, lblDigit1, lblDigit2, yDigitRevPos, yDigitRevneg, StartSignal, LblSize, LblBGcolor, LblBmarkerSize, LblBmarkerColor, fontCol, lblPlace;
 let start = 0;
 str=["R_100","R_10","R_25","R_50","R_75","RDBEAR","RDBULL"];thick=[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]; dps_spot=[]; dps_digit=[]; dps_red=[];dps_blue=[]; dpsEven=[]; dpsOdd=[]; stripLinesValue=[]; time=[0]; spot=[0];tic=[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];digit=[0]; mType="none"; mColor="#32cd32"; lng="EN"; xVal=0; yVal=0; cnt=20;
 rndMenu = document.querySelectorAll('div.menu > span');
@@ -297,37 +298,41 @@ ws.onmessage = function(msg) {
 		xDigit = (i);
 		yDigit = parseFloat(tic[i-1]);
 			if (Math.abs(parseInt(tic[i-1])) != 8 || Math.abs(parseInt(tic[i-1])) != 9  || Math.abs(parseInt(tic[i-1])) != 10) {
-				var	fontCol	= "white";
-				var	lblPlace = "inside";
+				fontCol	= "white";
+				lblPlace = "inside";
 				}
 			if (Math.abs(parseInt(tic[i-1])) == 8 ||	Math.abs(parseInt(tic[i-1])) == 9 ||	Math.abs(parseInt(tic[i-1])) == 10) {
-				var	fontCol = "black";
-				var lblPlace =	"outstde"
+				fontCol = "black";
+				lblPlace =	"outstde"
 				}
 			if (tic[i-1] >= 0){
-				var colRev1 = "White";
-				var colRev2 = mColorDigit;
-				var lblDigit1 =	"";
-				var lblDigit2 = digit[i];
-				var yDigitRevPos = parseFloat(tic[i-1]);
-				var yDigitRevneg = 10 -	parseFloat(tic[i-1]);
+				colRev1 = "White";
+				colRev2 = mColorDigit;
+				lblDigit1 =	"";
+				lblDigit2 = digit[i];
+				yDigitRevPos = parseFloat(tic[i-1]);
+				yDigitRevneg = 10 -	parseFloat(tic[i-1]);
 			}
 		if (tic[i-1] <= -0){
-			var colRev1 = mColorDigit
-			var colRev2 = "White";
-			var lblDigit1 = digit[i];
-			var lblDigit2 = "";
-			var yDigitRevPos = (10) -	Math.abs(parseFloat(tic[i-1]));
-			var yDigitRevneg =	Math.abs(parseFloat(tic[i-1]));
+			colRev1 = mColorDigit
+			colRev2 = "White";
+			lblDigit1 = digit[i];
+			lblDigit2 = "";
+			yDigitRevPos = (10) -	Math.abs(parseFloat(tic[i-1]));
+			yDigitRevneg =	Math.abs(parseFloat(tic[i-1]));
 		}
-		if (digit[i-1] - digit[i] == 1 || digit[i-1] - digit[i] == -1 ) {
-			var StartSignal = "Start";
-			var LblSize = 16;
-			var LblBGcolor = "yellow";
+		if (digit[i-1] - digit[i] == 1 || digit[i-1] - digit[i] == -1 || digit[i+1] - digit[i] == 1 || digit[i+1] - digit[i] == -1 ) {
+			StartSignal = "Start";
+			LblSize = 20;
+			LblBGcolor = "";
+			LblBmarkerSize = 10;
+			LblBmarkerColor = "yellow";
 		} else {
-			var StartSignal = "";
-			var LblSize = 14;
-			var LblBGcolor = "white";
+			StartSignal = "";
+			LblSize = 14;
+			LblBGcolor = "white";
+			LblBmarkerSize = 6;
+			LblBmarkerColor = "";
 		}
 		xDigitEven = (i);
 		xDigitOdd = (i);
@@ -361,6 +366,9 @@ ws.onmessage = function(msg) {
 				indexLabelFontSize: LblSize,
 				indexLabelFontColor:mColorDigit,
 				indexLabelBackgroundColor:LblBGcolor,
+				markerSize: LblBmarkerSize,
+				markerType: "circle",  //"circle", "square", "cross", "none"
+				markerColor: LblBmarkerColor,
 				color: mColorBarOdd,
 				markerBorderColor: "#ccc",
 				});
@@ -378,6 +386,9 @@ ws.onmessage = function(msg) {
 				indexLabelFontSize: LblSize,
 				indexLabelFontColor:mColorDigit,
 				indexLabelBackgroundColor:LblBGcolor,
+				markerSize: LblBmarkerSize,
+				// markerType: "circle",  //"circle", "square", "cross", "none"
+				markerColor: LblBmarkerColor,
 				color: mColorBarEven,
 				markerBorderColor: "#ccc",
 				});
@@ -498,7 +509,7 @@ chart = new CanvasJS.Chart("chartContainer", {
 	theme: "light2",
 	title: {
 		fontColor: "red",
-		text: "mod_0.3.1",
+		text: "mod_0.3.3",
 		fontSize: 10,
 	},
     // subtitles: [{
