@@ -244,13 +244,13 @@ ws.onmessage = function(msg) {
 				toggleDigit(i,"up");
 				// if(digit[i] !=0) {
 					var tic2nd= (digit[i]*1);
-					console.log(i,'+',tic2nd)
+					// console.log(i,'+',tic2nd)
 				// }
 			} else if(spot[i-1] > spot[i]) {
 				toggleDigit(i,"down");
 				// if(digit[i] !=0) {
 					var tic2nd= (digit[i]*-1);
-					console.log(i,'-',tic2nd)
+					// console.log(i,'-',tic2nd)
 				// }
 			} else if(spot[i-1]==spot[i] && i-1>0) {
 				if(document.querySelector("#digits > span:nth-child("+(i-1)+")").className == "digits_moved_up") {
