@@ -242,39 +242,16 @@ ws.onmessage = function(msg) {
 
 			if (spot[i-1] < spot[i]) {
 				toggleDigit(i,"up");
-				if(digit[i] !=0) {
+				// if(digit[i] !=0) {
 					var tic2nd= (digit[i]*1);
-				}
-				// if(((digit[i-1]) > 5) && digit[i] ==0) {
-				// if ((parseFloat(digit[18]) & 1)==1) console.log(digit[18]," нечёт")
-				// if ((parseFloat(digit[19]) & 1)==0) console.log(digit[19]," нечёт")
-				// if ((parseFloat(digit[18]) & 1)==0) console.log(digit[18]," чёт")
-				// if ((parseFloat(digit[19]) & 1)==1) console.log(digit[19]," чёт")
-				// console.log(digit[20],"_")
-				// if ((digit[i-1]) > 5) console.log(digit[i-1]," >=5")
-				// if (digit[18]<5) console.log(digit[18]," <5")
-				// if(((parseFloat(digit[18]) & 1)==1) && ((parseFloat(digit[19]) & 1)==0) && (parseFloat(digit[20])==0) && ((digit[19])==(digit[18]+1)) && (digit[18]>=5)) {
-					// console.log('10')
-					// var tic2nd= (10);
-				// }else if (((parseFloat(digit[18]) & 1)==0) && ((parseFloat(digit[19]) & 1)==1) && (parseFloat(digit[20])==0) && ((digit[19])==(digit[18]+1)) && (digit[18]>=6)){
-					// console.log('10')
-					// var tic2nd= (10);
+					console.log(i,'+',tic2nd)
 				// }
-				if(((digit[i-1]) <= 5) && digit[i] ==0) {
-					var tic2nd= (0);
-				}
 			} else if(spot[i-1] > spot[i]) {
 				toggleDigit(i,"down");
-				if(digit[i] !=0) {
+				// if(digit[i] !=0) {
 					var tic2nd= (digit[i]*-1);
-				}
-				// if (((digit[i-1]) > 5) && digit[i] ==0) {
-					// console.log('-10')
-					// var tic2nd= (-10);
+					console.log(i,'-',tic2nd)
 				// }
-				if (((digit[i-1]) <= 5) && digit[i] ==0) {
-					var tic2nd= (-0);
-				}
 			} else if(spot[i-1]==spot[i] && i-1>0) {
 				if(document.querySelector("#digits > span:nth-child("+(i-1)+")").className == "digits_moved_up") {
 					toggleDigit(i,"up");
