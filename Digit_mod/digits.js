@@ -260,9 +260,9 @@ ws.onmessage = function(msg) {
 					// console.log('10')
 					// var tic2nd= (10);
 				// }
-				// if(((digit[i-1]) <= 5) && digit[i] ==0) {
-					// var tic2nd= (0);
-				// }
+				if(((digit[i-1]) <= 5) && digit[i] ==0) {
+					var tic2nd= (0);
+				}
 			} else if(spot[i-1] > spot[i]) {
 				toggleDigit(i,"down");
 				if(digit[i] !=0) {
@@ -272,9 +272,9 @@ ws.onmessage = function(msg) {
 					// console.log('-10')
 					// var tic2nd= (-10);
 				// }
-				// if (((digit[i-1]) <= 5) && digit[i] ==0) {
-					// var tic2nd= (-0);
-				// }
+				if (((digit[i-1]) <= 5) && digit[i] ==0) {
+					var tic2nd= (-0);
+				}
 			} else if(spot[i-1]==spot[i] && i-1>0) {
 				if(document.querySelector("#digits > span:nth-child("+(i-1)+")").className == "digits_moved_up") {
 					toggleDigit(i,"up");
@@ -287,22 +287,22 @@ ws.onmessage = function(msg) {
 		}
 		thick.shift(0);
 		thick.push(HeadThick);
-			for (var i=1; i<14; i++) {
-			if (spot[i-1] > spot[i+5]) {
-				document.querySelector("#SpotArrow > span:nth-child("+(i+7)+")").innerHTML = "&#241";
-				 toggleSpotArrow((i+7),"Up");
-				 // console.log(spot[i-1],"	 ",spot[i+5] ,"	 ",	i ,"Up ",)
-		 } else if (spot[i-1] < spot[i+5]) {
-				document.querySelector("#SpotArrow > span:nth-child("+(i+7)+")").innerHTML = "&#242";
-				toggleSpotArrow((i+7),"Down");
-				// console.log(spot[i-1],"	 ",spot[i+5] ,"	 ",	i ,"Down",)
-		 } else if (spot[i-1] == spot[i+5]) {
-				//chech for equal for this Wingdings or _
-				document.querySelector("#SpotArrow > span:nth-child("+(i+7)+")").innerHTML = " ";
-				 toggleSpotArrow((i+7),"Equal");
- 				// console.log(spot[i-1],"	 ",spot[i+5] ,"	 ",	i ,"Equal",)
-		 }
-			}
+			// for (var i=1; i<14; i++) {
+				// if (spot[i-1] > spot[i+5]) {
+						// document.querySelector("#SpotArrow > span:nth-child("+(i+7)+")").innerHTML = "&#241";
+						 // toggleSpotArrow((i+7),"Up");
+						 // console.log(spot[i-1],"	 ",spot[i+5] ,"	 ",	i ,"Up ",)
+				 // } else if (spot[i-1] < spot[i+5]) {
+						// document.querySelector("#SpotArrow > span:nth-child("+(i+7)+")").innerHTML = "&#242";
+						// toggleSpotArrow((i+7),"Down");
+						// console.log(spot[i-1],"	 ",spot[i+5] ,"	 ",	i ,"Down",)
+				 // } else if (spot[i-1] == spot[i+5]) {
+						// chech for equal for this Wingdings or _
+						// document.querySelector("#SpotArrow > span:nth-child("+(i+7)+")").innerHTML = " ";
+						 // toggleSpotArrow((i+7),"Equal");
+						// console.log(spot[i-1],"	 ",spot[i+5] ,"	 ",	i ,"Equal",)
+				 // }
+			// }
 		for (var i=1; i<cnt+1; i++) {
 			if (spot[i-1] < spot[i]) {
 				toggleDigit(i,"up");
