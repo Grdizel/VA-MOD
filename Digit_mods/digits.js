@@ -434,7 +434,7 @@ ws.onmessage = function(msg) {
 			if (spot[i-1] < spot[i]) {
 				dpsbOdd.push({//нечёт синий
 					x: xDigitOdd,
-					y: yDigitOdd,
+					y: yDigitRevneg,
 					indexLabel: DigiLabelOdd,
 					indexLabelFontWeight: "bold",
 					indexLabelFontSize: LblSize,
@@ -450,7 +450,7 @@ ws.onmessage = function(msg) {
 			if(spot[i-1] > spot[i]) {
 				dpsrOdd.push({//нечёт красный
 					x: xDigitOdd,
-					y: yDigitOdd,
+					y: yDigitRevPos,
 					indexLabel: DigiLabelOdd,
 					indexLabelFontWeight: "bold",
 					indexLabelFontSize: LblSize,
@@ -487,7 +487,7 @@ ws.onmessage = function(msg) {
 				// console.log(i, digit[i], " Even Чет синий" );
 				dpsbEven.push({//чёт синий
 					x: xDigitEven,
-					y: yDigitEven,
+					y: yDigitRevneg,
 					indexLabel: DigiLabelEven,
 					indexLabelFontWeight: "bold",
 					indexLabelFontSize: LblSize,
@@ -504,7 +504,7 @@ ws.onmessage = function(msg) {
 				// console.log(i, digit[i], " Even Чет красный" );
 				dpsrEven.push({//чёт красный
 					x: xDigitEven,
-					y: yDigitEven,
+					y: yDigitRevPos,
 					indexLabel: DigiLabelEven,
 					indexLabelFontWeight: "bold",
 					indexLabelFontSize: LblSize,
@@ -1120,8 +1120,8 @@ chartDigit = new CanvasJS.Chart("chartContainerDigit", {
 		// titleFontSize: 5,
 		// label: digit[i],
 		interval: 1,
-		maximum: 12.5,
-		minimum: -12.5,
+		maximum: 10,
+		minimum: 0,
 		labelFontSize: 10,
 		gridThickness: 1,
 		gridDashType: "dash",
