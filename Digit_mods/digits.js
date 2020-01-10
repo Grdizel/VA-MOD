@@ -655,14 +655,9 @@ chart = new CanvasJS.Chart("chartContainer", {
 	theme: "light2",
 	title: {
 		fontColor: "red",
-		text: "mod_0.3.3",
+		text: "mod_0.3.5",
 		fontSize: 10,
 	},
-    // subtitles: [{
-    	// text: "mod_0.3",		
-    	// fontColor: "green",
-		// fontSize: 10,
-    // }],
 	toolTip: {
 		enabled: true,
 		animationEnabled: true,
