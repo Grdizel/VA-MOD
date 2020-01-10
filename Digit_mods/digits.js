@@ -3,6 +3,7 @@ var ws,b,rnd,spot,time,dps_spot,dps_digit,dps_red,dps_blue,dpsEven,dpsOdd,ready,
 var OddLength, EvenLength, bEvenLength, bOddLength, rEvenLength, rOddLength, temp = 0, temp_Odd=0, temp_Even=0, tdgbEven=0, tdgbOdd=0, tdgrEven=0, tdgrOdd=0;
 var colRev1, colRev2, lblDigit1, lblDigit2, yDigitRevPos, yDigitRevneg, StartSignal, LblSize, LblBGcolor, LblBmarkerSize, LblBmarkerColor, fontCol, lblPlace;
 var dgb = [], dgr = [], dgbEven = [], dgbOdd = [], dgrEven = [], dgrOdd = [], dpsrEven = [], dpsbEven = [], dpsbOdd = [], dpsrOdd = [];
+var posrodd, posbodd, posreven, posbeven;
 
 let start = 0;
 str=["R_100","R_10","R_25","R_50","R_75","RDBEAR","RDBULL"];thick=[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]; dps_spot=[]; dps_digit=[]; dps_red=[];dps_blue=[]; dpsEven=[]; dpsOdd=[]; stripLinesValue=[]; time=[0]; spot=[0];tic=[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];digit=[0]; mType="none"; mColor="#32cd32"; lng="EN"; xVal=0; yVal=0; cnt=20;
@@ -432,9 +433,10 @@ ws.onmessage = function(msg) {
 				markerBorderColor: "#ccc",
 				});
 			if (spot[i-1] < spot[i]) {
+
 				dpsbOdd.push({//нечёт синий
 					x: xDigitOdd,
-					y: yDigitRevneg,
+					y: yDigitOdd,
 					indexLabel: DigiLabelOdd,
 					indexLabelFontWeight: "bold",
 					indexLabelFontSize: LblSize,
@@ -487,7 +489,7 @@ ws.onmessage = function(msg) {
 				// console.log(i, digit[i], " Even Чет синий" );
 				dpsbEven.push({//чёт синий
 					x: xDigitEven,
-					y: yDigitRevneg,
+					y: yDigitEven,
 					indexLabel: DigiLabelEven,
 					indexLabelFontWeight: "bold",
 					indexLabelFontSize: LblSize,
@@ -655,7 +657,7 @@ chart = new CanvasJS.Chart("chartContainer", {
 	theme: "light2",
 	title: {
 		fontColor: "red",
-		text: "mod_0.3.6",
+		text: "mod_0.3.8",
 		fontSize: 10,
 	},
 	toolTip: {
