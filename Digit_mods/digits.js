@@ -1,7 +1,9 @@
 window.addEventListener('load', function() {
 var ws,b,rnd,spot,time,dps_spot,dps_digit,dps_red,dps_blue,dpsEven,dpsOdd,ready,stripLinesValue,xd,digit,cnt,random,id,lng,str,chart,xVal,yVal,mType,mColor,rndMenu;
-var OddLength, EvenLength, temp = 0, temp_odd=0,temp_even=0;
+var OddLength, EvenLength, bEvenLength, bOddLength, rEvenLength, rOddLength, temp = 0, temp_Odd=0, temp_Even=0, tdgbEven=0, tdgbOdd=0, tdgrEven=0, tdgrOdd=0;
 var colRev1, colRev2, lblDigit1, lblDigit2, yDigitRevPos, yDigitRevneg, StartSignal, LblSize, LblBGcolor, LblBmarkerSize, LblBmarkerColor, fontCol, lblPlace;
+var dgb = [], dgr = [], dgbEven = [], dgbOdd = [], dgrEven = [], dgrOdd = [], dpsrEven = [], dpsbEven = [], dpsbOdd = [], dpsrOdd = [];
+
 let start = 0;
 str=["R_100","R_10","R_25","R_50","R_75","RDBEAR","RDBULL"];thick=[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]; dps_spot=[]; dps_digit=[]; dps_red=[];dps_blue=[]; dpsEven=[]; dpsOdd=[]; stripLinesValue=[]; time=[0]; spot=[0];tic=[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];digit=[0]; mType="none"; mColor="#32cd32"; lng="EN"; xVal=0; yVal=0; cnt=20;
 rndMenu = document.querySelectorAll('div.menu > span');
@@ -100,6 +102,9 @@ ws.onmessage = function(msg) {
 			time[i]=b.history.times[cnt-i];
 			spot[i] = b.history.prices[cnt-i];
 			digit[i] = spot[i].toFixed(xd).slice(-1);
+			
+
+			// console.log(i,'0',spot[i], spot[i+1])
 			// console.log(i,digit[i])
 			// console.log(i,(spot[i]))
 			// spot[i] = String(spot[i])
@@ -108,6 +113,42 @@ ws.onmessage = function(msg) {
 				
 				// if ((parseFloat(digit[0]) & 1)==1) console.log(digit[0], "нечёт")
 				// if ((parseFloat(digit[0]) & 1)==0) console.log(digit[0], "чёт")
+
+			// }
+		}
+		for(var i=0; i<cnt+1; i++){
+			// console.log(spot[i] + ' : '+	i)
+			// console.log(spot[i] + ' : '+	i)
+			// console.log(i,'0',spot[i], spot[i+1])
+			// console.log(i,'0',spot[i], spot[i+1])
+			if (spot[i] > spot[i+1]) {
+				// console.log(i,'С1>',spot[i])
+				dgb[i] = digit[i]
+			} else if (spot[i] < spot[i+1]) {
+				// console.log(i,'К2<',spot[i])
+				dgr[i] = digit[i]
+			} else {
+				// console.log(i,'Б3=',spot[i])
+				if (spot[i] > spot[i+2]) {
+					dgb[i] = digit[i]
+				} else if(spot[i] < spot[i+2]) {
+					dgr[i] = digit[i]
+				}
+			}
+			if ((parseFloat(dgb[i]) & 1)==0) {
+				dgbEven[i] = digit[i]
+				// console.log(i,'синий чёт',dgbEven[i])
+			} else if ((parseFloat(dgb[i]) & 1)==1) {
+				dgbOdd[i] = digit[i]
+				// console.log(i,'синий нечёт',dgbOdd[i])
+			} else if ((parseFloat(dgr[i]) & 0)==1) {
+				dgrEven[i] = digit[i]
+				// console.log(i,'красный чёт',dgrEven[i])
+			} else if ((parseFloat(dgr[i]) & 1)==1) {
+				dgrOdd[i] = digit[i]
+				// console.log(i,'красный нечёт',dgrOdd[i])
+			}
+//#################################################################
 				if(((parseFloat(digit[i+1]) & 1)==1) && ((parseFloat(digit[i]) & 1)==0) && (parseFloat(digit[i-1])==0) && ((digit[i])==((digit[i+1])+1)) && (digit[i+1]>=5)) {
 					digit[i]== "10"
 					console.log(i,digit[i])
@@ -117,11 +158,6 @@ ws.onmessage = function(msg) {
 					console.log(i,digit[i])
 					console.log(i,(spot[i]))
 				}
-			// }
-		}
-		for(var i=0; i<cnt+1; i++){
-			// console.log(spot[i] + ' : '+	i)
-			// console.log(spot[i] + ' : '+	i)
 		if (spot[i] > spot[i+1]) {
 			var mWmColorDigit = "#29abe2";//цвет цифр в верхнем графике
 		} else if(spot[i] < spot[i+1]) {
@@ -341,19 +377,39 @@ ws.onmessage = function(msg) {
 		xDigitOdd = (i);
 		// console.log("tik", i);
 		if ( parseFloat(tic[i-1]) & 1 ){
-			temp_odd+=1
+			temp_Odd+=1
+			if (spot[i-1] < spot[i]) {
+				tdgbOdd+=1
+			} else if (spot[i-1] > spot[i]) {
+				tdgrOdd+=1
+			};
 		} else {
-			temp_even+=1
-		}
+			temp_Even+=1
+			if (spot[i-1] < spot[i]) {
+				tdgbEven+=1
+			} else if (spot[i-1] > spot[i]) {
+				tdgrEven+=1
+			};
+		};
 		if (i==20) {
-			temp = 1
+			temp = 1;
 			// console.log(dpsOdd.length, " Odd Нечет " );
-			OddLength = temp_odd
+			OddLength = temp_Odd;
 			// console.log(dpsEven.length, " Even Чет " );
-			EvenLength = temp_even
-			// console.log('odd Н', temp_odd, 'even Ч', temp_even);
-			temp_odd = 0
-			temp_even = 0
+			EvenLength = temp_Even;
+			// console.log('Odd Н', temp_Odd, 'Even Ч', temp_Even);
+			bEvenLength = tdgbEven;
+			// console.log('tdgbEven Even ЧС', tdgbEven);
+			// console.log(dpsbEven.length, "dpsb Even Чет синие" );
+			bOddLength = tdgbOdd;
+			rEvenLength = tdgrEven;
+			rOddLength = tdgrOdd;
+			temp_Odd = 0;
+			temp_Even = 0;
+			tdgbEven=0;
+			tdgbOdd=0;
+			tdgrEven=0;
+			tdgrOdd=0;
 		}
 		if ( parseFloat(tic[i-1]) & 1 ){
 			// console.log(i, " Odd Нечет " );
@@ -375,6 +431,38 @@ ws.onmessage = function(msg) {
 				color: mColorBarOdd,
 				markerBorderColor: "#ccc",
 				});
+			if (spot[i-1] < spot[i]) {
+				dpsbOdd.push({//нечёт синий
+					x: xDigitOdd,
+					y: yDigitOdd,
+					indexLabel: DigiLabelOdd,
+					indexLabelFontWeight: "bold",
+					indexLabelFontSize: LblSize,
+					indexLabelFontColor:mColorDigit,
+					indexLabelBackgroundColor:LblBGcolor,
+					markerSize: LblBmarkerSize,
+					markerType: "circle",  //"circle", "square", "cross", "none"
+					markerColor: LblBmarkerColor,
+					color: mColorBarOdd,
+					markerBorderColor: "#ccc",
+					})
+			} 
+			if(spot[i-1] > spot[i]) {
+				dpsrOdd.push({//нечёт красный
+					x: xDigitOdd,
+					y: yDigitOdd,
+					indexLabel: DigiLabelOdd,
+					indexLabelFontWeight: "bold",
+					indexLabelFontSize: LblSize,
+					indexLabelFontColor:mColorDigit,
+					indexLabelBackgroundColor:LblBGcolor,
+					markerSize: LblBmarkerSize,
+					markerType: "circle",  //"circle", "square", "cross", "none"
+					markerColor: LblBmarkerColor,
+					color: mColorBarOdd,
+					markerBorderColor: "#ccc",
+					})
+			};
 		} else {
 			// console.log(i, " Even Чет " );
 			yDigitEven = parseFloat(tic[i-1]);
@@ -395,6 +483,40 @@ ws.onmessage = function(msg) {
 				color: mColorBarEven,
 				markerBorderColor: "#ccc",
 				});
+			if (spot[i-1] < spot[i]) {
+				// console.log(i, digit[i], " Even Чет синий" );
+				dpsbEven.push({//чёт синий
+					x: xDigitEven,
+					y: yDigitEven,
+					indexLabel: DigiLabelEven,
+					indexLabelFontWeight: "bold",
+					indexLabelFontSize: LblSize,
+					indexLabelFontColor:mColorDigit,
+					indexLabelBackgroundColor:LblBGcolor,
+					markerSize: LblBmarkerSize,
+					markerType: "circle",  //"circle", "square", "cross", "none"
+					markerColor: LblBmarkerColor,
+					color: mColorBarEven,
+					markerBorderColor: "#ccc",
+					});
+			} 
+			if(spot[i-1] > spot[i]) {
+				// console.log(i, digit[i], " Even Чет красный" );
+				dpsrEven.push({//чёт красный
+					x: xDigitEven,
+					y: yDigitEven,
+					indexLabel: DigiLabelEven,
+					indexLabelFontWeight: "bold",
+					indexLabelFontSize: LblSize,
+					indexLabelFontColor:mColorDigit,
+					indexLabelBackgroundColor:LblBGcolor,
+					markerSize: LblBmarkerSize,
+					markerType: "circle",  //"circle", "square", "cross", "none"
+					markerColor: LblBmarkerColor,
+					color: mColorBarEven,
+					markerBorderColor: "#ccc",
+					})
+			};
 		}
 			// if (temp == 1)  {
 				// console.log("tik", i);
@@ -403,11 +525,32 @@ ws.onmessage = function(msg) {
 				if (dpsOdd.length > OddLength) {
 					// console.log("Нечет >");
 					dpsOdd.shift();
-				}
+				};
 				if (dpsEven.length > EvenLength) {
 					dpsEven.shift();
 					// console.log("Чет >");
-				}
+				};
+				// console.log("tik", i);
+				// console.log("чёт синий dpsbEven.length", dpsbEven.length);
+				// console.log("чёт синий bEvenLength", bEvenLength);
+				// console.log("нечёт красный dpsrOdd.length", dpsrOdd.length);
+				// console.log("нечёт красный rOddLength", rOddLength);
+				if (dpsbEven.length > bEvenLength ) {
+					dpsbEven.shift();
+					// console.log(i,digit[i],"Чет синий");
+				};
+				if (dpsrEven.length > rEvenLength ) {
+					dpsrEven.shift();
+					// console.log(i,digit[i],"Чет красный");
+				};
+				if (dpsbOdd.length > bOddLength ) {
+					dpsbOdd.shift();
+					// console.log(i,digit[i],"Нечет синий");
+				};
+				if (dpsrOdd.length > rOddLength ) {
+					dpsrOdd.shift();
+					// console.log(i,digit[i],"Нечет красный");
+				};
 			// }
 			dps_digit.push({
 				x: xDigit,
@@ -457,10 +600,10 @@ ws.onmessage = function(msg) {
 					dps_blue.shift();
 				}
 			}
-			chart_odd_even.render();
+			chart_Odd_Even.render();
 			chartDigit.render();
 			chartEven.render();
-			chartodd.render();
+			chartOdd.render();
 			tic1 = tic[19];
 			tic2 = tic[18];
 			tic3 = tic[17];
@@ -560,7 +703,7 @@ chart = new CanvasJS.Chart("chartContainer", {
 		dataPoints: dps_spot
 	}]
 });
-chart_odd_even = new CanvasJS.Chart("chartContainerAxisCord", {
+chart_Odd_Even = new CanvasJS.Chart("chartContainerAxisCord", {
 	animationEnabled: false,
 	theme: "light2",
 	// title: {padding: {
@@ -639,7 +782,7 @@ chart_odd_even = new CanvasJS.Chart("chartContainerAxisCord", {
 	}]
 });
 chartEven = new CanvasJS.Chart("chartContainerDigitEven", {
-	animationEnabled: false,
+/* 	animationEnabled: false,
 	theme: "light2",
 	title: {padding: {
 	right: 0,
@@ -678,19 +821,96 @@ chartEven = new CanvasJS.Chart("chartContainerDigitEven", {
 		tickLength: 0,
 		lineThickness: 0
 	},
+	// data: [{
+		// type: "line",
+		// labelFontFamily: "Arial,sans-serif",
+		// lineColor: "#ccc",
+		// lineThickness: 0,
+		// markerType: "none",
+		// markerSize: 6,
+		// markerBorderThickness: 0,
+		// dataPoints: dpsEven
+	// }] */
+	animationEnabled: false,
+	theme: "light2",
+	// title: {padding: {
+		 // right: 0,
+		 // left: 0
+	 // },
+		// titleFontSize: 0,
+		// text: ""
+	// },
+	// backgroundColor: "#F5DEB3",
+	toolTip: {
+		enabled: true,
+		animationEnabled: true,
+		borderColor: "#ccc",
+		borderThickness: 1,
+		fontColor: "#000",
+		content: "{y}"
+			},
+	axisX: {
+		includeZero: false,
+		// titleFontSize: 0,
+		labelFontSize: 10,
+		interval: 1,
+		gridThickness: 1,
+		gridDashType: "dash",
+		tickLength: 0,
+		lineThickness: 1
+	},
+	axisY: {stripLines:[{
+			startValue:0,
+			endValue:10,
+			color:"#c7fcec",
+			},
+			{
+			startValue:0,
+			endValue:-10,
+			color:"#fff0f5",
+			}
+			],valueFormatString:"#000",
+		includeZero: false,
+		// titleFontSize: 5,
+		// label: digit[i],
+		interval: 1,
+		maximum: 12.5,
+		minimum: -12.5,
+		labelFontSize: 10,
+		gridThickness: 1,
+		gridDashType: "dash",
+		// tickLength: 0,
+		// lineThickness: 1
+	},
+	legend:{
+		cursor:"pointer",
+		verticalAlign: "bottom",
+		horizontalAlign: "left",
+		dockInsidePlotArea: true,
+		itemclick: toogleDataSeries
+	},
 	data: [{
-		type: "column",
-		labelFontFamily: "Arial,sans-serif",
-		lineColor: "#ccc",
-		lineThickness: 0,
-		markerType: "none",
-		markerSize: 6,
-		markerBorderThickness: 0,
-		dataPoints: dpsEven
+		type: "line",
+		showInLegend: true,
+		name: "чёт синий",
+		markerType: "circle",  //"circle", "square", "cross", "none"
+		markerSize: 5,
+		color: "#4682B4",
+		dataPoints: dpsbEven
+	},
+	{
+		type: "line",
+		color: "#FA8072",
+		showInLegend: true,
+		name: "нечёт красный",
+		lineDashType: "dash",
+		markerType: "circle",  //"circle", "square", "cross", "none"
+		markerSize: 5,
+		dataPoints: dpsrOdd
 	}]
 });
-chartodd = new CanvasJS.Chart("chartContainerDigitOdd", {
-	animationEnabled: false,
+chartOdd = new CanvasJS.Chart("chartContainerDigitOdd", {
+/* 	animationEnabled: false,
 	theme: "light2",
 	title: {padding: {
 		right: 0,
@@ -730,14 +950,81 @@ chartodd = new CanvasJS.Chart("chartContainerDigitOdd", {
 		tickLength: 0,
 		lineThickness: 1
 	},dataPointMaxWidth: 50,
+	// data: [{
+		// type: "line",
+		// labelFontFamily: "Arial,sans-serif",
+		// lineColor: "#ccc",
+		// markerType: "none",
+		// markerSize: 6,
+		// markerBorderThickness: 0,
+		// dataPoints: dpsOdd
+	// }] */
+	toolTip: {
+		enabled: true,
+		animationEnabled: true,
+		borderColor: "#ccc",
+		borderThickness: 1,
+		fontColor: "#000",
+		content: "{y}"
+			},
+	axisX: {
+		includeZero: false,
+		// titleFontSize: 0,
+		labelFontSize: 10,
+		interval: 1,
+		gridThickness: 1,
+		gridDashType: "dash",
+		tickLength: 0,
+		lineThickness: 1
+	},
+	axisY: {stripLines:[{
+			startValue:0,
+			endValue:10,
+			color:"#c7fcec",
+			},
+			{
+			startValue:0,
+			endValue:-10,
+			color:"#fff0f5",
+			}
+			],valueFormatString:"#000",
+		includeZero: false,
+		// titleFontSize: 5,
+		// label: digit[i],
+		interval: 1,
+		maximum: 12.5,
+		minimum: -12.5,
+		labelFontSize: 10,
+		gridThickness: 1,
+		gridDashType: "dash",
+		// tickLength: 0,
+		// lineThickness: 1
+	},
+	legend:{
+		cursor:"pointer",
+		verticalAlign: "bottom",
+		horizontalAlign: "left",
+		dockInsidePlotArea: true,
+		itemclick: toogleDataSeries
+	},
 	data: [{
-		type: "column",
-		labelFontFamily: "Arial,sans-serif",
-		lineColor: "#ccc",
-		markerType: "none",
-		markerSize: 6,
-		markerBorderThickness: 0,
-		dataPoints: dpsOdd
+		type: "line",
+		color: "#1E90FF",
+		showInLegend: true,
+		name: "нечёт синий",
+		markerType: "circle",  //"circle", "square", "cross", "none"
+		markerSize: 5,
+		dataPoints: dpsbOdd
+	},
+	{
+		type: "line",
+		color: "#F08080",
+		showInLegend: true,
+		name: "чёт красный",
+		lineDashType: "dash",
+		markerType: "circle",  //"circle", "square", "cross", "none"
+		markerSize: 5,
+		dataPoints: dpsrEven
 	}]
 });
 //////
