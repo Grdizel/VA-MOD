@@ -790,14 +790,14 @@ chartDigit = new CanvasJS.Chart("chartContainerDigit", {
 	},dataPointMaxWidth: 50,
 	data: [{
 		labelFontFamily: "Arial,sans-serif",
-		type: "stackedColumn100",
+		type: "stackedColumn100",//stackedColumn100
 		lineColor: "#ccc",
 		markerType: "none",
 		markerBorderThickness: 0,
 		dataPoints: dps_red
 	}, {
 		labelFontFamily: "Arial,sans-serif",
-		type: "stackedColumn100",
+		type: "stackedColumn100",//stackedColumn100
 		lineColor: "#ccc",
 		markerType: "none",
 		markerBorderThickness: 0,
