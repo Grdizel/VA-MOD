@@ -109,12 +109,12 @@ span.menu-active {
 }
 .chartContainerDigitEven {
   margin-bottom: 1px;
-  min-height: 90px;
+  min-height: 280px;
   min-width: 125px;
 }
 .chartContainerDigitOdd {
   margin-bottom: 1px;
-  min-height: 90px;
+  min-height: 280px;
   min-width: 125px;
 }
 .chartContainerDigit {
