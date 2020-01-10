@@ -120,7 +120,7 @@ span.menu-active {
 .chartContainerDigit {
  margin-top: 5px;
  margin-bottom: 2px;
-  min-height: 95px;
+  min-height: 280px;
   min-width: 100px;
 }
 .arrow_up span {
