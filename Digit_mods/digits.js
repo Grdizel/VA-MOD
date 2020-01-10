@@ -672,7 +672,7 @@ chart = new CanvasJS.Chart("chartContainer", {
 		includeZero: false,
 		// titleFontSize: 20,
 		maximum: 20.5,
-		minimum: 0.5,
+		minimum: -0.5,
 		interval: 1,
 		labelFontSize: 10,
 		gridThickness: 1,
@@ -872,7 +872,7 @@ chartEven = new CanvasJS.Chart("chartContainerDigitEven", {
 		// label: digit[i],
 		interval: 1,
 		maximum: 11,
-		minimum: -0,
+		minimum: -0.5,
 		labelFontSize: 10,
 		gridThickness: 1,
 		gridDashType: "dash",
@@ -990,7 +990,7 @@ chartOdd = new CanvasJS.Chart("chartContainerDigitOdd", {
 		// label: digit[i],
 		interval: 1,
 		maximum: 11,
-		minimum: 0,
+		minimum: -0.5,
 		labelFontSize: 10,
 		gridThickness: 1,
 		gridDashType: "dash",
@@ -1123,7 +1123,7 @@ chartDigit = new CanvasJS.Chart("chartContainerDigit", {
 		// label: digit[i],
 		interval: 1,
 		maximum: 11,
-		minimum: 0,
+		minimum: -0.5,
 		labelFontSize: 10,
 		gridThickness: 1,
 		gridDashType: "dash",
@@ -1144,7 +1144,7 @@ chartDigit = new CanvasJS.Chart("chartContainerDigit", {
 		name: "чёт синий",
 		markerType: "circle",  //"circle", "square", "cross", "none"
 		markerColor: "yellow",
-		markerSize: 20,
+		markerSize: 15,
 		dataPoints: dpsbEven
 	},
 	{
@@ -1155,7 +1155,7 @@ chartDigit = new CanvasJS.Chart("chartContainerDigit", {
 		lineDashType: "dash",
 		markerType: "circle",  //"circle", "square", "cross", "none"
 		markerColor: "yellow",
-		markerSize: 20,
+		markerSize: 15,
 		dataPoints: dpsrOdd
 	},
 	{
@@ -1165,7 +1165,7 @@ chartDigit = new CanvasJS.Chart("chartContainerDigit", {
 		name: "нечёт синий",
 		markerType: "circle",  //"circle", "square", "cross", "none"
 		markerColor: "green",
-		markerSize: 20,
+		markerSize: 15,
 		dataPoints: dpsbOdd
 	},
 	{
@@ -1176,7 +1176,7 @@ chartDigit = new CanvasJS.Chart("chartContainerDigit", {
 		lineDashType: "dash",
 		markerType: "circle",  //"circle", "square", "cross", "none"
 		markerColor: "green",
-		markerSize: 20,
+		markerSize: 15,
 		dataPoints: dpsrEven
 	}]
 });
