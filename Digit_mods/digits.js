@@ -1144,7 +1144,7 @@ chartDigit = new CanvasJS.Chart("chartContainerDigit", {
 		name: "чёт синий",
 		markerType: "circle",  //"circle", "square", "cross", "none"
 		markerColor: "yellow",
-		markerSize: 15,
+		markerSize: 12,
 		dataPoints: dpsbEven
 	},
 	{
@@ -1155,7 +1155,7 @@ chartDigit = new CanvasJS.Chart("chartContainerDigit", {
 		lineDashType: "dash",
 		markerType: "circle",  //"circle", "square", "cross", "none"
 		markerColor: "yellow",
-		markerSize: 15,
+		markerSize: 12,
 		dataPoints: dpsrOdd
 	},
 	{
@@ -1165,7 +1165,7 @@ chartDigit = new CanvasJS.Chart("chartContainerDigit", {
 		name: "нечёт синий",
 		markerType: "circle",  //"circle", "square", "cross", "none"
 		markerColor: "green",
-		markerSize: 15,
+		markerSize: 12,
 		dataPoints: dpsbOdd
 	},
 	{
@@ -1176,7 +1176,7 @@ chartDigit = new CanvasJS.Chart("chartContainerDigit", {
 		lineDashType: "dash",
 		markerType: "circle",  //"circle", "square", "cross", "none"
 		markerColor: "green",
-		markerSize: 15,
+		markerSize: 12,
 		dataPoints: dpsrEven
 	}]
 });
