@@ -442,9 +442,9 @@ ws.onmessage = function(msg) {
 					indexLabelFontSize: LblSize,
 					indexLabelFontColor:mColorDigit,
 					indexLabelBackgroundColor:LblBGcolor,
-					markerSize: LblBmarkerSize,
+					// markerSize: LblBmarkerSize,
 					markerType: "circle",  //"circle", "square", "cross", "none"
-					markerColor: LblBmarkerColor,
+					// markerColor: LblBmarkerColor,
 					color: mColorBarOdd,
 					markerBorderColor: "#ccc",
 					})
@@ -458,9 +458,9 @@ ws.onmessage = function(msg) {
 					indexLabelFontSize: LblSize,
 					indexLabelFontColor:mColorDigit,
 					indexLabelBackgroundColor:LblBGcolor,
-					markerSize: LblBmarkerSize,
+					// markerSize: LblBmarkerSize,
 					markerType: "circle",  //"circle", "square", "cross", "none"
-					markerColor: LblBmarkerColor,
+					// markerColor: LblBmarkerColor,
 					color: mColorBarOdd,
 					markerBorderColor: "#ccc",
 					})
@@ -495,9 +495,9 @@ ws.onmessage = function(msg) {
 					indexLabelFontSize: LblSize,
 					indexLabelFontColor:mColorDigit,
 					indexLabelBackgroundColor:LblBGcolor,
-					markerSize: LblBmarkerSize,
+					// markerSize: LblBmarkerSize,
 					markerType: "circle",  //"circle", "square", "cross", "none"
-					markerColor: LblBmarkerColor,
+					// markerColor: LblBmarkerColor,
 					color: mColorBarEven,
 					markerBorderColor: "#ccc",
 					});
@@ -512,9 +512,9 @@ ws.onmessage = function(msg) {
 					indexLabelFontSize: LblSize,
 					indexLabelFontColor:mColorDigit,
 					indexLabelBackgroundColor:LblBGcolor,
-					markerSize: LblBmarkerSize,
+					// markerSize: LblBmarkerSize,
 					markerType: "circle",  //"circle", "square", "cross", "none"
-					markerColor: LblBmarkerColor,
+					// markerColor: LblBmarkerColor,
 					color: mColorBarEven,
 					markerBorderColor: "#ccc",
 					})
@@ -871,7 +871,7 @@ chartEven = new CanvasJS.Chart("chartContainerDigitEven", {
 		// titleFontSize: 5,
 		// label: digit[i],
 		interval: 1,
-		maximum: 10,
+		maximum: 11,
 		minimum: -0,
 		labelFontSize: 10,
 		gridThickness: 1,
@@ -989,7 +989,7 @@ chartOdd = new CanvasJS.Chart("chartContainerDigitOdd", {
 		// titleFontSize: 5,
 		// label: digit[i],
 		interval: 1,
-		maximum: 10,
+		maximum: 11,
 		minimum: 0,
 		labelFontSize: 10,
 		gridThickness: 1,
@@ -1122,7 +1122,7 @@ chartDigit = new CanvasJS.Chart("chartContainerDigit", {
 		// titleFontSize: 5,
 		// label: digit[i],
 		interval: 1,
-		maximum: 10,
+		maximum: 11,
 		minimum: 0,
 		labelFontSize: 10,
 		gridThickness: 1,
@@ -1139,11 +1139,12 @@ chartDigit = new CanvasJS.Chart("chartContainerDigit", {
 	},
 	data: [{
 		type: "line",
+		color: "#4682B4",
 		showInLegend: true,
 		name: "чёт синий",
 		markerType: "circle",  //"circle", "square", "cross", "none"
-		markerSize: 5,
-		color: "#4682B4",
+		markerColor: "yellow",
+		markerSize: 10,
 		dataPoints: dpsbEven
 	},
 	{
@@ -1153,7 +1154,8 @@ chartDigit = new CanvasJS.Chart("chartContainerDigit", {
 		name: "нечёт красный",
 		lineDashType: "dash",
 		markerType: "circle",  //"circle", "square", "cross", "none"
-		markerSize: 5,
+		markerColor: "yellow",
+		markerSize: 10,
 		dataPoints: dpsrOdd
 	},
 	{
@@ -1162,7 +1164,8 @@ chartDigit = new CanvasJS.Chart("chartContainerDigit", {
 		showInLegend: true,
 		name: "нечёт синий",
 		markerType: "circle",  //"circle", "square", "cross", "none"
-		markerSize: 5,
+		markerColor: "green",
+		markerSize: 10,
 		dataPoints: dpsbOdd
 	},
 	{
@@ -1172,7 +1175,8 @@ chartDigit = new CanvasJS.Chart("chartContainerDigit", {
 		name: "чёт красный",
 		lineDashType: "dash",
 		markerType: "circle",  //"circle", "square", "cross", "none"
-		markerSize: 5,
+		markerColor: "green",
+		markerSize: 10,
 		dataPoints: dpsrEven
 	}]
 });
