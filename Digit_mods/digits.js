@@ -655,7 +655,7 @@ chart = new CanvasJS.Chart("chartContainer", {
 	theme: "light2",
 	title: {
 		fontColor: "red",
-		text: "mod_0.3.5",
+		text: "mod_0.3.6",
 		fontSize: 10,
 	},
 	toolTip: {
@@ -1023,7 +1023,7 @@ chartOdd = new CanvasJS.Chart("chartContainerDigitOdd", {
 	}]
 });
 //////
-chartDigit = new CanvasJS.Chart("chartContainerDigit", {
+/* chartDigit = new CanvasJS.Chart("chartContainerDigit", {
 	animationEnabled: false,
 	theme: "dark1",
 	title: {padding: {
@@ -1084,6 +1084,94 @@ chartDigit = new CanvasJS.Chart("chartContainerDigit", {
 		markerType: "none",
 		markerBorderThickness: 0,
 		dataPoints: dps_blue
+	}]
+}); */
+chartDigit = new CanvasJS.Chart("chartContainerDigit", {
+	toolTip: {
+		enabled: true,
+		animationEnabled: true,
+		borderColor: "#ccc",
+		borderThickness: 1,
+		fontColor: "#000",
+		content: "{y}"
+			},
+	axisX: {
+		includeZero: false,
+		// titleFontSize: 0,
+		labelFontSize: 10,
+		interval: 1,
+		gridThickness: 1,
+		gridDashType: "dash",
+		tickLength: 0,
+		lineThickness: 1
+	},
+	axisY: {stripLines:[{
+			startValue:0,
+			endValue:10,
+			color:"#c7fcec",
+			},
+			{
+			startValue:0,
+			endValue:-10,
+			color:"#fff0f5",
+			}
+			],valueFormatString:"#000",
+		includeZero: false,
+		// titleFontSize: 5,
+		// label: digit[i],
+		interval: 1,
+		maximum: 12.5,
+		minimum: -12.5,
+		labelFontSize: 10,
+		gridThickness: 1,
+		gridDashType: "dash",
+		// tickLength: 0,
+		// lineThickness: 1
+	},
+	legend:{
+		cursor:"pointer",
+		verticalAlign: "bottom",
+		horizontalAlign: "left",
+		dockInsidePlotArea: true,
+		itemclick: toogleDataSeries
+	},
+	data: [{
+		type: "line",
+		showInLegend: true,
+		name: "чёт синий",
+		markerType: "circle",  //"circle", "square", "cross", "none"
+		markerSize: 5,
+		color: "#4682B4",
+		dataPoints: dpsbEven
+	},
+	{
+		type: "line",
+		color: "#FA8072",
+		showInLegend: true,
+		name: "нечёт красный",
+		lineDashType: "dash",
+		markerType: "circle",  //"circle", "square", "cross", "none"
+		markerSize: 5,
+		dataPoints: dpsrOdd
+	},
+	{
+		type: "line",
+		color: "#1E90FF",
+		showInLegend: true,
+		name: "нечёт синий",
+		markerType: "circle",  //"circle", "square", "cross", "none"
+		markerSize: 5,
+		dataPoints: dpsbOdd
+	},
+	{
+		type: "line",
+		color: "#F08080",
+		showInLegend: true,
+		name: "чёт красный",
+		lineDashType: "dash",
+		markerType: "circle",  //"circle", "square", "cross", "none"
+		markerSize: 5,
+		dataPoints: dpsrEven
 	}]
 });
 }, false);
