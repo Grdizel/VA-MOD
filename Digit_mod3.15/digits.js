@@ -366,7 +366,7 @@ ws.onmessage = function(msg) {
 			LblSize = 20;
 			LblBGcolor = "";
 			LblBmarkerSize = 10;
-			LblBmarkerColor = "yellow";
+			LblBmarkerColor = "#ffa500";
 		} else {
 			StartSignal = "";
 			LblSize = 14;
@@ -1099,7 +1099,7 @@ chartOdd = new CanvasJS.Chart("chartContainerDigitOdd", {
 	axisX: {
 		includeZero: false,
 		// titleFontSize: 0,
-		labelFontSize: 10,
+		labelFontSize: 0,
 		interval: 1,
 		gridThickness: 0,
 		// gridDashType: "dash",
@@ -1108,17 +1108,20 @@ chartOdd = new CanvasJS.Chart("chartContainerDigitOdd", {
 		maximum: 20.5,
 		minimum: 0.5
 	},
-	axisY: {stripLines:[{
+	axisY: {
+		stripLines:[
+		{
 			startValue:0,
 			endValue:12,
 			color:"#c7fcec",
-			},
-			{
+		},
+		{
 			startValue:0,
 			endValue:-12,
 			color:"#fff0f5",
-			}
-			],valueFormatString:"#000",
+		}
+		],
+		valueFormatString:"#000",
 		includeZero: false,
 		// titleFontSize: 5,
 		// label: digit[i],
