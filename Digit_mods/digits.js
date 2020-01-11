@@ -1,8 +1,8 @@
 window.addEventListener('load', function() {
 var ws,b,rnd,spot,time,dps_spot,dps_digit,dps_red,dps_blue,dpsEven,dpsOdd,ready,stripLinesValue,xd,digit,cnt,random,id,lng,str,chart,xVal,yVal,mType,mColor,rndMenu;
-var OddLength, EvenLength, bEvenLength, bOddLength, rEvenLength, rOddLength, temp = 0, temp_Odd=0, temp_Even=0, tdgbEven=0, tdgbOdd=0, tdgrEven=0, tdgrOdd=0;
+var OddLength, EvenLength, bEvenLength, bOddLength, rEvenLength, rOddLength, dpseborLength, dpsoberLength, temp = 0, temp_Odd=0, temp_Even=0, tdgbEven=0, tdgbOdd=0, tdgrEven=0, tdgrOdd=0, tdpsebor = 0, tdpsober = 0;
 var colRev1, colRev2, lblDigit1, lblDigit2, yDigitRevPos, yDigitRevneg, StartSignal, LblSize, LblBGcolor, LblBmarkerSize, LblBmarkerColor, fontCol, lblPlace;
-var dgb = [], dgr = [], dgbEven = [], dgbOdd = [], dgrEven = [], dgrOdd = [], dpsrEven = [], dpsbEven = [], dpsbOdd = [], dpsrOdd = [];
+var dgb = [], dgr = [], dgbEven = [], dgbOdd = [], dgrEven = [], dgrOdd = [], dpsrEven = [], dpsbEven = [], dpsbOdd = [], dpsrOdd = [], dpsebor = [], dpsober = [];
 var posrodd, posbodd, posreven, posbeven;
 
 let start = 0;
@@ -327,12 +327,12 @@ ws.onmessage = function(msg) {
 				mColorBarEven = "#4169E1";//цвет второго графика синие столбики
 				mColorBarOdd = "#4682B4";//цвет третьего графика синие столбики
 				var mColorDigit = "#29abe2";//цвет четвёртого графика синие столбики
-				} else if(spot[i-1] > spot[i]) {
-					toggleDigit(i,"down");
-					mColorBarEven = "#DC143C";//цвет второго графика красные столбики
-					mColorBarOdd = "#CD5C5C";//цвет третьего графика красные столбики
-					var mColorDigit = "#c03";//цвет четвёртого графика красные столбики
-				}
+			} else if(spot[i-1] > spot[i]) {
+				toggleDigit(i,"down");
+				mColorBarEven = "#DC143C";//цвет второго графика красные столбики
+				mColorBarOdd = "#CD5C5C";//цвет третьего графика красные столбики
+				var mColorDigit = "#c03";//цвет четвёртого графика красные столбики
+			}
 		toggleHead(i,thick[i-1]);
 		document.querySelector("#headcol > span:nth-child("+i+")").innerHTML = tic;
 		xDigit = (i);
@@ -392,7 +392,28 @@ ws.onmessage = function(msg) {
 				tdgrEven+=1
 			};
 		};
+		// console.log(i, tic[i-1])
+		// if ((parseFloat(tic[i-1]) & 1)==0) console.log(i, 'чёт')
+		// if ((parseFloat(tic[i-1]) & 1)==1) console.log(i, 'нечёт')
+			
+		// if ((spot[i-1] < spot[i]) && ((parseFloat(tic[i-1]) & 1)==0)) console.log(i, 'ЧС')
+		// if ((spot[i-1] > spot[i]) && ((parseFloat(tic[i-1]) & 1)==1)) console.log(i, 'НК')
+		// if ((spot[i-1] < spot[i]) && ((parseFloat(tic[i-1]) & 1)==1)) console.log(i, 'НС')
+		// if ((spot[i-1] > spot[i]) && ((parseFloat(tic[i-1]) & 1)==0)) console.log(i, 'ЧК')
+		// if (((spot[i-1] < spot[i]) && ((parseFloat(tic[i-1]) & 1)==0)) && ((spot[i-1] > spot[i]) && ((parseFloat(tic[i-1]) & 1)==1))) console.log(i, 'Чс и Нк желтый')
+		// if (((spot[i-1] < spot[i]) && ((parseFloat(tic[i-1]) & 1)==0)) && ((spot[i-1] > spot[i]) && ((parseFloat(tic[i-1]) & 1)==1))) console.log(i, 'Нс Чк зелёный')	
+		if (((spot[i-1] < spot[i]) && ((parseFloat(tic[i-1]) & 1)==0)) || ((spot[i-1] > spot[i]) && ((parseFloat(tic[i-1]) & 1)==1))) {
+			tdpsebor+=1
+		}
+		if (((spot[i-1] < spot[i]) && ((parseFloat(tic[i-1]) & 1)==1)) || ((spot[i-1] > spot[i]) && ((parseFloat(tic[i-1]) & 1)==0))) {
+			tdpsober+=1
+		}
 		if (i==20) {
+			// console.log(tdpsebor, " Чс и Нк " );
+			dpseborLength = tdpsebor;
+			// console.log(tdpsober, " Нс Чк " );
+			dpsoberLength = tdpsober;
+			
 			temp = 1;
 			// console.log(dpsOdd.length, " Odd Нечет " );
 			OddLength = temp_Odd;
@@ -405,6 +426,8 @@ ws.onmessage = function(msg) {
 			bOddLength = tdgbOdd;
 			rEvenLength = tdgrEven;
 			rOddLength = tdgrOdd;
+			tdpsebor = 0;
+			tdpsober = 0;
 			temp_Odd = 0;
 			temp_Even = 0;
 			tdgbEven=0;
@@ -412,6 +435,55 @@ ws.onmessage = function(msg) {
 			tdgrEven=0;
 			tdgrOdd=0;
 		}
+//##############################################################################
+		if (((spot[i-1] < spot[i]) && ((parseFloat(tic[i-1]) & 1)==0)) || ((spot[i-1] > spot[i]) && ((parseFloat(tic[i-1]) & 1)==1))) {
+			if (spot[i-1] < spot[i]){
+				yor = parseFloat(tic[i-1])
+			}
+			if (spot[i-1] > spot[i]) {
+				yor = yDigitRevPos
+			}
+			dpsebor.push({//Чс и Нк yellow EvenBlue OddRed
+				x: i,
+				y: yor,
+				indexLabel: digit[i],
+				indexLabelFontWeight: "bold",
+				indexLabelFontSize: LblSize,
+				indexLabelFontColor:mColorDigit,
+				indexLabelBackgroundColor:LblBGcolor,
+				// markerSize: LblBmarkerSize,
+				markerType: "circle",  //"circle", "square", "cross", "none"
+				// markerColor: LblBmarkerColor,
+				color: mColorBarOdd,
+				markerBorderColor: "#ccc",
+				})
+		}
+//##############################################################################
+
+//##############################################################################
+			if (((spot[i-1] < spot[i]) && ((parseFloat(tic[i-1]) & 1)==1)) || ((spot[i-1] > spot[i]) && ((parseFloat(tic[i-1]) & 1)==0))) {
+				if (spot[i-1] < spot[i]){
+					yor = parseFloat(tic[i-1])
+				}
+				if (spot[i-1] > spot[i]) {
+					yor = yDigitRevPos
+				}
+				dpsober.push({//Нс Чк green OddBlue EvenRed
+					x: i,
+					y: yor,
+					indexLabel: digit[i],
+					indexLabelFontWeight: "bold",
+					indexLabelFontSize: LblSize,
+					indexLabelFontColor:mColorDigit,
+					indexLabelBackgroundColor:LblBGcolor,
+					// markerSize: LblBmarkerSize,
+					markerType: "circle",  //"circle", "square", "cross", "none"
+					// markerColor: LblBmarkerColor,
+					color: mColorBarOdd,
+					markerBorderColor: "#ccc",
+					})
+			}
+//##############################################################################
 		if ( parseFloat(tic[i-1]) & 1 ){
 			// console.log(i, " Odd Нечет " );
 			yDigitOdd = parseFloat(tic[i-1]);
@@ -432,6 +504,7 @@ ws.onmessage = function(msg) {
 				color: mColorBarOdd,
 				markerBorderColor: "#ccc",
 				});
+				
 			if (spot[i-1] < spot[i]) {
 
 				dpsbOdd.push({//нечёт синий
@@ -466,6 +539,7 @@ ws.onmessage = function(msg) {
 					})
 			};
 		} else {
+
 			// console.log(i, " Even Чет " );
 			yDigitEven = parseFloat(tic[i-1]);
 			yDigitOdd = '';
@@ -532,24 +606,38 @@ ws.onmessage = function(msg) {
 					dpsEven.shift();
 					// console.log("Чет >");
 				};
+				
+//##############################################################################
+				// console.log(i,digit[i],"");
+				// console.log("EvenBlue OddRed  dpsebor.length", dpsebor.length);
+				// console.log("OddBlue EvenRed  dpsober.length", dpsober.length);
+				if (dpsebor.length > dpseborLength){
+					dpsebor.shift();
+					// console.log(i,digit[i],"Чет синий");
+				};
+				if (dpsober.length > dpsoberLength){
+					dpsober.shift();
+					// console.log(i,digit[i],"Чет синий");
+				};
+//##############################################################################
 				// console.log("tik", i);
 				// console.log("чёт синий dpsbEven.length", dpsbEven.length);
 				// console.log("чёт синий bEvenLength", bEvenLength);
 				// console.log("нечёт красный dpsrOdd.length", dpsrOdd.length);
 				// console.log("нечёт красный rOddLength", rOddLength);
-				if (dpsbEven.length > bEvenLength ) {
+				if (dpsbEven.length > bEvenLength){
 					dpsbEven.shift();
 					// console.log(i,digit[i],"Чет синий");
 				};
-				if (dpsrEven.length > rEvenLength ) {
+				if (dpsrEven.length > rEvenLength){
 					dpsrEven.shift();
 					// console.log(i,digit[i],"Чет красный");
 				};
-				if (dpsbOdd.length > bOddLength ) {
+				if (dpsbOdd.length > bOddLength){
 					dpsbOdd.shift();
 					// console.log(i,digit[i],"Нечет синий");
 				};
-				if (dpsrOdd.length > rOddLength ) {
+				if (dpsrOdd.length > rOddLength){
 					dpsrOdd.shift();
 					// console.log(i,digit[i],"Нечет красный");
 				};
@@ -657,7 +745,7 @@ chart = new CanvasJS.Chart("chartContainer", {
 	theme: "light2",
 	title: {
 		fontColor: "red",
-		text: "mod_0.3.8",
+		text: "mod_0.3.10",
 		fontSize: 10,
 	},
 	toolTip: {
@@ -672,7 +760,7 @@ chart = new CanvasJS.Chart("chartContainer", {
 		includeZero: false,
 		// titleFontSize: 20,
 		maximum: 20.5,
-		minimum: -0.5,
+		minimum: 0.7,
 		interval: 1,
 		labelFontSize: 10,
 		gridThickness: 1,
@@ -727,16 +815,18 @@ chart_Odd_Even = new CanvasJS.Chart("chartContainerAxisCord", {
 		gridThickness: 1,
 		gridDashType: "dash",
 		tickLength: 0,
-		lineThickness: 1
+		lineThickness: 1,
+		maximum: 20.5,
+		minimum: 0.5
 	},
 	axisY: {stripLines:[{
 			startValue:0,
-			endValue:10,
+			endValue:12,
 			color:"#c7fcec",
 			},
 			{
 			startValue:0,
-			endValue:-10,
+			endValue:-12,
 			color:"#fff0f5",
 			}
 			],valueFormatString:"#000",
@@ -854,16 +944,18 @@ chartEven = new CanvasJS.Chart("chartContainerDigitEven", {
 		gridThickness: 1,
 		gridDashType: "dash",
 		tickLength: 0,
-		lineThickness: 1
+		lineThickness: 1,
+		maximum: 20.5,
+		minimum: 0.5
 	},
 	axisY: {stripLines:[{
 			startValue:0,
-			endValue:10,
+			endValue:12,
 			color:"#c7fcec",
 			},
 			{
 			startValue:0,
-			endValue:-10,
+			endValue:-12,
 			color:"#fff0f5",
 			}
 			],valueFormatString:"#000",
@@ -972,16 +1064,18 @@ chartOdd = new CanvasJS.Chart("chartContainerDigitOdd", {
 		gridThickness: 1,
 		gridDashType: "dash",
 		tickLength: 0,
-		lineThickness: 1
+		lineThickness: 1,
+		maximum: 20.5,
+		minimum: 0.5
 	},
 	axisY: {stripLines:[{
 			startValue:0,
-			endValue:10,
+			endValue:12,
 			color:"#c7fcec",
 			},
 			{
 			startValue:0,
-			endValue:-10,
+			endValue:-12,
 			color:"#fff0f5",
 			}
 			],valueFormatString:"#000",
@@ -996,6 +1090,7 @@ chartOdd = new CanvasJS.Chart("chartContainerDigitOdd", {
 		gridDashType: "dash",
 		// tickLength: 0,
 		// lineThickness: 1
+
 	},
 	legend:{
 		cursor:"pointer",
@@ -1105,16 +1200,18 @@ chartDigit = new CanvasJS.Chart("chartContainerDigit", {
 		gridThickness: 1,
 		gridDashType: "dash",
 		tickLength: 0,
-		lineThickness: 1
+		lineThickness: 1,
+		maximum: 20.5,
+		minimum: 0.5
 	},
 	axisY: {stripLines:[{
 			startValue:0,
-			endValue:10,
+			endValue:12,
 			color:"#c7fcec",
 			},
 			{
 			startValue:0,
-			endValue:-10,
+			endValue:-12,
 			color:"#fff0f5",
 			}
 			],valueFormatString:"#000",
@@ -1141,43 +1238,43 @@ chartDigit = new CanvasJS.Chart("chartContainerDigit", {
 		type: "line",
 		color: "#4682B4",
 		showInLegend: true,
-		name: "чёт синий",
+		name: "Чс и Нк yellow",
 		markerType: "circle",  //"circle", "square", "cross", "none"
 		markerColor: "yellow",
 		markerSize: 12,
-		dataPoints: dpsbEven
+		dataPoints: dpsebor// Чс и Нк EvenBlue OddRed
 	},
-	{
-		type: "line",
-		color: "#FA8072",
-		showInLegend: true,
-		name: "нечёт красный",
-		lineDashType: "dash",
-		markerType: "circle",  //"circle", "square", "cross", "none"
-		markerColor: "yellow",
-		markerSize: 12,
-		dataPoints: dpsrOdd
-	},
-	{
-		type: "line",
-		color: "#1E90FF",
-		showInLegend: true,
-		name: "нечёт синий",
-		markerType: "circle",  //"circle", "square", "cross", "none"
-		markerColor: "green",
-		markerSize: 12,
-		dataPoints: dpsbOdd
-	},
+	// {
+		// type: "line",
+		// color: "#FA8072",
+		// showInLegend: true,
+		// name: "нечёт красный",
+		// lineDashType: "dash",
+		// markerType: "circle",  //"circle", "square", "cross", "none"
+		// markerColor: "yellow",
+		// markerSize: 12,
+		// dataPoints: dpsrOdd
+	// },
+	// {
+		// type: "line",
+		// color: "#1E90FF",
+		// showInLegend: true,
+		// name: "нечёт синий",
+		// markerType: "circle",  //"circle", "square", "cross", "none"
+		// markerColor: "green",
+		// markerSize: 12,
+		// dataPoints: dpsbOdd
+	// },
 	{
 		type: "line",
 		color: "#F08080",
 		showInLegend: true,
-		name: "чёт красный",
+		name: "Нс Чк green",
 		lineDashType: "dash",
 		markerType: "circle",  //"circle", "square", "cross", "none"
 		markerColor: "green",
 		markerSize: 12,
-		dataPoints: dpsrEven
+		dataPoints: dpsober// Нс Чк OddBlue EvenRed
 	}]
 });
 }, false);
