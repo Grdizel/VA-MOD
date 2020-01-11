@@ -109,18 +109,18 @@ span.menu-active {
 }
 .chartContainerDigitEven {
   margin-bottom: 1px;
-  min-height: 280px;
+  min-height: 190px;
   min-width: 125px;
 }
 .chartContainerDigitOdd {
   margin-bottom: 1px;
-  min-height: 50px;
+  min-height: 60px;
   min-width: 125px;
 }
 .chartContainerDigit {
  margin-top: 5px;
  margin-bottom: 2px;
-  min-height: 280px;
+  min-height: 190px;
   min-width: 100px;
 }
 .arrow_up span {
