@@ -654,24 +654,26 @@ ws.onmessage = function(msg) {
 				 });
 			dps_red.push({
 				x: xDigit,
-				y: yDigitRevPos,
+				// y: yDigitRevPos,
+				y: parseFloat(tic[i-1]),
 				indexLabel: lblDigit1,
 				//indexLabelFontWeight: "bold",
 				indexLabelFontSize: 18,
 				indexLabelFontColor: fontCol,// цвет красных цифр ни нижнем графике
-				indexLabelPlacement: lblPlace,
-				color: colRev1,
+				// indexLabelPlacement: lblPlace,
+				color: mColorDigit,
 				markerBorderColor: "#ccc",
 				});
 			dps_blue.push({
 				x: xDigit,
-				y: yDigitRevneg,
+				// y: yDigitRevneg,
+				y: parseFloat(tic[i-1]),
 				indexLabel: lblDigit2,
 				indexLabelFontWeight: "bold",
 				indexLabelFontSize: 18,
 				indexLabelFontColor: fontCol,// цвет синих цифр ни нижнем графике
-				indexLabelPlacement: lblPlace,
-				color: colRev2,
+				// indexLabelPlacement: lblPlace,
+				color: mColorDigit,
 				markerBorderColor: "#ccc",
 				});
 			}
@@ -944,27 +946,6 @@ chartDigit = new CanvasJS.Chart("chartContainerDigit", {
 		markerSize: 12,
 		dataPoints: dpsebor// Чс и Нк EvenBlue OddRed
 	},
-	// {
-		// type: "line",
-		// color: "#FA8072",
-		// showInLegend: true,
-		// name: "нечёт красный",
-		// lineDashType: "dash",
-		// markerType: "circle",  //"circle", "square", "cross", "none"
-		// markerColor: "yellow",
-		// markerSize: 12,
-		// dataPoints: dpsRedOdd
-	// },
-	// {
-		// type: "line",
-		// color: "#1E90FF",
-		// showInLegend: true,
-		// name: "нечёт синий",
-		// markerType: "circle",  //"circle", "square", "cross", "none"
-		// markerColor: "green",
-		// markerSize: 12,
-		// dataPoints: dpsBlueOdd
-	// },
 	{
 		type: "line",
 		color: "green",
@@ -1088,7 +1069,7 @@ chartEven = new CanvasJS.Chart("chartContainerDigitEven", {
 	}]
 });
 chartOdd = new CanvasJS.Chart("chartContainerDigitOdd", {
-	theme: "dark1",
+	theme: "light2",
 	toolTip: {
 		enabled: true,
 		animationEnabled: true,
@@ -1127,7 +1108,7 @@ chartOdd = new CanvasJS.Chart("chartContainerDigitOdd", {
 		// titleFontSize: 5,
 		// label: digit[i],
 		interval: 1,
-		// maximum: 10,
+		// maximum: 5,
 		// minimum: 0,
 		labelFontSize: 0,
 		gridThickness: 0,
@@ -1144,55 +1125,15 @@ chartOdd = new CanvasJS.Chart("chartContainerDigitOdd", {
 		itemclick: toogleDataSeries
 	},
 	data: [
-/* 	{
+	{
 		type: "stackedColumn100",
-		// color: "black",
-		// lineDashType: "dash",
-		showInLegend: false,
-		// name: "ЧС",
-		// markerType: "circle",  //"circle", "square", "cross", "none"
-		// markerColor: "yellow",
-		// markerSize: 12,
-		dataPoints: dpsBlueEven//чёт синий
+		// bevelEnabled: true,
+		dataPoints: dps_blue
 	},
 	{
 		type: "stackedColumn100",
-		// color: "black",
-		// lineDashType: "dash",
-		showInLegend: false,
-		// name: "НК",
-		// markerType: "circle",  //"circle", "square", "cross", "none"
-		// markerColor: "yellow",
-		// markerSize: 12,
-		dataPoints: dpsRedOdd//нечёт красный
-	},
-	{
-		type: "stackedColumn100",
-		// color: "Goldenrod",
-		// lineDashType: "dash",
-		showInLegend: false,
-		// name: "НС",
-		// markerType: "circle",  //"circle", "square", "cross", "none"
-		// markerColor: "green",
-		// markerSize: 12,
-		dataPoints: dpsBlueOdd//нечёт синий
-	},
-	{
-		type: "stackedColumn100",
-		// color: "Goldenrod",
-		// lineDashType: "dash",
-		showInLegend: false,
-		// name: "ЧК",
-		// markerType: "circle",  //"circle", "square", "cross", "none"
-		// markerColor: "green",
-		// markerSize: 12,
-		dataPoints: dpsRedEven//чёт красный
-	}] */
-	{
-		type: "stackedColumn100",
-		color: "Goldenrod",
-		showInLegend: false,
-		dataPoints: dps_digit//чёт красный
+		// bevelEnabled: true,
+		dataPoints: dps_red
 	}]
 });
 }, false);
