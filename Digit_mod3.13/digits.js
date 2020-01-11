@@ -880,7 +880,7 @@ chart_Odd_Even = new CanvasJS.Chart("chartContainerAxisCord", {
 chartDigit = new CanvasJS.Chart("chartContainerDigit", {
 	animationEnabled: false,
     subtitles: [{
-    	text: "Ось с Союзниками и противниками",		
+    	text: "Ось СЗ/ПР",		
     	fontColor: "green",
     }],
 	toolTip: {
@@ -1051,7 +1051,7 @@ chartEven = new CanvasJS.Chart("chartContainerDigitEven", {
 		markerType: "circle",  //"circle", "square", "cross", "none"
 		markerColor: "yellow",
 		markerSize: 12,
-		dataPoints: dpsBlueEven
+		dataPoints: dpsBlueEven//чёт синий
 	},
 	{
 		type: "line",
@@ -1062,7 +1062,7 @@ chartEven = new CanvasJS.Chart("chartContainerDigitEven", {
 		markerType: "circle",  //"circle", "square", "cross", "none"
 		markerColor: "yellow",
 		markerSize: 12,
-		dataPoints: dpsRedOdd
+		dataPoints: dpsRedOdd//нечёт красный
 	},
 	{
 		type: "line",
@@ -1073,7 +1073,7 @@ chartEven = new CanvasJS.Chart("chartContainerDigitEven", {
 		markerType: "circle",  //"circle", "square", "cross", "none"
 		markerColor: "green",
 		markerSize: 12,
-		dataPoints: dpsBlueOdd
+		dataPoints: dpsBlueOdd//нечёт синий
 	},
 	{
 		type: "line",
@@ -1084,7 +1084,7 @@ chartEven = new CanvasJS.Chart("chartContainerDigitEven", {
 		markerType: "circle",  //"circle", "square", "cross", "none"
 		markerColor: "green",
 		markerSize: 12,
-		dataPoints: dpsRedEven
+		dataPoints: dpsRedEven//чёт красный
 	}]
 });
 /* chartOdd = new CanvasJS.Chart("chartContainerDigitOdd", {
