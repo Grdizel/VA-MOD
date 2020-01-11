@@ -1236,9 +1236,10 @@ chartDigit = new CanvasJS.Chart("chartContainerDigit", {
 	},
 	data: [{
 		type: "line",
-		color: "#4682B4",
+		color: "black",
+		lineDashType: "dash",
 		showInLegend: true,
-		name: "Чс и Нк yellow",
+		name: "Чс и Нк black",
 		markerType: "circle",  //"circle", "square", "cross", "none"
 		markerColor: "yellow",
 		markerSize: 12,
@@ -1267,7 +1268,7 @@ chartDigit = new CanvasJS.Chart("chartContainerDigit", {
 	// },
 	{
 		type: "line",
-		color: "#F08080",
+		color: "green",
 		showInLegend: true,
 		name: "Нс Чк green",
 		lineDashType: "dash",
