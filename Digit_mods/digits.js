@@ -745,9 +745,13 @@ chart = new CanvasJS.Chart("chartContainer", {
 	theme: "light2",
 	title: {
 		fontColor: "red",
-		text: "mod_0.3.11",
+		text: "mod_0.3.13",
 		fontSize: 10,
 	},
+    subtitles: [{
+    	text: "Червяк",		
+    	fontColor: "green",
+    }],
 	toolTip: {
 		enabled: true,
 		animationEnabled: true,
@@ -799,6 +803,10 @@ chart_Odd_Even = new CanvasJS.Chart("chartContainerAxisCord", {
 		// text: ""
 	// },
 	// backgroundColor: "#F5DEB3",
+    subtitles: [{
+    	text: "Ось координат",		
+    	fontColor: "green",
+    }],
 	toolTip: {
 		enabled: true,
 		animationEnabled: true,
@@ -1184,6 +1192,10 @@ chartOdd = new CanvasJS.Chart("chartContainerDigitOdd", {
 	}]
 }); */
 chartDigit = new CanvasJS.Chart("chartContainerDigit", {
+    subtitles: [{
+    	text: "Ось с Союзниками и противниками",		
+    	fontColor: "green",
+    }],
 	toolTip: {
 		enabled: true,
 		animationEnabled: true,
