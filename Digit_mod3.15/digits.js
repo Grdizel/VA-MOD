@@ -151,8 +151,10 @@ ws.onmessage = function(msg) {
 			}
 //#################################################################
 				// if (((parseFloat(digit[i+1]) & 1)==1) && ((parseFloat(digit[i]) & 1)==0) && (parseFloat(digit[i-1])==0)) console.log(i+1, digit[i+1], i, digit[i])
-				// if  ((digit[i])==((digit[i+1])+1)) console.log(i, digit[i], i+1, digit[i+1], (digit[i+1])+1)
+				// if  (((digit[i])==(parseFloat(digit[i+1])+1)) && (digit[i+1]>=5)) console.log(i, digit[i], i+1, digit[i+1], parseFloat(digit[i+1])+1)
+				if  (digit[i+1]>=5) console.log(i+1, digit[i+1])
 					// console.log(i+1, parseFloat(digit[i+1])+1)
+				
 				if (((parseFloat(digit[i+1]) & 1)==1) && ((parseFloat(digit[i]) & 1)==0) && (parseFloat(digit[i-1])==0) && ((digit[i])==(parseFloat(digit[i+1])+1)) && (digit[i+1]>=5)) {
 					digit[i]== "10"
 					console.log(i,digit[i])
