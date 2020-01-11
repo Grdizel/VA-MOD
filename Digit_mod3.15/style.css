@@ -114,7 +114,7 @@ span.menu-active {
 }
 .chartContainerDigitOdd {
   margin-bottom: 1px;
-  min-height: 70px;
+  min-height: 50px;
   min-width: 125px;
 }
 .chartContainerDigit {
