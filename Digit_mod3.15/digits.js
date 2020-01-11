@@ -693,7 +693,7 @@ ws.onmessage = function(msg) {
 			chart_Odd_Even.render();
 			chartDigit.render();
 			chartEven.render();
-			// chartOdd.render();
+			chartOdd.render();
 			tic1 = tic[19];
 			tic2 = tic[18];
 			tic3 = tic[17];
@@ -1066,10 +1066,10 @@ chartEven = new CanvasJS.Chart("chartContainerDigitEven", {
 	},
 	{
 		type: "line",
-		color: "Goldenrod",
+		color: "Chocolate",
 		// lineDashType: "dash",
 		showInLegend: true,
-		name: "НС Goldenrod линия",
+		name: "НС Chocolate линия",
 		markerType: "circle",  //"circle", "square", "cross", "none"
 		markerColor: "green",
 		markerSize: 12,
@@ -1077,17 +1077,17 @@ chartEven = new CanvasJS.Chart("chartContainerDigitEven", {
 	},
 	{
 		type: "line",
-		color: "Goldenrod",
+		color: "Chocolate",
 		lineDashType: "dash",
 		showInLegend: true,
-		name: "ЧК Goldenrod пунктир",
+		name: "ЧК Chocolate пунктир",
 		markerType: "circle",  //"circle", "square", "cross", "none"
 		markerColor: "green",
 		markerSize: 12,
 		dataPoints: dpsRedEven//чёт красный
 	}]
 });
-/* chartOdd = new CanvasJS.Chart("chartContainerDigitOdd", {
+chartOdd = new CanvasJS.Chart("chartContainerDigitOdd", {
 	toolTip: {
 		enabled: true,
 		animationEnabled: true,
@@ -1101,8 +1101,8 @@ chartEven = new CanvasJS.Chart("chartContainerDigitEven", {
 		// titleFontSize: 0,
 		labelFontSize: 10,
 		interval: 1,
-		gridThickness: 1,
-		gridDashType: "dash",
+		gridThickness: 0,
+		// gridDashType: "dash",
 		tickLength: 0,
 		lineThickness: 1,
 		maximum: 20.5,
@@ -1123,11 +1123,11 @@ chartEven = new CanvasJS.Chart("chartContainerDigitEven", {
 		// titleFontSize: 5,
 		// label: digit[i],
 		interval: 1,
-		maximum: 11,
-		minimum: -0.5,
-		labelFontSize: 10,
-		gridThickness: 1,
-		gridDashType: "dash",
+		maximum: 5,
+		minimum: 0,
+		labelFontSize: 0,
+		gridThickness: 0,
+		// gridDashType: "dash",
 		// tickLength: 0,
 		// lineThickness: 1
 
@@ -1140,23 +1140,48 @@ chartEven = new CanvasJS.Chart("chartContainerDigitEven", {
 		itemclick: toogleDataSeries
 	},
 	data: [{
-		type: "line",
-		color: "#1E90FF",
+		type: "stackedColumn100",
+		// color: "black",
+		// lineDashType: "dash",
 		showInLegend: true,
-		name: "нечёт синий",
-		markerType: "circle",  //"circle", "square", "cross", "none"
-		markerSize: 5,
-		dataPoints: dpsBlueOdd
+		name: "ЧС",
+		// markerType: "circle",  //"circle", "square", "cross", "none"
+		// markerColor: "yellow",
+		// markerSize: 12,
+		dataPoints: dpsBlueEven//чёт синий
 	},
 	{
-		type: "line",
-		color: "#F08080",
+		type: "stackedColumn100",
+		// color: "black",
+		// lineDashType: "dash",
 		showInLegend: true,
-		name: "чёт красный",
-		lineDashType: "dash",
-		markerType: "circle",  //"circle", "square", "cross", "none"
-		markerSize: 5,
-		dataPoints: dpsRedEven
+		name: "НК",
+		// markerType: "circle",  //"circle", "square", "cross", "none"
+		// markerColor: "yellow",
+		// markerSize: 12,
+		dataPoints: dpsRedOdd//нечёт красный
+	},
+	{
+		type: "stackedColumn100",
+		// color: "Goldenrod",
+		// lineDashType: "dash",
+		showInLegend: true,
+		name: "НС",
+		// markerType: "circle",  //"circle", "square", "cross", "none"
+		// markerColor: "green",
+		// markerSize: 12,
+		dataPoints: dpsBlueOdd//нечёт синий
+	},
+	{
+		type: "stackedColumn100",
+		// color: "Goldenrod",
+		// lineDashType: "dash",
+		showInLegend: true,
+		name: "ЧК",
+		// markerType: "circle",  //"circle", "square", "cross", "none"
+		// markerColor: "green",
+		// markerSize: 12,
+		dataPoints: dpsRedEven//чёт красный
 	}]
-}); */
+});
 }, false);
