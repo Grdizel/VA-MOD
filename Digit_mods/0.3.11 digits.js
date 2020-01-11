@@ -745,7 +745,7 @@ chart = new CanvasJS.Chart("chartContainer", {
 	theme: "light2",
 	title: {
 		fontColor: "red",
-		text: "mod_0.3.10",
+		text: "mod_0.3.11",
 		fontSize: 10,
 	},
 	toolTip: {
