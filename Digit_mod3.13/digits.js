@@ -1066,10 +1066,10 @@ chartEven = new CanvasJS.Chart("chartContainerDigitEven", {
 	},
 	{
 		type: "line",
-		color: "green",
+		color: "Goldenrod",
 		// lineDashType: "dash",
 		showInLegend: true,
-		name: "НС зелёная линия",
+		name: "НС Goldenrod линия",
 		markerType: "circle",  //"circle", "square", "cross", "none"
 		markerColor: "green",
 		markerSize: 12,
@@ -1077,10 +1077,10 @@ chartEven = new CanvasJS.Chart("chartContainerDigitEven", {
 	},
 	{
 		type: "line",
-		color: "green",
+		color: "Goldenrod",
 		lineDashType: "dash",
 		showInLegend: true,
-		name: "ЧК зелёный пунктир",
+		name: "ЧК Goldenrod пунктир",
 		markerType: "circle",  //"circle", "square", "cross", "none"
 		markerColor: "green",
 		markerSize: 12,
