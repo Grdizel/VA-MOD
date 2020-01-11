@@ -745,7 +745,7 @@ chart = new CanvasJS.Chart("chartContainer", {
 	theme: "light2",
 	title: {
 		fontColor: "red",
-		text: "mod_0.3.13",
+		text: "mod_0.3.14",
 		fontSize: 10,
 	},
     subtitles: [{
@@ -1044,14 +1044,14 @@ chartEven = new CanvasJS.Chart("chartContainerDigitEven", {
 	},
 	data: [{
 		type: "line",
-		color: "green",
+		color: "black",
 		lineDashType: "dash",
 		showInLegend: true,
-		name: "ЧК зелёный пунктир",
+		name: "ЧС чёрный пунктир",
 		markerType: "circle",  //"circle", "square", "cross", "none"
 		markerColor: "yellow",
 		markerSize: 12,
-		dataPoints: dpsRedEven
+		dataPoints: dpsBlueEven
 	},
 	{
 		type: "line",
@@ -1077,14 +1077,14 @@ chartEven = new CanvasJS.Chart("chartContainerDigitEven", {
 	},
 	{
 		type: "line",
-		color: "black",
+		color: "green",
 		lineDashType: "dash",
 		showInLegend: true,
-		name: "ЧС чёрный пунктир",
+		name: "ЧК зелёный пунктир",
 		markerType: "circle",  //"circle", "square", "cross", "none"
 		markerColor: "green",
 		markerSize: 12,
-		dataPoints: dpsBlueEven
+		dataPoints: dpsRedEven
 	}]
 });
 /* chartOdd = new CanvasJS.Chart("chartContainerDigitOdd", {
