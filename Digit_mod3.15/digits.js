@@ -3,7 +3,7 @@ var ws,b,rnd,spot,time,dps_spot,dps_digit,dps_red,dps_blue,dpsEven,dpsOdd,ready,
 var OddLength, EvenLength, bEvenLength, bOddLength, rEvenLength, rOddLength, dpseborLength, dpsoberLength, temp = 0, temp_Odd=0, temp_Even=0, tdgbEven=0, tdgbOdd=0, tdgrEven=0, tdgrOdd=0, tdpsebor = 0, tdpsober = 0;
 var colRev1, colRev2, lblDigit1, lblDigit2, yDigitRevPos, yDigitRevneg, StartSignal, LblSize, LblBGcolor, LblBmarkerSize, LblBmarkerColor, fontCol, lblPlace;
 var dgb = [], dgr = [], dgbEven = [], dgbOdd = [], dgrEven = [], dgrOdd = [], dpsRedEven = [], dpsBlueEven = [], dpsBlueOdd = [], dpsRedOdd = [], dpsebor = [], dpsober = [];
-var posrodd, posbodd, posreven, posbeven;
+var colorBlueRed;
 
 let start = 0;
 str=["R_100","R_10","R_25","R_50","R_75","RDBEAR","RDBULL"];thick=[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]; dps_spot=[]; dps_digit=[]; dps_red=[];dps_blue=[]; dpsEven=[]; dpsOdd=[]; stripLinesValue=[]; time=[0]; spot=[0];tic=[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];digit=[0]; mType="none"; mColor="#32cd32"; lng="EN"; xVal=0; yVal=0; cnt=20;
@@ -150,11 +150,14 @@ ws.onmessage = function(msg) {
 				// console.log(i,'красный нечёт',dgrOdd[i])
 			}
 //#################################################################
-				if(((parseFloat(digit[i+1]) & 1)==1) && ((parseFloat(digit[i]) & 1)==0) && (parseFloat(digit[i-1])==0) && ((digit[i])==((digit[i+1])+1)) && (digit[i+1]>=5)) {
+				// if (((parseFloat(digit[i+1]) & 1)==1) && ((parseFloat(digit[i]) & 1)==0) && (parseFloat(digit[i-1])==0)) console.log(i+1, digit[i+1], i, digit[i])
+				// if  ((digit[i])==((digit[i+1])+1)) console.log(i, digit[i], i+1, digit[i+1], (digit[i+1])+1)
+					// console.log(i+1, parseFloat(digit[i+1])+1)
+				if (((parseFloat(digit[i+1]) & 1)==1) && ((parseFloat(digit[i]) & 1)==0) && (parseFloat(digit[i-1])==0) && ((digit[i])==(parseFloat(digit[i+1])+1)) && (digit[i+1]>=5)) {
 					digit[i]== "10"
 					console.log(i,digit[i])
 					console.log(i,(spot[i]))
-				}else if(((parseFloat(digit[i+1]) & 1)==0) && ((parseFloat(digit[i]) & 1)==1) && (parseFloat(digit[i-1])==0) && ((digit[i])==((digit[i+1])+1)) && (digit[i+1]>=6)) {
+				}else if(((parseFloat(digit[i+1]) & 1)==0) && ((parseFloat(digit[i]) & 1)==1) && (parseFloat(digit[i-1])==0) && ((digit[i])==(parseFloat(digit[i+1])+1)) && (digit[i+1]>=6)) {
 					digit[i]== "10"
 					console.log(i,digit[i])
 					console.log(i,(spot[i]))
@@ -163,6 +166,8 @@ ws.onmessage = function(msg) {
 			var mWmColorDigit = "#29abe2";//цвет цифр в верхнем графике
 		} else if(spot[i] < spot[i+1]) {
 			var mWmColorDigit = "#c03";//цвет цифр в верхнем графике
+		} else {
+
 		}
 			xVal = new Date(time[i]*1000);
 			yVal = parseFloat(spot[i]);
@@ -323,15 +328,21 @@ ws.onmessage = function(msg) {
 			// }
 		for (var i=1; i<cnt+1; i++) {
 			if (spot[i-1] < spot[i]) {
+				colorBlueRed = "#29abe2"; 
 				toggleDigit(i,"up");
 				mColorBarEven = "#4169E1";//цвет второго графика синие столбики
 				mColorBarOdd = "#8533ff";//цвет третьего графика синие столбики
 				var mColorDigit = "#29abe2";//цвет четвёртого графика синие столбики
 			} else if(spot[i-1] > spot[i]) {
+				colorBlueRed = "#c03";
 				toggleDigit(i,"down");
 				mColorBarEven = "#DC143C";//цвет второго графика красные столбики
 				mColorBarOdd = "#CD5C5C";//цвет третьего графика красные столбики
 				var mColorDigit = "#c03";//цвет четвёртого графика красные столбики
+			} else {
+				colorBlueRed = 'grey'
+				// mColorDigit = "#c03"
+				// mColorDigit = "#29abe2"
 			}
 		toggleHead(i,thick[i-1]);
 		document.querySelector("#headcol > span:nth-child("+i+")").innerHTML = tic;
@@ -655,25 +666,25 @@ ws.onmessage = function(msg) {
 			dps_red.push({
 				x: xDigit,
 				// y: yDigitRevPos,
-				y: parseFloat(tic[i-1]),
-				indexLabel: lblDigit1,
+				y: parseFloat(digit[i]),
+				indexLabel: digit[i],//lblDigit1,
 				//indexLabelFontWeight: "bold",
 				indexLabelFontSize: 18,
-				indexLabelFontColor: fontCol,// цвет красных цифр ни нижнем графике
-				// indexLabelPlacement: lblPlace,
-				color: mColorDigit,
+				indexLabelFontColor: fontCol,//fontCol цвет красных цифр ни нижнем графике
+				indexLabelPlacement: "inside",// lblPlace,
+				color: colorBlueRed,
 				markerBorderColor: "#ccc",
 				});
 			dps_blue.push({
 				x: xDigit,
 				// y: yDigitRevneg,
-				y: parseFloat(tic[i-1]),
-				indexLabel: lblDigit2,
+				y: parseFloat(digit[i]),
+				indexLabel: digit[i],//lblDigit2,
 				indexLabelFontWeight: "bold",
 				indexLabelFontSize: 18,
-				indexLabelFontColor: fontCol,// цвет синих цифр ни нижнем графике
-				// indexLabelPlacement: lblPlace,
-				color: mColorDigit,
+				indexLabelFontColor: fontCol,//fontCol цвет синих цифр ни нижнем графике
+				indexLabelPlacement: "inside",//lblPlace,
+				color: colorBlueRed,
 				markerBorderColor: "#ccc",
 				});
 			}
@@ -1069,29 +1080,29 @@ chartEven = new CanvasJS.Chart("chartContainerDigitEven", {
 	}]
 });
 chartOdd = new CanvasJS.Chart("chartContainerDigitOdd", {
-	theme: "light2",
+	theme: "dark1",
 	toolTip: {
 		enabled: true,
 		animationEnabled: true,
-		borderColor: "#ccc",
-		borderThickness: 1,
-		fontColor: "#000",
-		content: "{y}"
+		// borderColor: "#ccc",
+		// borderThickness: 1,
+		// fontColor: "#000",
+		// content: "{y}"
 			},
 	axisX: {
 		includeZero: false,
 		// titleFontSize: 0,
-		labelFontSize: 0,
+		labelFontSize: 1,
 		interval: 1,
 		gridThickness: 0,
 		// gridDashType: "dash",
 		tickLength: 0,
 		lineThickness: 1,
 		maximum: 20.5,
-		minimum: 0.5
+		minimum: 0
 	},
 	axisY: {
-		stripLines:[
+/* 		stripLines:[
 		{
 			startValue:0,
 			endValue:12,
@@ -1102,14 +1113,14 @@ chartOdd = new CanvasJS.Chart("chartContainerDigitOdd", {
 			endValue:-12,
 			color:"#fff0f5",
 		}
-		],
+		], */
 		valueFormatString:"#000",
 		includeZero: false,
 		// titleFontSize: 5,
 		// label: digit[i],
-		interval: 1,
-		// maximum: 5,
-		// minimum: 0,
+		// interval: 1,
+		maximum: 5,
+		minimum: 0,
 		labelFontSize: 0,
 		gridThickness: 0,
 		// gridDashType: "dash",
