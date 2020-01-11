@@ -325,7 +325,7 @@ ws.onmessage = function(msg) {
 			if (spot[i-1] < spot[i]) {
 				toggleDigit(i,"up");
 				mColorBarEven = "#4169E1";//цвет второго графика синие столбики
-				mColorBarOdd = "#4682B4";//цвет третьего графика синие столбики
+				mColorBarOdd = "#8533ff";//цвет третьего графика синие столбики
 				var mColorDigit = "#29abe2";//цвет четвёртого графика синие столбики
 			} else if(spot[i-1] > spot[i]) {
 				toggleDigit(i,"down");
@@ -1088,6 +1088,7 @@ chartEven = new CanvasJS.Chart("chartContainerDigitEven", {
 	}]
 });
 chartOdd = new CanvasJS.Chart("chartContainerDigitOdd", {
+	theme: "dark1",
 	toolTip: {
 		enabled: true,
 		animationEnabled: true,
@@ -1126,8 +1127,8 @@ chartOdd = new CanvasJS.Chart("chartContainerDigitOdd", {
 		// titleFontSize: 5,
 		// label: digit[i],
 		interval: 1,
-		maximum: 5,
-		minimum: 0,
+		// maximum: 10,
+		// minimum: 0,
 		labelFontSize: 0,
 		gridThickness: 0,
 		// gridDashType: "dash",
@@ -1142,12 +1143,13 @@ chartOdd = new CanvasJS.Chart("chartContainerDigitOdd", {
 		dockInsidePlotArea: true,
 		itemclick: toogleDataSeries
 	},
-	data: [{
+	data: [
+/* 	{
 		type: "stackedColumn100",
 		// color: "black",
 		// lineDashType: "dash",
-		showInLegend: true,
-		name: "ЧС",
+		showInLegend: false,
+		// name: "ЧС",
 		// markerType: "circle",  //"circle", "square", "cross", "none"
 		// markerColor: "yellow",
 		// markerSize: 12,
@@ -1157,8 +1159,8 @@ chartOdd = new CanvasJS.Chart("chartContainerDigitOdd", {
 		type: "stackedColumn100",
 		// color: "black",
 		// lineDashType: "dash",
-		showInLegend: true,
-		name: "НК",
+		showInLegend: false,
+		// name: "НК",
 		// markerType: "circle",  //"circle", "square", "cross", "none"
 		// markerColor: "yellow",
 		// markerSize: 12,
@@ -1168,8 +1170,8 @@ chartOdd = new CanvasJS.Chart("chartContainerDigitOdd", {
 		type: "stackedColumn100",
 		// color: "Goldenrod",
 		// lineDashType: "dash",
-		showInLegend: true,
-		name: "НС",
+		showInLegend: false,
+		// name: "НС",
 		// markerType: "circle",  //"circle", "square", "cross", "none"
 		// markerColor: "green",
 		// markerSize: 12,
@@ -1179,12 +1181,18 @@ chartOdd = new CanvasJS.Chart("chartContainerDigitOdd", {
 		type: "stackedColumn100",
 		// color: "Goldenrod",
 		// lineDashType: "dash",
-		showInLegend: true,
-		name: "ЧК",
+		showInLegend: false,
+		// name: "ЧК",
 		// markerType: "circle",  //"circle", "square", "cross", "none"
 		// markerColor: "green",
 		// markerSize: 12,
 		dataPoints: dpsRedEven//чёт красный
+	}] */
+	{
+		type: "stackedColumn100",
+		color: "Goldenrod",
+		showInLegend: false,
+		dataPoints: dps_digit//чёт красный
 	}]
 });
 }, false);
