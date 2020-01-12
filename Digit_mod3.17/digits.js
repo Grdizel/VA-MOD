@@ -1097,7 +1097,7 @@ chartSZPR = new CanvasJS.Chart("chartContainerSZPR", {
 		type: "line",
 		color: "black",
 		// lineDashType: "dash",
-		lineThickness: 1,
+		lineThickness: 0.6,
 		showInLegend: true,
 		name: "Чс и Нк black",
 		markerType: "circle",  //"circle", "square", "cross", "none"
@@ -1108,7 +1108,7 @@ chartSZPR = new CanvasJS.Chart("chartContainerSZPR", {
 	{
 		type: "line",
 		color: "green",
-		lineThickness: 1,
+		lineThickness: 0.6,
 		// lineDashType: "dash",
 		showInLegend: true,
 		name: "Нс Чк green",
@@ -1294,7 +1294,7 @@ chartOdd = new CanvasJS.Chart("chartContainerDigitOdd", {
 		// titleFontSize: 5,
 		// label: digit[i],
 		// interval: 1,
-		maximum: 5,
+		maximum: 1,
 		minimum: 0,
 		labelFontSize: 0,
 		gridThickness: 0,
