@@ -910,7 +910,7 @@ chart_Odd_Even = new CanvasJS.Chart("chartContainerAxisCord", {
 		itemclick: toogleDataSeries
 	},
 	data: [
-	{
+/* 	{
 		type: "line",
 		color: "black",
 		// lineDashType: "dash",
@@ -931,7 +931,7 @@ chart_Odd_Even = new CanvasJS.Chart("chartContainerAxisCord", {
 		markerColor: "green",
 		markerSize: 12,
 		dataPoints: dpsober// Нс Чк OddBlue EvenRed
-	},
+	}, */
 	{
 		type: "line",
 		lineDashType: "dash",
@@ -1108,6 +1108,25 @@ chartSZPR = new CanvasJS.Chart("chartContainerSZPR", {
 		markerColor: "green",
 		markerSize: 12,
 		dataPoints: dpsober// Нс Чк OddBlue EvenRed
+	},
+		{
+		type: "line",
+		lineDashType: "dash",
+		showInLegend: true,
+		name: "Even Чёт",
+		markerType: "circle",  //"circle", "square", "cross", "none"
+		markerSize: 5,
+		color: "#F08080",
+		dataPoints: dpsEven
+	},
+	{
+		type: "line",
+		showInLegend: true,
+		name: "Odd Нечет",
+		lineDashType: "dash",
+		markerType: "circle",  //"circle", "square", "cross", "none"
+		markerSize: 5,
+		dataPoints: dpsOdd
 	}]
 });
 chartEven = new CanvasJS.Chart("chartContainerDigitEven", {
