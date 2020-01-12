@@ -1091,6 +1091,7 @@ chartSZPR = new CanvasJS.Chart("chartContainerSZPR", {
 		type: "line",
 		color: "black",
 		// lineDashType: "dash",
+		lineThickness: 1,
 		showInLegend: true,
 		name: "Чс и Нк black",
 		markerType: "circle",  //"circle", "square", "cross", "none"
@@ -1101,9 +1102,11 @@ chartSZPR = new CanvasJS.Chart("chartContainerSZPR", {
 	{
 		type: "line",
 		color: "green",
+		lineThickness: 1,
+		// lineDashType: "dash",
 		showInLegend: true,
 		name: "Нс Чк green",
-		// lineDashType: "dash",
+		
 		markerType: "circle",  //"circle", "square", "cross", "none"
 		markerColor: "green",
 		markerSize: 12,
@@ -1113,6 +1116,7 @@ chartSZPR = new CanvasJS.Chart("chartContainerSZPR", {
 		type: "line",
 		lineDashType: "dash",
 		showInLegend: true,
+		// lineThickness: 5,
 		name: "Even Чёт",
 		markerType: "circle",  //"circle", "square", "cross", "none"
 		markerSize: 5,
@@ -1123,6 +1127,7 @@ chartSZPR = new CanvasJS.Chart("chartContainerSZPR", {
 		type: "line",
 		showInLegend: true,
 		name: "Odd Нечет",
+		// lineThickness: 5,
 		lineDashType: "dash",
 		markerType: "circle",  //"circle", "square", "cross", "none"
 		markerSize: 5,
