@@ -204,15 +204,15 @@ ws.onmessage = function(msg) {
 							// console.log(fi)
 							if((fi >= 7) && (spot[fi-2] < spot[fi-7])){
 								mColor = "green" //зелёный квадратик
-								mSize = 10
+								mSize = 5
 								mType = "square"
 							}else if ((fi >= 7) && (spot[fi-2] > spot[fi-7])){
 								mColor = "red" //красный квадратик
-								mSize = 10
+								mSize = 5
 								mType = "square"
 							} else {
 								mColor = "black"; //чёрный треугольник
-								mSize = 10
+								mSize = 5
 								mType = "triangle"
 							}
 							// console.log(spot[0])
