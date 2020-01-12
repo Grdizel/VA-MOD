@@ -934,6 +934,7 @@ chart_Odd_Even = new CanvasJS.Chart("chartContainerAxisCord", {
 	}, */
 	{
 		type: "line",
+		lineThickness: 1,
 		lineDashType: "dash",
 		showInLegend: true,
 		name: "Even Чёт",
@@ -944,6 +945,7 @@ chart_Odd_Even = new CanvasJS.Chart("chartContainerAxisCord", {
 	},
 	{
 		type: "line",
+		lineThickness: 1,
 		showInLegend: true,
 		name: "Odd Нечет",
 		lineDashType: "dash",
@@ -1011,6 +1013,7 @@ chartDigit = new CanvasJS.Chart("chartContainerDigit", {
 	data: [{
 		type: "line",
 		color: "black",
+		lineThickness: 1,
 		lineDashType: "dash",
 		showInLegend: true,
 		name: "Чс и Нк black",
@@ -1022,6 +1025,7 @@ chartDigit = new CanvasJS.Chart("chartContainerDigit", {
 	{
 		type: "line",
 		color: "green",
+		lineThickness: 1,
 		showInLegend: true,
 		name: "Нс Чк green",
 		lineDashType: "dash",
@@ -1202,6 +1206,7 @@ chartEven = new CanvasJS.Chart("chartContainerDigitEven", {
 	data: [{
 		type: "line",
 		color: "black",
+		lineThickness: 1,
 		lineDashType: "dash",
 		showInLegend: true,
 		name: "ЧС чёрный пунктир",
@@ -1213,6 +1218,7 @@ chartEven = new CanvasJS.Chart("chartContainerDigitEven", {
 	{
 		type: "line",
 		color: "black",
+		lineThickness: 1,
 		// lineDashType: "dash",
 		showInLegend: true,
 		name: "НК чёрная линия",
@@ -1224,6 +1230,7 @@ chartEven = new CanvasJS.Chart("chartContainerDigitEven", {
 	{
 		type: "line",
 		color: "Chocolate",
+		lineThickness: 1,
 		// lineDashType: "dash",
 		showInLegend: true,
 		name: "НС Chocolate линия",
@@ -1235,6 +1242,7 @@ chartEven = new CanvasJS.Chart("chartContainerDigitEven", {
 	{
 		type: "line",
 		color: "Chocolate",
+		lineThickness: 1,
 		lineDashType: "dash",
 		showInLegend: true,
 		name: "ЧК Chocolate пунктир",
