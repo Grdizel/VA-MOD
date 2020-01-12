@@ -1120,7 +1120,7 @@ chartSZPR = new CanvasJS.Chart("chartContainerSZPR", {
 		type: "line",
 		lineDashType: "dash",
 		showInLegend: true,
-		// lineThickness: 5,
+		lineThickness: 1,
 		name: "Even Чёт",
 		markerType: "circle",  //"circle", "square", "cross", "none"
 		markerSize: 5,
@@ -1131,7 +1131,7 @@ chartSZPR = new CanvasJS.Chart("chartContainerSZPR", {
 		type: "line",
 		showInLegend: true,
 		name: "Odd Нечет",
-		// lineThickness: 5,
+		lineThickness: 1,
 		lineDashType: "dash",
 		markerType: "circle",  //"circle", "square", "cross", "none"
 		markerSize: 5,
