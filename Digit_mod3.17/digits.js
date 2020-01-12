@@ -955,9 +955,10 @@ chart_Odd_Even = new CanvasJS.Chart("chartContainerAxisCord", {
 	}]
 });
 chartDigit = new CanvasJS.Chart("chartContainerDigit", {
+	theme: "light2",
 	animationEnabled: false,
     subtitles: [{
-    	text: "Ось СЗ/ПР",		
+    	text: "Ось СЗ/ПР 2",		
     	fontColor: "green",
     }],
 	toolTip: {
@@ -1036,6 +1037,7 @@ chartDigit = new CanvasJS.Chart("chartContainerDigit", {
 	}]
 });
 chartSZPR = new CanvasJS.Chart("chartContainerSZPR", {
+	theme: "light2",
 	animationEnabled: false,
     subtitles: [{
     	text: "Ось СЗ/ПР",		
