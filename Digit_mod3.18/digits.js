@@ -4,6 +4,7 @@ var OddLength, EvenLength, bEvenLength, bOddLength, rEvenLength, rOddLength, dps
 var colRev1, colRev2, lblDigit1, lblDigit2, yDigitRevPos, yDigitRevneg, StartSignal, LblSize, LblBGcolor, LblBmarkerSize, LblBmarkerColor, fontCol, lblPlace;
 var dgb = [], dgr = [], dgbEven = [], dpsOdd5x5=[], dpsEven5x5=[], dgbOdd = [], dgrEven = [], dgrOdd = [], dpsRedEven = [], dpsBlueEven = [], dpsBlueOdd = [], dpsRedOdd = [], dpsebor = [], dpsober = [],dpsebor2 = [], dpsober2 = [];
 var colorBlueRed;
+var DigiLabelOdd5x5, DigiLabelEven5x5, mColorDigit5x5;
 
 let start = 0;
 str=["R_100","R_10","R_25","R_50","R_75","RDBEAR","RDBULL"];thick=[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]; dps_spot=[]; dps_digit=[]; dps_red=[];dps_blue=[]; dpsEven=[]; dpsOdd=[]; stripLinesValue=[]; time=[0]; spot=[0];tic=[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];digit=[0]; mType="none"; mColor="#32cd32"; lng="EN"; xVal=0; yVal=0; cnt=20;
@@ -549,19 +550,29 @@ ws.onmessage = function(msg) {
 			if (parseFloat(tic[i-1])==7) xDigitOdd_5x5 = -4
 			if (parseFloat(tic[i-1])==8) xDigitOdd_5x5 = -3
 			if (parseFloat(tic[i-1])==9) xDigitOdd_5x5 = -2
-			if (parseFloat(tic[i-1])== "-6") xDigitOdd_5x5 = 5
-			if (parseFloat(tic[i-1])== "-7") xDigitOdd_5x5 = 4
-			if (parseFloat(tic[i-1])== "-8") xDigitOdd_5x5 = 3
-			if (parseFloat(tic[i-1])== "-9") xDigitOdd_5x5 = 2
+			if (parseFloat(tic[i-1])== -6) xDigitOdd_5x5 = 5
+			if (parseFloat(tic[i-1])== -7) xDigitOdd_5x5 = 4
+			if (parseFloat(tic[i-1])== -8) xDigitOdd_5x5 = 3
+			if (parseFloat(tic[i-1])== -9) xDigitOdd_5x5 = 2
+			if (parseFloat(tic[i-1])== 0) xDigitOdd_5x5 = parseFloat(tic[i-1])
 			if ((parseFloat(tic[i-1])<= 5) && parseFloat(tic[i-1])>= 0) xDigitOdd_5x5 = parseFloat(tic[i-1])
 			if ((parseFloat(tic[i-1])>= -5) && parseFloat(tic[i-1])<= 0) xDigitOdd_5x5 = parseFloat(tic[i-1])
+					// console.log(i, digit[i], " Odd Нечет ")
+					// if (digit[i] == 7) console.log(i, digit[i], " Odd Нечет ")
+					if (digit[i] == 6) DigiLabelOdd5x5 = '5'
+					if (digit[i] == 7) DigiLabelOdd5x5 = '4'
+					if (digit[i] == 8) DigiLabelOdd5x5 = '3'
+					if (digit[i] == 9) DigiLabelOdd5x5 = '2'
+					if (digit[i] < 6) DigiLabelOdd5x5 = digit[i]
+					if ((spot[i-1] < spot[i]) && digit[i] >5) mColorDigit5x5 = "#c03";//цвет четвёртого графика красные столбики
+					if ((spot[i-1] > spot[i]) && digit[i] >5) mColorDigit5x5 = "#29abe2";//цвет четвёртого графика синие столбики
 			dpsOdd5x5.push({
 				x: xDigitOdd,
 				y: xDigitOdd_5x5,
-				indexLabel: DigiLabelOdd,
+				indexLabel: DigiLabelOdd5x5,
 				indexLabelFontWeight: "bold",
 				indexLabelFontSize: LblSize,
-				indexLabelFontColor:mColorDigit,
+				indexLabelFontColor:mColorDigit5x5,
 				indexLabelBackgroundColor:LblBGcolor,
 				markerSize: LblBmarkerSize,
 				markerType: "circle",  //"circle", "square", "cross", "none"
@@ -624,6 +635,10 @@ ws.onmessage = function(msg) {
 				markerBorderColor: "#ccc",
 				});
 				// if (parseFloat(tic[i-1])<= 5) console.log(i, yDigitEven, " Even Чет " );
+			if (parseFloat(tic[i-1])==6) {
+				yDigitEven_5x5 = -5
+				// DigiLabelEven = 5
+			}
 			if (parseFloat(tic[i-1])==6) yDigitEven_5x5 = -5
 			if (parseFloat(tic[i-1])==7) yDigitEven_5x5 = -4
 			if (parseFloat(tic[i-1])==8) yDigitEven_5x5 = -3
@@ -632,18 +647,29 @@ ws.onmessage = function(msg) {
 			if (parseFloat(tic[i-1])== -7) yDigitEven_5x5 = 4
 			if (parseFloat(tic[i-1])== -8) yDigitEven_5x5 = 3
 			if (parseFloat(tic[i-1])== -9) yDigitEven_5x5 = 2
+			if (parseFloat(tic[i-1])== 0) yDigitEven_5x5 = parseFloat(tic[i-1])
 			if ((parseFloat(tic[i-1])<= 5) && parseFloat(tic[i-1])>= 0) yDigitEven_5x5 = parseFloat(tic[i-1])
 			if ((parseFloat(tic[i-1])>= -5) && parseFloat(tic[i-1])<= 0) yDigitEven_5x5 = parseFloat(tic[i-1])
-		
-			// if (parseFloat(tic[i-1])<= 5) console.log(i, yDigitEven_5x5, " Even Чет " );
 
+					if (digit[i] == 6) DigiLabelEven5x5 = '5'
+					if (digit[i] == 7) DigiLabelEven5x5 = '4'
+					if (digit[i] == 8) DigiLabelEven5x5 = '3'
+					if (digit[i] == 9) DigiLabelEven5x5 = '2'
+					if (digit[i] < 6) DigiLabelEven5x5 = digit[i]
+					if ((spot[i-1] < spot[i]) && digit[i] >5) mColorDigit5x5 = "#c03";//цвет четвёртого графика красные столбики
+					if ((spot[i-1] > spot[i]) && digit[i] >5) mColorDigit5x5 = "#29abe2";//цвет четвёртого графика синие столбики
+
+
+			// if (parseFloat(tic[i-1])<= 5) console.log(i, yDigitEven_5x5, " Even Чет " );
+			// console.log(i, DigiLabelEven, " Even Чет " );
+			// DigiLabelEven = "5"
 			dpsEven5x5.push({
 				x: xDigitEven,
-				y: yDigitEven_5x5,
-				indexLabel: DigiLabelEven,
+				y: yDigitEven,
+				indexLabel: DigiLabelEven5x5,
 				// indexLabelFontWeight: "bold",
 				indexLabelFontSize: LblSize,
-				indexLabelFontColor:mColorDigit,
+				indexLabelFontColor:mColorDigit5x5,
 				indexLabelBackgroundColor:LblBGcolor,
 				markerSize: LblBmarkerSize,
 				// markerType: "circle",  //"circle", "square", "cross", "none"
@@ -857,7 +883,7 @@ chart = new CanvasJS.Chart("chartContainer", {
 	theme: "light2",
 	title: {
 		fontColor: "red",
-		text: "mod_0.3.17",
+		text: "mod_0.3.18",
 		fontSize: 10,
 	},
     subtitles: [{
@@ -1065,8 +1091,8 @@ chart_Odd_Even_5x5 = new CanvasJS.Chart("chartContainerAxis5x5", {
 		// titleFontSize: 5,
 		// label: digit[i],
 		interval: 1,
-		maximum: 7.5,
-		minimum: -7.5,
+		maximum: 12.5,
+		minimum: -12.5,
 		labelFontSize: 10,
 		gridThickness: 1,
 		gridDashType: "dash",
