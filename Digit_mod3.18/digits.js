@@ -546,26 +546,45 @@ ws.onmessage = function(msg) {
 				color: mColorBarOdd,
 				markerBorderColor: "#ccc",
 				});
-			if (parseFloat(tic[i-1])==6) xDigitOdd_5x5 = -5
-			if (parseFloat(tic[i-1])==7) xDigitOdd_5x5 = -4
-			if (parseFloat(tic[i-1])==8) xDigitOdd_5x5 = -3
-			if (parseFloat(tic[i-1])==9) xDigitOdd_5x5 = -2
-			if (parseFloat(tic[i-1])== -6) xDigitOdd_5x5 = 5
-			if (parseFloat(tic[i-1])== -7) xDigitOdd_5x5 = 4
-			if (parseFloat(tic[i-1])== -8) xDigitOdd_5x5 = 3
-			if (parseFloat(tic[i-1])== -9) xDigitOdd_5x5 = 2
-			if (parseFloat(tic[i-1])== 0) xDigitOdd_5x5 = parseFloat(tic[i-1])
-			if ((parseFloat(tic[i-1])<= 5) && parseFloat(tic[i-1])>= 0) xDigitOdd_5x5 = parseFloat(tic[i-1])
-			if ((parseFloat(tic[i-1])>= -5) && parseFloat(tic[i-1])<= 0) xDigitOdd_5x5 = parseFloat(tic[i-1])
+				
+			// if ((parseFloat(tic[i-1])<= 5) && parseFloat(tic[i-1])>= 0) xDigitOdd_5x5 = parseFloat(tic[i-1])
+			// if ((parseFloat(tic[i-1])>= -5) && parseFloat(tic[i-1])<= 0) xDigitOdd_5x5 = parseFloat(tic[i-1])
+			// if (parseFloat(tic[i-1])== 6) xDigitOdd_5x5 = -5
+			// if (parseFloat(tic[i-1])== 7) xDigitOdd_5x5 = -4
+			// if (parseFloat(tic[i-1])== 8) xDigitOdd_5x5 = -3
+			// if (parseFloat(tic[i-1])== 9) xDigitOdd_5x5 = -2
+			// if (parseFloat(tic[i-1])== -6) xDigitOdd_5x5 = 5
+			// if (parseFloat(tic[i-1])== -7) xDigitOdd_5x5 = 4
+			// if (parseFloat(tic[i-1])== -8) xDigitOdd_5x5 = 3
+			// if (parseFloat(tic[i-1])== -9) xDigitOdd_5x5 = 2
+			// if (parseFloat(tic[i-1])== 0) xDigitOdd_5x5 = parseFloat(tic[i-1])
+			if ((parseFloat(tic[i-1])>= 6) && (parseFloat(tic[i-1])>0)) {
+				xDigitOdd_5x5 = (parseFloat(tic[i-1]) - 11)
+			} else if ((parseFloat(tic[i-1])>=0) && (parseFloat(tic[i-1]) < 6)){
+				xDigitOdd_5x5 = (parseFloat(tic[i-1]))
+			} else if ((parseFloat(tic[i-1])<=0) && (parseFloat(tic[i-1]) > -6)){
+				xDigitOdd_5x5 = (parseFloat(tic[i-1]))
+			} else if ((parseFloat(tic[i-1])<0) && (parseFloat(tic[i-1]) < -5)){
+				xDigitOdd_5x5 = 11 + parseFloat(tic[i-1])
+				// console.log(i,xDigitOdd_5x5, " Odd Нечет " );
+			} else {
+				xDigitOdd_5x5 = parseFloat(tic[i-1])
+			}
+			// console.log(i,xDigitOdd_5x5, " Odd Нечет " );
 					// console.log(i, digit[i], " Odd Нечет ")
 					// if (digit[i] == 7) console.log(i, digit[i], " Odd Нечет ")
-					if (digit[i] == 6) DigiLabelOdd5x5 = '5'
-					if (digit[i] == 7) DigiLabelOdd5x5 = '4'
-					if (digit[i] == 8) DigiLabelOdd5x5 = '3'
-					if (digit[i] == 9) DigiLabelOdd5x5 = '2'
-					if (digit[i] < 6) DigiLabelOdd5x5 = digit[i]
-					if ((spot[i-1] < spot[i]) && digit[i] >5) mColorDigit5x5 = "#c03";//цвет четвёртого графика красные столбики
-					if ((spot[i-1] > spot[i]) && digit[i] >5) mColorDigit5x5 = "#29abe2";//цвет четвёртого графика синие столбики
+			// if (digit[i] > 5) {
+				// DigiLabelOdd5x5 = digit[i]
+			// }else{
+				// DigiLabelOdd5x5 = digit[i]
+			// }
+			if (digit[i] == 6) DigiLabelOdd5x5 = '5'
+			if (digit[i] == 7) DigiLabelOdd5x5 = '4'
+			if (digit[i] == 8) DigiLabelOdd5x5 = '3'
+			if (digit[i] == 9) DigiLabelOdd5x5 = '2'
+			if (digit[i] < 6) DigiLabelOdd5x5 = digit[i]
+			if ((spot[i-1] < spot[i]) && digit[i] >5) mColorDigit5x5 = "#c03";//цвет четвёртого графика красные столбики
+			if ((spot[i-1] > spot[i]) && digit[i] >5) mColorDigit5x5 = "#29abe2";//цвет четвёртого графика синие столбики
 			dpsOdd5x5.push({
 				x: xDigitOdd,
 				y: xDigitOdd_5x5,
@@ -639,25 +658,41 @@ ws.onmessage = function(msg) {
 				yDigitEven_5x5 = -5
 				// DigiLabelEven = 5
 			}
-			if (parseFloat(tic[i-1])==6) yDigitEven_5x5 = -5
-			if (parseFloat(tic[i-1])==7) yDigitEven_5x5 = -4
-			if (parseFloat(tic[i-1])==8) yDigitEven_5x5 = -3
-			if (parseFloat(tic[i-1])==9) yDigitEven_5x5 = -2
+/* 			if ((parseFloat(tic[i-1])<= 5) && parseFloat(tic[i-1])>= 0) yDigitEven_5x5 = parseFloat(tic[i-1])
+			if ((parseFloat(tic[i-1])>= -5) && parseFloat(tic[i-1])<= 0) yDigitEven_5x5 = parseFloat(tic[i-1])
+			if (parseFloat(tic[i-1])== 6) yDigitEven_5x5 = -5
+			if (parseFloat(tic[i-1])== 7) yDigitEven_5x5 = -4
+			if (parseFloat(tic[i-1])== 8) yDigitEven_5x5 = -3
+			if (parseFloat(tic[i-1])== 9) yDigitEven_5x5 = -2
 			if (parseFloat(tic[i-1])== -6) yDigitEven_5x5 = 5
 			if (parseFloat(tic[i-1])== -7) yDigitEven_5x5 = 4
 			if (parseFloat(tic[i-1])== -8) yDigitEven_5x5 = 3
 			if (parseFloat(tic[i-1])== -9) yDigitEven_5x5 = 2
-			if (parseFloat(tic[i-1])== 0) yDigitEven_5x5 = parseFloat(tic[i-1])
-			if ((parseFloat(tic[i-1])<= 5) && parseFloat(tic[i-1])>= 0) yDigitEven_5x5 = parseFloat(tic[i-1])
-			if ((parseFloat(tic[i-1])>= -5) && parseFloat(tic[i-1])<= 0) yDigitEven_5x5 = parseFloat(tic[i-1])
-
-					if (digit[i] == 6) DigiLabelEven5x5 = '5'
-					if (digit[i] == 7) DigiLabelEven5x5 = '4'
-					if (digit[i] == 8) DigiLabelEven5x5 = '3'
-					if (digit[i] == 9) DigiLabelEven5x5 = '2'
-					if (digit[i] < 6) DigiLabelEven5x5 = digit[i]
-					if ((spot[i-1] < spot[i]) && digit[i] >5) mColorDigit5x5 = "#c03";//цвет четвёртого графика красные столбики
-					if ((spot[i-1] > spot[i]) && digit[i] >5) mColorDigit5x5 = "#29abe2";//цвет четвёртого графика синие столбики
+			if (parseFloat(tic[i-1])== 0) yDigitEven_5x5 = parseFloat(tic[i-1]) */
+			if ((parseFloat(tic[i-1])>= 6) && (parseFloat(tic[i-1])>0)) {
+				yDigitEven_5x5 = (parseFloat(tic[i-1]) - 11)
+			} else if ((parseFloat(tic[i-1])>=0) && (parseFloat(tic[i-1]) < 6)){
+				yDigitEven_5x5 = (parseFloat(tic[i-1]))
+			} else if ((parseFloat(tic[i-1])<=0) && (parseFloat(tic[i-1]) > -6)){
+				yDigitEven_5x5 = (parseFloat(tic[i-1]))
+			} else if ((parseFloat(tic[i-1])<0) && (parseFloat(tic[i-1]) < -5)){
+				yDigitEven_5x5 = 11 + parseFloat(tic[i-1])
+			} else {
+				yDigitEven_5x5 = parseFloat(tic[i-1])
+			}
+			// console.log(i,yDigitEven_5x5, " Even Чет " );
+			// if (digit[i] > 5) {
+				// DigiLabelEven5x5 = 11 - digit[i]
+			// }else{
+				// DigiLabelEven5x5 = digit[i]
+			// }
+			if (digit[i] == 6) DigiLabelEven5x5 = '5'
+			if (digit[i] == 7) DigiLabelEven5x5 = '4'
+			if (digit[i] == 8) DigiLabelEven5x5 = '3'
+			if (digit[i] == 9) DigiLabelEven5x5 = '2'
+			if (digit[i] < 6) DigiLabelEven5x5 = digit[i]
+			if ((spot[i-1] < spot[i]) && digit[i] >5) mColorDigit5x5 = "#c03";//цвет четвёртого графика красные столбики
+			if ((spot[i-1] > spot[i]) && digit[i] >5) mColorDigit5x5 = "#29abe2";//цвет четвёртого графика синие столбики
 
 
 			// if (parseFloat(tic[i-1])<= 5) console.log(i, yDigitEven_5x5, " Even Чет " );
@@ -665,7 +700,7 @@ ws.onmessage = function(msg) {
 			// DigiLabelEven = "5"
 			dpsEven5x5.push({
 				x: xDigitEven,
-				y: yDigitEven,
+				y: yDigitEven_5x5,
 				indexLabel: DigiLabelEven5x5,
 				// indexLabelFontWeight: "bold",
 				indexLabelFontSize: LblSize,
