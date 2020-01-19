@@ -995,17 +995,26 @@ ws.onmessage = function(msg) {
 			// console.log(i, digit[i], yGraphBlue[i], i-1, digit[i-1], yGraphBlue[i])
 			if (didgitfontCol == "#29abe2") diglabfoncol = 'black'
 			if (didgitfontCol == "#c03") diglabfoncol = 'white'	
-			if ((((parseFloat(dBlue[i-1])+1)==dBlue[i]) && ((parseFloat(dRed[i-1])-1)==dRed[i])) || (((parseFloat(dBlue[i-1])-1)==dBlue[i]) && ((parseFloat(dRed[i-1])+1)==dRed[i]))) {
-				dfcolorbBlue = '#ebebeb'//"blue"
-				dfcolorbRed = '#ebebeb'//"red"
-			} else {
+			if ((((parseFloat(dBlue[i-1])+1)==dBlue[i]) && ((parseFloat(dRed[i-1])-1)==dRed[i])) || +
+				(((parseFloat(dBlue[i-1])-1)==dBlue[i]) && ((parseFloat(dRed[i-1])+1)==dRed[i])) || +
+				(((parseFloat(dBlue[i+1])+1)==dBlue[i]) && ((parseFloat(dRed[i+1])-1)==dRed[i])) || +
+				(((parseFloat(dBlue[i+1])-1)==dBlue[i]) && ((parseFloat(dRed[i+1])+1)==dRed[i])) ) {
+				dfcolorbBlue = '#ebebeb'//"blue" закрасить серым фон цифровой ленты
+				dfcolorbRed = '#ebebeb'//"red" закрасить серым фон цифровой ленты
+			} else if (((parseFloat(dBlue[i-1])== 0) && (parseFloat(dBlue[i])== 5)) || +
+				((parseFloat(dBlue[i-1])== 5) && (parseFloat(dBlue[i])== 0)) || +
+				((parseFloat(dBlue[i+1])== 0) && (parseFloat(dBlue[i])== 5)) || +
+				((parseFloat(dBlue[i+1])== 5) && (parseFloat(dBlue[i])== 0)) ) {
+				dfcolorbBlue = '#faf0e6'//"blue" закрасить серым фон цифровой ленты
+				dfcolorbRed = '#faf0e6'//"red" закрасить серым фон цифровой ленты
+			}else {
 				dfcolorbBlue = "white"
 				dfcolorbRed = "white"
 			}
-			if ((((parseFloat(dBlue[i+1])+1)==dBlue[i]) && ((parseFloat(dRed[i+1])-1)==dRed[i])) || (((parseFloat(dBlue[i+1])-1)==dBlue[i]) && ((parseFloat(dRed[i+1])+1)==dRed[i]))) {
-				dfcolorbBlue = '#ebebeb'//"yellow"
-				dfcolorbRed = '#ebebeb'//"green"
-			}
+			// if ((((parseFloat(dBlue[i+1])+1)==dBlue[i]) && ((parseFloat(dRed[i+1])-1)==dRed[i])) || (((parseFloat(dBlue[i+1])-1)==dBlue[i]) && ((parseFloat(dRed[i+1])+1)==dRed[i]))) {
+				// dfcolorbBlue = '#ebebeb'//"yellow" закрасить серым фон цифровой ленты
+				// dfcolorbRed = '#ebebeb'//"green" закрасить серым фон цифровой ленты
+			// }
 			// if (((parseFloat(dBlue[i-1])+1)==dBlue[i]) || ((parseFloat(dBlue[i-1])-1)==dBlue[i])) {
 				// dfcolorbBlue = "blue"
 				// dfcolorbRed = "red"
