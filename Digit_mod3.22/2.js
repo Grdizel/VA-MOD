@@ -1,32 +1,27 @@
-			if ((digit[i] == 2) && (spot[i-1] < spot[i]) && (digit[i+1] == 9) && (spot[i+1] < spot[i]) ) didgitfontCol = '#ffc0cb'
-			if ((digit[i] == 3) && (spot[i-1] < spot[i]) && (digit[i+1] == 8) && (spot[i+1] < spot[i]) ) didgitfontCol = '#ffc0cb'
-			if ((digit[i] == 4) && (spot[i-1] < spot[i]) && (digit[i+1] == 7) && (spot[i+1] < spot[i]) ) didgitfontCol = '#ffc0cb'
-			if ((digit[i] == 5) && (spot[i-1] < spot[i]) && (digit[i+1] == 6) && (spot[i+1] < spot[i]) ) didgitfontCol = '#ffc0cb'
-			if ((digit[i] == 5) && (spot[i-1] < spot[i]) && (digit[i+1] == 0) && (spot[i+1] < spot[i]) ) didgitfontCol = '#ffc0cb'
-			if ((digit[i] == 7) && (spot[i-1] < spot[i]) && (digit[i+1] == 8) && (spot[i+1] < spot[i]) ) didgitfontCol = '#ffc0cb'
-			if ((digit[i] == 7) && (spot[i-1] < spot[i]) && (digit[i+1] == 4) && (spot[i+1] < spot[i]) ) didgitfontCol = '#ffc0cb'
-			
-			if ((digit[i-1] == 2) && (spot[i-2] < spot[i-1]) && (digit[i] == 9) && (spot[i-1] > spot[i]) ) didgitfontCol = '#ffc0cb'
-			if ((digit[i-1] == 3) && (spot[i-2] < spot[i-1]) && (digit[i] == 8) && (spot[i-1] > spot[i]) ) didgitfontCol = '#ffc0cb'
-			if ((digit[i-1] == 4) && (spot[i-2] < spot[i-1]) && (digit[i] == 7) && (spot[i-1] > spot[i]) ) didgitfontCol = '#ffc0cb'
-			if ((digit[i-1] == 5) && (spot[i-2] < spot[i-1]) && (digit[i] == 6) && (spot[i-1] > spot[i]) ) didgitfontCol = '#ffc0cb'
-			if ((digit[i-1] == 5) && (spot[i-2] < spot[i-1]) && (digit[i] == 0) && (spot[i-1] > spot[i]) ) didgitfontCol = '#ffc0cb'
-			if ((digit[i-1] == 7) && (spot[i-2] < spot[i-1]) && (digit[i] == 8) && (spot[i-1] > spot[i]) ) didgitfontCol = '#ffc0cb'
-			if ((digit[i-1] == 7) && (spot[i-2] < spot[i-1]) && (digit[i] == 4) && (spot[i-1] > spot[i]) ) didgitfontCol = '#ffc0cb'
-			
-			
-			if ((digit[i] == 2) && (spot[i-1] > spot[i]) && (digit[i+1] == 9) && (spot[i+1] > spot[i]) ) didgitfontCol = '#e3f3ff'
-			if ((digit[i] == 3) && (spot[i-1] > spot[i]) && (digit[i+1] == 8) && (spot[i+1] > spot[i]) ) didgitfontCol = '#e3f3ff'
-			if ((digit[i] == 4) && (spot[i-1] > spot[i]) && (digit[i+1] == 7) && (spot[i+1] > spot[i]) ) didgitfontCol = '#e3f3ff'
-			if ((digit[i] == 5) && (spot[i-1] > spot[i]) && (digit[i+1] == 6) && (spot[i+1] > spot[i]) ) didgitfontCol = '#e3f3ff'
-			if ((digit[i] == 5) && (spot[i-1] > spot[i]) && (digit[i+1] == 0) && (spot[i+1] > spot[i]) ) didgitfontCol = '#e3f3ff'
-			if ((digit[i] == 5) && (spot[i-1] > spot[i]) && (digit[i+1] == 5) && (spot[i+1] < spot[i]) ) didgitfontCol = '#e3f3ff'
-			if ((digit[i] == 7) && (spot[i-1] > spot[i]) && (digit[i+1] == 8) && (spot[i+1] > spot[i]) ) didgitfontCol = '#e3f3ff'
+//CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKK
+if ((digit[i] == 2) && (spot[i-1] < spot[i]) && (digit[i+1] == 9) && (spot[i+1] < spot[i])) didgitfontCol = '#ffc0cb' //2с9к Розовый
+if ((digit[i-1] == 2) && (spot[i-2] < spot[i-1]) && (digit[i] == 9) && (spot[i-1] > spot[i]) ) didgitfontCol = '#ffc0cb' //2с9к Розовый
 
-			if ((digit[i-1] == 2) && (spot[i-2] > spot[i-1]) && (digit[i] == 9) && (spot[i-1] < spot[i]) ) didgitfontCol = '#e3f3ff'
-			if ((digit[i-1] == 3) && (spot[i-2] > spot[i-1]) && (digit[i] == 8) && (spot[i-1] < spot[i]) ) didgitfontCol = '#e3f3ff'
-			if ((digit[i-1] == 4) && (spot[i-2] > spot[i-1]) && (digit[i] == 7) && (spot[i-1] < spot[i]) ) didgitfontCol = '#e3f3ff'
-			if ((digit[i-1] == 5) && (spot[i-2] > spot[i-1]) && (digit[i] == 6) && (spot[i-1] < spot[i]) ) didgitfontCol = '#e3f3ff'
-			if ((digit[i-1] == 5) && (spot[i-2] > spot[i-1]) && (digit[i] == 0) && (spot[i-1] < spot[i]) ) didgitfontCol = '#e3f3ff'
-			if ((digit[i-1] == 5) && (spot[i-2] > spot[i-1]) && (digit[i] == 5) && (spot[i-1] > spot[i]) ) didgitfontCol = '#e3f3ff'
-			if ((digit[i-1] == 7) && (spot[i-2] > spot[i-1]) && (digit[i] == 8) && (spot[i-1] < spot[i]) ) didgitfontCol = '#e3f3ff'
+
+
+
+//CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+if ((digit[i] == 2) && (spot[i-1] < spot[i]) && (digit[i+1] == 9) && (spot[i+1] > spot[i])) didgitfontCol = '#ffc0cb' //2с9с Розовый
+if ((digit[i-1] == 2) && (spot[i-2] < spot[i-1]) && (digit[i] == 9) && (spot[i-1] < spot[i])) didgitfontCol = '#ffc0cb' //2с9с Розовый
+
+
+
+
+//KKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+if ((digit[i] == 2) && (spot[i-1] > spot[i]) && (digit[i+1] == 9) && (spot[i+1] > spot[i])) didgitfontCol = '#afdafc' //2к9с Синий-синий иней
+if ((digit[i-1] == 2) && (spot[i-2] > spot[i-1]) && (digit[i] == 9) && (spot[i-1] < spot[i])) didgitfontCol = '#afdafc' //2к9с Синий-синий иней
+
+
+
+
+
+//KKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKK
+if ((digit[i] == 5) && (spot[i-1] > spot[i]) && (digit[i+1] == 5) && (spot[i+1] < spot[i])) didgitfontCol = '#afdafc' //5к5к Синий-синий иней
+if ((digit[i-1] == 5) && (spot[i-2] > spot[i-1]) && (digit[i] == 5) && (spot[i-1] > spot[i])) didgitfontCol = '#afdafc' //5к5к Синий-синий иней
+
+
