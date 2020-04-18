@@ -1,20 +1,20 @@
 <html>
 <head>
-<!-- Yandex.Metrika counter -->
-<script type="text/javascript" >
-   (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
-   m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
-   (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+	<!-- Yandex.Metrika counter -->
+	<script type="text/javascript" >
+	   (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+	   m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+	   (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
 
-   ym(62056126, "init", {
-        clickmap:true,
-        trackLinks:true,
-        accurateTrackBounce:true,
-        webvisor:true
-   });
-</script>
-<noscript><div><img src="https://mc.yandex.ru/watch/62056126" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
-<!-- /Yandex.Metrika counter -->
+	   ym(54036289, "init", {
+		clickmap:true,
+		trackLinks:true,
+		accurateTrackBounce:true,
+		webvisor:true
+	   });
+	</script>
+	<noscript><div><img src="https://mc.yandex.ru/watch/54036289" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+	<!-- /Yandex.Metrika counter -->
 	<meta name="yandex-verification" content="089677fdc7bce8d7" />
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 	  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
@@ -259,7 +259,11 @@
 		<br>
 		<input class="checkbox" type="checkbox" id="trading_view_graff" title="Показать граффик от TradingView в реальном времени."><label>График TradingView</label>
 		<br>
-		<input type="number" id="obrez" value="0" min="0" max="15" title="Сколько знаков нужно отрезать в начале значения объёмов(от 0 до 15)"><label>Отрезание начала значения</label>
+		<input type="number" id="okrugl" value="6" min="1" max="12" title="Сколько знаков в котировке оставить после запятой">
+		<input class="checkbox" type="checkbox" id="okrugl_on" title="Включить откругление значений котировки"><label>округление</label>
+		
+		<br>
+		<input type="number" id="obrez" value="0" min="0" max="12" title="Сколько знаков нужно отрезать в начале значения объёмов(от 0 до 12)над столбиком"><label>Отрезание начала значения</label>
 		<br>
 
 		<!-- <input type="number" id="razmer_obj" value="5" min="1" max="30" title="Размер шрифта значений объёма"><label>Объём шрифт</label> -->
