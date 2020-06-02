@@ -1,0 +1,279 @@
+body {
+  margin: 0;
+  padding: 0 10px;
+  font-size: 16px;
+  text-align: center;
+  font-family: "Arial", sans-serif;
+}
+h1 {
+  font-size: 10px;
+}
+.menu {
+  margin-bottom: 5px;
+  display: flex;
+}
+.menu span {
+  padding: 3px 0;
+  flex-basis: auto;
+  flex-grow: 1;
+  text-align: center;
+  font-size: 12px;
+  border-radius: 5px;
+  color: #fff;
+  background-color: #666666;
+}
+.menu span:hover {
+  background: #191919;
+}
+span.menu-active {
+  background: #191919;
+}
+.digits {
+  margin-left: 10px;
+  margin-right: 14px;
+  margin-bottom: 5px;
+  display: flex;
+}
+.digits span {
+  
+  padding: 3px 0;
+  flex-basis: auto;
+  flex-grow: 2;
+  text-align: center;
+  font-size: 16px;
+  border-radius: 5px;
+  color: #fff;
+}
+
+.digits_moved_down {
+  background-color:  #c03;
+}
+.digits_moved_up {
+  background-color: #29abe2;
+}
+.headcol {
+  margin-left: 10px;
+  margin-right: 14px;
+  margin-bottom: 0px;
+  display: flex;
+}
+.headcol span {
+  padding: 2px 0;
+  flex-basis: auto;
+  flex-grow: 1;
+  text-align: center;
+  font-size: 0px;
+  border-radius: 5px;
+  color: #fff;
+}
+.Head_moved_down {
+  background-color: #c03;
+}
+.Head_moved_up {
+  background-color: #29abe2;
+}
+.Head_moved_mid {
+  background-color: #32cd32;
+}
+.placecol {
+  margin-bottom: 5px;
+  display: flex;
+}
+.placecol span {
+  padding: 2px 0;
+  flex-basis: auto;
+  flex-grow: 1;
+  text-align: center;
+  font-size: 0px;
+  border-radius: 5px;
+  color: #fff;
+}
+.Place_moved_down {
+  background-color: #c03;
+}
+.Place_moved_up {
+  background-color: #29abe2;
+}
+.Place_moved_none {
+  background-color: #fff;
+}
+.chartContainer {
+  margin-bottom: 1px;
+  min-height: 230px;
+  min-width: 100px;
+}
+.chartContainerAxisCord {
+  margin-bottom: 1px;
+  min-height: 280px;
+  min-width: 100px;
+}
+.chartContainerAxis5x5 {
+  margin-bottom: 1px;
+  min-height: 280px;
+  min-width: 100px;
+}
+.chartContainerDigitEven {
+  margin-bottom: 1px;
+  min-height: 190px;
+  min-width: 125px;
+}
+.chartContainerDigitlenta {
+  margin-bottom: 0px;
+  min-height: 53px;
+  min-width: 125px;
+}
+.chartContainerDigit {
+ margin-top: 0px;
+ margin-bottom: 2px;
+  min-height: 190px;
+  min-width: 100px;
+}
+.chartContainerSZPR {
+ margin-top: 5px;
+ margin-bottom: 2px;
+  min-height: 280px;
+  min-width: 100px;
+}
+.chartContainerDigitTapeBlue {
+ margin-top: 5px;
+ margin-bottom: 2px;
+  min-height: 100px;
+  min-width: 100px;
+}
+/* .chartPattern {
+ margin-top: 5px;
+ margin-bottom: 2px;
+  min-height: 200px;
+  min-width: 100px;
+} */
+.chartPattern1 {
+ margin-top: -10px;
+ margin-bottom: 0px;
+  min-height: 50px;
+  min-width: 100px;
+}
+.chartPattern2 {
+ margin-top: -20px;
+ margin-bottom: 0px;
+  min-height: 50px;
+  min-width: 100px;
+}
+.chartPattern3 {
+ margin-top: -20px;
+ margin-bottom: 0px;
+  min-height: 50px;
+  min-width: 100px;
+}
+.chartPattern4 {
+ margin-top: -20px;
+ margin-bottom: 0px;
+  min-height: 50px;
+  min-width: 100px;
+}
+.chartPattern5 {
+ margin-top: -20px;
+ margin-bottom: 0px;
+  min-height: 50px;
+  min-width: 100px;
+}
+.chartPattern6 {
+ margin-top: -20px;
+ margin-bottom: 0px;
+  min-height: 50px;
+  min-width: 100px;
+}
+.chartContainerDigitTapeRed {
+ margin-top: 0px;
+ margin-bottom: 2px;
+  min-height: 53px;
+  min-width: 100px;
+}
+.chartContainerDigitGraphBlue {
+ margin-top: 1px;
+ margin-bottom: 2px;
+  min-height: 280px;
+  min-width: 100px;
+}
+.chartContainerDigitGraphRed {
+ margin-top: 1px;
+ margin-bottom: 2px;
+  min-height: 150px;
+  min-width: 100px;
+}
+.chartContainerDigitRedBin {
+ margin-top: 1px;
+ margin-bottom: 2px;
+  min-height: 80px;
+  min-width: 100px;
+}
+.chartContainerDigitBlueBin {
+ margin-top: 1px;
+ margin-bottom: 2px;
+  min-height: 80px;
+  min-width: 100px;
+}
+.arrow_up span {
+  font-family: "Wingdings";
+  padding: 3px 0;
+  flex-basis: auto;
+  flex-grow: 5;
+  text-align: center;
+  font-size: 25px;
+  border-radius: 5px;
+  color: #fff;
+}
+.arrow_down span {
+  font-family: "Wingdings";
+  padding: 3px 0;
+  flex-basis: auto;
+  flex-grow: 5;
+  text-align: center;
+  font-size: 25px;
+  border-radius: 5px;
+  color: #fff;
+}
+.Arrow_Bg_Up {
+  background: blue;
+  transition: background 1s;
+}
+.Arrow_Bg_Down {
+  background: red;
+  transition: background 1s;
+}
+.Arrow_Bg_Start {
+  background: grey;
+  transition: background 1s;
+}
+.Arrow_Bg_Wait {
+  background: lightgrey;
+  transition: background 1s;
+}
+.SpotArrow span {
+  padding: 3px 0;
+  flex-basis: auto;
+  flex-grow: 2;
+  text-align: center;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 5px;
+  color: black;
+  margin-bottom: 2px;
+}
+.Spot_Arrow_Up {
+   font-family: "Wingdings";
+  background: blue;
+  transition: background 1s;
+}
+.Spot_Arrow_Down {
+  font-family: "Wingdings";
+  background: red;
+  transition: background 1s;
+}
+.Spot_Arrow_Equal {
+  background: lightgreen;
+  transition: background 1s;
+}
+.Spot_Arrow_None {
+  background: white;
+  transition: background 1s;
+}
