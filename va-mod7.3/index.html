@@ -248,6 +248,8 @@
 		<br>
 		<input class="checkbox" type="checkbox" id="max_obj" title="Включить значения максимального объёма над каждой свечкой"><label>Макс. объём</label>
 		<br>
+		<input class="checkbox" type="checkbox" id="poc" title="Показывает на левой гисторамме максимальные значения если они больше 6"><label>включить POC</label>
+		<br>
 		<input class="checkbox" type="checkbox" id="strelki_check" title="Отображает стрелку в зависимости от закрытия последней свечи выше или ниже максимального объёма в ней."><label>Показать стрелки</label>
 		<br>
 		<input class="checkbox" type="checkbox" id="strelki_procent" title="Отображает маленькие стрелки в зависимости от цвета свечи. Если свеча зелёная значит внизу 100%. Если красная то вверху 100%. Чем больше процент тем лучше."><label>Показать маленькие стрелки</label>
@@ -262,7 +264,7 @@
 		<br>
 		<input class="checkbox" type="checkbox" id="onetiksec_on" title="Собирает только последний тик с каждой секунды"><label>Один тик в секунду</label>
 		<br>
-		<input type="number" id="okrugl" value="6" min="1" max="12" title="Сколько знаков в котировке оставить после запятой">
+		<input type="number" id="okrugl" value="8" min="1" max="16" title="Сколько знаков в котировке оставить после запятой">
 		<input class="checkbox" type="checkbox" id="okrugl_on" title="Включить откругление значений котировки (для каждой пары индивидуальное значение)"><label>округление</label>
 		<input type="list" id="tik" value="0" title="Все значения выбранной пары с сервера">
 		<input type="list" id="tikokrugl" value="0" title="Котировка после округления">
