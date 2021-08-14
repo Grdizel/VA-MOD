@@ -17,103 +17,226 @@
     </script>
     <noscript><div><img src="https://mc.yandex.ru/watch/54036346" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
     <!-- /Yandex.Metrika counter -->
-  <script src="js/jquery-3.2.1.min.js"></script>
-  <script src="js/jquery-ui.min.js"></script>
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <script src="js/jquery-ui.min.js"></script>
 
-  <link rel="stylesheet" href="css/styleshi.css">
-  <title>Document</title>
+    <link rel="stylesheet" href="css/styleshi.css">
+    <title>Document</title>
 </head>
 
 <body>
-  <ul class="divinp">
-    <li>
-      <div>
-        ТаймФрейм:
-        <select id="size" class="select">
-          <option value="15" id="15">15c.</option>
-          <option value="60" id="60" selected="selected">M1</option>
-          <option value="120" id="120">M2</option>
-          <option value="180" id="180">M3</option>
-          <option value="300" id="300">M5</option>
-          <option value="600" id="600">M10</option>
-          <option value="900" id="900">M15</option>
-          <option value="1800" id="1800">M30</option>
-          <option value="3600" id="3600">H1</option>
-        </select>
-      </div>
-    </li>
-    <li>
-      <div id="inputs">
-        к-во кластеров:
-        <input id="period" value="10" placeholder="Период" class="select">
-      </div>
-    </li>
-    <li>
-      <div id="inputs">
-        смещение по кластера:
-        <input id="clusterShift" value="0" placeholder="Период" class="select">
-      </div>
-    </li>
-    <li>
-      <div id="inputs">
-        внутрикластерный расчёт max:
-        <input id="acumulate" value="1" type="checkbox">
-      </div>
-    </li>
-    <li>
-      <div id="inputs">
-        альтернативная раскраска кластеров:
-        <input id="colors" value="1" type="checkbox">
-      </div>
-    </li>
-    <li>
-      <div class="select selectdiv">
-        <div id="pair" val="Z-CRY/IDX" class="sel">
-          <img class="imgsel" src="img/Binomo.png" width="18px" height="18px">CRYPTO</div>
-        <div class="divscrol">
-          <div title="EUR/USD - Binomo" val="EURO" id="EURO" data="Binomo" class="sel sels">
-            <img class="imgsel" src="img/Binomo.png" width="18px" height="18px">EUR/USD</div><br>
-          <div title="USD/JPY - Binomo" val="USD/JPY" id="USD_JPY" data="Binomo" class="sel sels">
-            <img class="imgsel" src="img/Binomo.png" `="" width="18px" height="18px">USD/JPY</div><br>
-          <div title="AUD/USD - Binomo" val="AUD/USD" id="AUD_USD" data="Binomo" class="sel sels">
-            <img class="imgsel" src="img/Binomo.png" width="18px" height="18px">AUD/USD</div><br>
-          <div title="AUD/CAD - Binomo" val="AUD/CAD" id="AUD_CAD" data="Binomo" class="sel sels">
-            <img class="imgsel" src="img/Binomo.png" width="18px" height="18px">AUD/CAD</div><br>
-          <div title="USD/CHF - Binomo" val="USD/CHF" id="USD_CHF" data="Binomo" class="sel sels">
-            <img class="imgsel" src="img/Binomo.png" width="18px" height="18px">USD/CHF</div><br>
-          <div title="USD/CAD - Binomo" val="USD/CAD" id="USD_CAD" data="Binomo" class="sel sels">
-            <img class="imgsel" src="img/Binomo.png" width="18px" height="18px">USD/CAD</div><br>
-          <div title="NZD/USD - Binomo" val="NZD/USD" id="NZD_USD" data="Binomo" class="sel sels">
-            <img class="imgsel" src="img/Binomo.png" width="18px" height="18px">NZD/USD</div><br>
-          <div title="EUR/JPY - Binomo" val="EUR/JPY" id="EUR_JPY" data="Binomo" class="sel sels">
-            <img class="imgsel" src="img/Binomo.png" width="18px" height="18px">EUR/JPY</div><br>
-          <div title="AUD/JPY - Binomo" val="AUD/JPY" id="AUD_JPY" data="Binomo" class="sel sels">
-            <img class="imgsel" src="img/Binomo.png" width="18px" height="18px">AUD/JPY</div><br>
-          <div title="GBP/JPY - Binomo" val="GBP/JPY" id="GBP_JPY" data="Binomo" class="sel sels">
-            <img class="imgsel" src="img/Binomo.png" width="18px" height="18px">GBP/JPY</div><br>
-          <div title="GBP/USD - Binomo" val="GBP/USD" id="GBP_USD" data="Binomo" class="sel sels">
-            <img class="imgsel" src="img/Binomo.png" width="18px" height="18px">GBP/USD</div><br>
-          <div title="CRYPTO IDX" val="Z-CRY/IDX" id="CRY_IDX" data="Binomo" class="sel sels">
-            <img class="imgsel" src="img/Binomo.png" width="18px" height="18px">CRYPTO</div><br>
-          <!--<div title="BTC/USD - Binomo" val="XBT/USD" id="XBT_USD" data="Binomo" class="sel sels">
-                                          <img class="imgsel" src="img/Binomo.png" width="18px" height="18px" />BTC/USD</div><br>
-                                          <div title="LTC/USD - Binomo" val="LTC/USD" id="LTC_USD" data="Binomo" class="sel sels">
-                                          <img class="imgsel" src="img/Binomo.png" width="18px" height="18px" />LTC/USD</div><br> -->
-          <div title="EURUSD-OTC" val="EURUSD-OTC" id="EURUSD-OTC" data="Binomo" class="sel sels">
-            <img class="imgsel" src="img/Binomo.png" width="18px" height="18px">EURUSD-OTC</div><br>
-          <div title="AUDCAD-OTC" val="AUDCAD-OTC" id="AUDCAD-OTC" data="Binomo" class="sel sels">
-            <img class="imgsel" src="img/Binomo.png" width="18px" height="18px">AUDCAD-OTC</div><br>
-          <div title="USDJPY-OTC" val="USDJPY-OTC" id="USDJPY-OTC" data="Binomo" class="sel sels">
-            <img class="imgsel" src="img/Binomo.png" width="18px" height="18px">USDJPY-OTC</div><br>
-          <div title="GBPUSD-OTC" val="GBPUSD-OTC" id="GBPUSD-OTC" data="Binomo" class="sel sels">
-            <img class="imgsel" src="img/Binomo.png" width="18px" height="18px">GBPUSD-OTC</div><br>
-        </div>
-      </div>
-    </li>
-  </ul>
-  <canvas id="valx" width="1920" height="920" style="
+    <ul class="divinp">
+        <li>
+            <div>
+                ТаймФрейм:
+                <select id="size" class="select">
+                    <option value="15" id="15">15c.</option>
+                    <option value="60" id="60">M1</option>
+                    <option value="120" id="120">M2</option>
+                    <option value="180" id="180">M3</option>
+                    <option value="300" id="300">M5</option>
+                    <option value="600" id="600">M10</option>
+                    <option value="900" id="900">M15</option>
+                    <option value="1800" id="1800" selected="">M30</option>
+                    <option value="3600" id="3600">H1</option>
+                </select>
+            </div>
+        </li>
+        <li>
+            <div id="inputs">
+                к-во кластеров:
+                <input id="period" value="10" placeholder="Период" class="select">
+            </div>
+        </li>
+        <li>
+            <div id="inputs" class="ticksload">смещение по кластера:
+                <input id="clusterShift" value="0" placeholder="Период" class="select">
+            </div>
+        </li>
+        <li>
+            <div id="inputs">
+                внутрикластерный расчёт max:
+                <input id="acumulate" value="1" type="checkbox">
+            </div>
+        </li>
+        <li>
+            <div id="inputs">
+                альтернативная раскраска кластеров:
+                <input id="colors" value="1" type="checkbox">
+            </div>
+        </li>
+        <li>
+            <div class="select selectdiv" style="display: block">
+                <div id="pair" val="Z-CRY/IDX" data="Binomo" class="sel">
+                    <img class="imgsel" src="img/Binomo.png" width="18px" height="18px">CRYPTO</div>
+                <div class="divscrol">
+                    <div title="AUD/CAD - Binomo" val="AUD/CAD" id="AUD_CAD" data="Binomo" class="sel sels"><img
+                            class="imgsel" src="img/Binomo.png" width="18px" height="18px">AUD/CAD</div><br>
+                    <div title="AUD/JPY - Binomo" val="AUD/JPY" id="AUD_JPY" data="Binomo" class="sel sels"><img
+                            class="imgsel" src="img/Binomo.png" width="18px" height="18px">AUD/JPY</div><br>
+                    <div title="AUD/USD - Binomo" val="AUD/USD" id="AUD_USD" data="Binomo" class="sel sels"><img
+                            class="imgsel" src="img/Binomo.png" width="18px" height="18px">AUD/USD</div><br>
+                    <div title="CAD/CHF - Binomo" val="CAD/CHF" id="CAD_CHF" data="Binomo" class="sel sels"><img
+                            class="imgsel" src="img/Binomo.png" width="18px" height="18px">CAD/CHF</div><br>
+                    <div title="EUR/CAD - Binomo" val="EUR/CAD" id="EUR_CAD" data="Binomo" class="sel sels"><img
+                            class="imgsel" src="img/Binomo.png" width="18px" height="18px">EUR/CAD</div><br>
+                    <div title="EUR/GBP - Binomo" val="EUR/GBP" id="EUR_GBP" data="Binomo" class="sel sels"><img
+                            class="imgsel" src="img/Binomo.png" width="18px" height="18px">EUR/GBP</div><br>
+                    <div title="EUR/JPY - Binomo" val="EUR/JPY" id="EUR_JPY" data="Binomo" class="sel sels"><img
+                            class="imgsel" src="img/Binomo.png" width="18px" height="18px">EUR/JPY</div><br>
+                    <div title="EUR/USD - Binomo" val="EURO" id="EURO" data="Binomo" class="sel sels"><img
+                            class="imgsel" src="img/Binomo.png" width="18px" height="18px">EUR/USD</div><br>
+                    <div title="GBP/AUD - Binomo" val="GBP/AUD" id="GBP_AUD" data="Binomo" class="sel sels"><img
+                            class="imgsel" src="img/Binomo.png" width="18px" height="18px">GBP/AUD</div><br>
+                    <div title="GBP/JPY - Binomo" val="GBP/JPY" id="GBP_JPY" data="Binomo" class="sel sels"><img
+                            class="imgsel" src="img/Binomo.png" width="18px" height="18px">GBP/JPY</div><br>
+                    <div title="GBP/USD - Binomo" val="GBP/USD" id="GBP_USD" data="Binomo" class="sel sels"><img
+                            class="imgsel" src="img/Binomo.png" width="18px" height="18px">GBP/USD</div><br>
+                    <div title="NZD/USD - Binomo" val="NZD/USD" id="NZD_USD" data="Binomo" class="sel sels"><img
+                            class="imgsel" src="img/Binomo.png" width="18px" height="18px">NZD/USD</div><br>
+                    <div title="USD/CAD - Binomo" val="USD/CAD" id="USD_CAD" data="Binomo" class="sel sels"><img
+                            class="imgsel" src="img/Binomo.png" width="18px" height="18px">USD/CAD</div><br>
+                    <div title="USD/CHF - Binomo" val="USD/CHF" id="USD_CHF" data="Binomo" class="sel sels"><img
+                            class="imgsel" src="img/Binomo.png" width="18px" height="18px">USD/CHF</div><br>
+                    <div title="USD/JPY - Binomo" val="USD/JPY" id="USD_JPY" data="Binomo" class="sel sels"><img
+                            class="imgsel" src="img/Binomo.png" width="18px" height="18px">USD/JPY</div><br>
+                    <div title="ALTIDX - Binomo" val="ALTBITF-CXDXF" id="ALTBITF-CXDXF" data="Binomo" class="sel sels">
+                        <img class="imgsel" src="img/Binomo.png" width="18px" height="18px">ALTIDX</div><br>
+                    <div title="CRYPTO IDX - Binomo" val="CRY/IDX" id="CRY_IDX" data="Binomo" class="sel sels"><img
+                            class="imgsel" src="img/Binomo.png" width="18px" height="18px">CRYPTO IDX</div><br>
+                    <div title="Z-CRYPTO IDX - Binomo" val="Z-CRY/IDX" id="Z-CRY_IDX" data="Binomo" class="sel sels">
+                        <img class="imgsel" src="img/Binomo.png" width="18px" height="18px">Z-CRYPTO IDX</div><br>
+                    <div title="Bitcoin - Binomo" val="BTC/USD" id="BTC_USD" data="Binomo" class="sel sels"><img
+                            class="imgsel" src="img/Binomo.png" width="18px" height="18px">Bitcoin</div><br>
+                    <div title="Litecoin - Binomo" val="LTC/USD" id="LTC_USD" data="Binomo" class="sel sels"><img
+                            class="imgsel" src="img/Binomo.png" width="18px" height="18px">Litecoin</div><br>
+                    <div title="BTC/LTC - Binomo" val="BTC/LTC" id="BTC_LTC" data="Binomo" class="sel sels"><img
+                            class="imgsel" src="img/Binomo.png" width="18px" height="18px">BTC/LTC</div><br>
+                    <div title="BCH/USD - Binomo" val="BCH/USD" id="BCH_USD" data="Binomo" class="sel sels"><img
+                            class="imgsel" src="img/Binomo.png" width="18px" height="18px">BCH/USD</div><br>
+                    <div title="EOS/USD - Binomo" val="EOS/USD" id="EOS_USD" data="Binomo" class="sel sels"><img
+                            class="imgsel" src="img/Binomo.png" width="18px" height="18px">EOS/USD</div><br>
+
+                    <!-- <div title="AUD/CAD-OTC - Binomo" val="AUDCAD-OTC" id="AUDCAD-OTC" data="Binomo" class="sel sels"><img class="imgsel" src="img/Binomo.png" width="18px" height="18px" />AUD/CAD (OTC)</div> -->
+                    <!-- <div title="EUR/USD-OTC - Binomo" val="EURUSD-OTC" id="EURUSD-OTC" data="Binomo" class="sel sels"><img class="imgsel" src="img/Binomo.png" width="18px" height="18px" />EUR/USD (OTC)</div> -->
+                    <!-- <div title="EUR/CAD-OTC - Binomo" val="EURCAD-OTC" id="EURCAD-OTC" data="Binomo" class="sel sels"><img class="imgsel" src="img/Binomo.png" width="18px" height="18px" />EUR/CAD (OTC)</div> -->
+                    <!-- <div title="USD/JPY-OTC - Binomo" val="USDJPY-OTC" id="USDJPY-OTC" data="Binomo" class="sel sels"><img class="imgsel" src="img/Binomo.png" width="18px" height="18px" />USD/JPY (OTC)</div> -->
+                    <!-- <div title="GBP/USD-OTC - Binomo" val="GBPUSD-OTC" id="GBPUSD-OTC" data="Binomo" class="sel sels"><img class="imgsel" src="img/Binomo.png" width="18px" height="18px" />GBP/USD (OTC)</div> -->
+                    <!-- <div title="GBP/JPY-OTC - Binomo" val="GBPJPY-OTC" id="GBPJPY-OTC" data="Binomo" class="sel sels"><img class="imgsel" src="img/Binomo.png" width="18px" height="18px" />GBP/JPY (OTC)</div> -->
+
+                    <div title="AUD/CAD-OTC - Binomo" val="Z-AUD/CAD" id="Z-AUD_CAD" data="Binomo" class="sel sels"><img
+                            class="imgsel" src="img/Binomo.png" width="18px" height="18px">Z-AUD/CAD (OTC)</div><br>
+                    <div title="EUR/USD-OTC - Binomo" val="Z-EUR/USD" id="Z-EUR_USD" data="Binomo" class="sel sels"><img
+                            class="imgsel" src="img/Binomo.png" width="18px" height="18px">Z-EUR/USD (OTC)</div><br>
+                    <div title="EUR/CAD-OTC - Binomo" val="Z-EUR/CAD" id="Z-EUR_CAD" data="Binomo" class="sel sels"><img
+                            class="imgsel" src="img/Binomo.png" width="18px" height="18px">Z-EUR/CAD (OTC)</div><br>
+                    <div title="USD/JPY-OTC - Binomo" val="Z-USD/JPY" id="Z-USD_JPY" data="Binomo" class="sel sels"><img
+                            class="imgsel" src="img/Binomo.png" width="18px" height="18px">Z-USD/JPY (OTC)</div><br>
+                    <div title="GBP/USD-OTC - Binomo" val="Z-GBP/USD" id="Z-GBP_USD" data="Binomo" class="sel sels"><img
+                            class="imgsel" src="img/Binomo.png" width="18px" height="18px">Z-GBP/USD (OTC)</div><br>
+                    <div title="GBP/JPY-OTC - Binomo" val="Z-GBP/JPY" id="Z-GBP_JPY" data="Binomo" class="sel sels"><img
+                            class="imgsel" src="img/Binomo.png" width="18px" height="18px">Z-GBP/JPY (OTC)</div><br>
+
+
+                    <div title="AUD/USD - Binary" val="frxAUDUSD" id="frxAUDUSD" data="Binary" class="sel sels"><img
+                            class="imgsel" src="img/Binary.png" width="18px" height="18px">AUD/USD</div><br>
+                    <div title="EUR/AUD - Binary" val="frxEURAUD" id="frxEURAUD" data="Binary" class="sel sels"><img
+                            class="imgsel" src="img/Binary.png" width="18px" height="18px">EUR/AUD</div><br>
+                    <div title="EUR/CAD - Binary" val="frxEURCAD" id="frxEURCAD" data="Binary" class="sel sels"><img
+                            class="imgsel" src="img/Binary.png" width="18px" height="18px">EUR/CAD</div><br>
+                    <div title="EUR/CHF - Binary" val="frxEURCHF" id="frxEURCHF" data="Binary" class="sel sels"><img
+                            class="imgsel" src="img/Binary.png" width="18px" height="18px">EUR/CHF</div><br>
+                    <div title="AUD/JPY - Binary" val="frxAUDJPY" id="frxAUDJPY" data="Binary" class="sel sels"><img
+                            class="imgsel" src="img/Binary.png" width="18px" height="18px">AUD/JPY</div><br>
+                    <div title="EUR/GBP - Binary" val="frxEURGBP" id="frxEURGBP" data="Binary" class="sel sels"><img
+                            class="imgsel" src="img/Binary.png" width="18px" height="18px">EUR/GBP</div><br>
+                    <div title="EUR/JPY - Binary" val="frxEURJPY" id="frxEURJPY" data="Binary" class="sel sels"><img
+                            class="imgsel" src="img/Binary.png" width="18px" height="18px">EUR/JPY</div><br>
+                    <div title="EUR/USD - Binary" val="frxEURUSD" id="frxEURUSD" data="Binary" class="sel sels"><img
+                            class="imgsel" src="img/Binary.png" width="18px" height="18px">EUR/USD</div><br>
+                    <div title="GBP/AUD - Binary" val="frxGBPAUD" id="frxGBPAUD" data="Binary" class="sel sels"><img
+                            class="imgsel" src="img/Binary.png" width="18px" height="18px">GBP/AUD</div><br>
+                    <div title="GBP/JPY - Binary" val="frxGBPJPY" id="frxGBPJPY" data="Binary" class="sel sels"><img
+                            class="imgsel" src="img/Binary.png" width="18px" height="18px">GBP/JPY</div><br>
+                    <div title="GBP/USD - Binary" val="frxGBPUSD" id="frxGBPUSD" data="Binary" class="sel sels"><img
+                            class="imgsel" src="img/Binary.png" width="18px" height="18px">GBP/USD</div><br>
+                    <div title="USD/CAD - Binary" val="frxUSDCAD" id="frxUSDCAD" data="Binary" class="sel sels"><img
+                            class="imgsel" src="img/Binary.png" width="18px" height="18px">USD/CAD</div><br>
+                    <div title="USD/CHF - Binary" val="frxUSDCHF" id="frxUSDCHF" data="Binary" class="sel sels"><img
+                            class="imgsel" src="img/Binary.png" width="18px" height="18px">USD/CHF</div><br>
+                    <div title="USD/JPY - Binary" val="frxUSDJPY" id="frxUSDJPY" data="Binary" class="sel sels"><img
+                            class="imgsel" src="img/Binary.png" width="18px" height="18px">USD/JPY</div><br>
+
+
+                    <div title="AUD/CAD - Binary" val="frxAUDCAD" id="frxAUDCAD" data="Binary" class="sel sels"><img
+                            class="imgsel" src="img/Binary.png" width="18px" height="18px">AUD/CAD</div><br>
+                    <div title="AUD/CHF - Binary" val="frxAUDCHF" id="frxAUDCHF" data="Binary" class="sel sels"><img
+                            class="imgsel" src="img/Binary.png" width="18px" height="18px">AUD/CHF</div><br>
+                    <div title="AUD/NZD - Binary" val="frxAUDNZD" id="frxAUDNZD" data="Binary" class="sel sels"><img
+                            class="imgsel" src="img/Binary.png" width="18px" height="18px">AUD/NZD</div><br>
+                    <div title="EUR/NZD - Binary" val="frxEURNZD" id="frxEURNZD" data="Binary" class="sel sels"><img
+                            class="imgsel" src="img/Binary.png" width="18px" height="18px">EUR/NZD</div><br>
+                    <div title="GBP/CAD - Binary" val="frxGBPCAD" id="frxGBPCAD" data="Binary" class="sel sels"><img
+                            class="imgsel" src="img/Binary.png" width="18px" height="18px">GBP/CAD</div><br>
+                    <div title="GBP/CHF - Binary" val="frxGBPCHF" id="frxGBPCHF" data="Binary" class="sel sels"><img
+                            class="imgsel" src="img/Binary.png" width="18px" height="18px">GBP/CHF</div><br>
+                    <div title="GBP/NOK - Binary" val="frxGBPNOK" id="frxGBPNOK" data="Binary" class="sel sels"><img
+                            class="imgsel" src="img/Binary.png" width="18px" height="18px">GBP/NOK</div><br>
+                    <div title="GBP/NZD - Binary" val="frxGBPNZD" id="frxGBPNZD" data="Binary" class="sel sels"><img
+                            class="imgsel" src="img/Binary.png" width="18px" height="18px">GBP/NZD</div><br>
+                    <div title="NZD/JPY - Binary" val="frxNZDJPY" id="frxNZDJPY" data="Binary" class="sel sels"><img
+                            class="imgsel" src="img/Binary.png" width="18px" height="18px">NZD/JPY</div><br>
+                    <div title="NZD/USD - Binary" val="frxNZDUSD" id="frxNZDUSD" data="Binary" class="sel sels"><img
+                            class="imgsel" src="img/Binary.png" width="18px" height="18px">NZD/USD</div><br>
+                    <div title="USD/MXN - Binary" val="frxUSDMXN" id="frxUSDMXN" data="Binary" class="sel sels"><img
+                            class="imgsel" src="img/Binary.png" width="18px" height="18px">USD/MXN</div><br>
+                    <div title="USD/NOK - Binary" val="frxUSDNOK" id="frxUSDNOK" data="Binary" class="sel sels"><img
+                            class="imgsel" src="img/Binary.png" width="18px" height="18px">USD/NOK</div><br>
+                    <div title="USD/PLN - Binary" val="frxUSDPLN" id="frxUSDPLN" data="Binary" class="sel sels"><img
+                            class="imgsel" src="img/Binary.png" width="18px" height="18px">USD/PLN</div><br>
+                    <div title="USD/SEK - Binary" val="frxUSDSEK" id="frxUSDSEK" data="Binary" class="sel sels"><img
+                            class="imgsel" src="img/Binary.png" width="18px" height="18px">USD/SEK</div><br>
+
+
+                    <div title="WLD/AUD - Binary" val="WLDAUD" id="WLDAUD" data="Binary" class="sel sels"><img
+                            class="imgsel" src="img/Binary.png" width="18px" height="18px">AUD индекс</div><br>
+                    <div title="WLD/EUR - Binary" val="WLDEUR" id="WLDEUR" data="Binary" class="sel sels"><img
+                            class="imgsel" src="img/Binary.png" width="18px" height="18px">EUR индекс</div><br>
+                    <div title="WLD/GBP - Binary" val="WLDGBP" id="WLDGBP" data="Binary" class="sel sels"><img
+                            class="imgsel" src="img/Binary.png" width="18px" height="18px">GBP индекс</div><br>
+                    <div title="WLD/USD - Binary" val="WLDUSD" id="WLDUSD" data="Binary" class="sel sels"><img
+                            class="imgsel" src="img/Binary.png" width="18px" height="18px">USD индекс</div><br>
+
+
+                    <div title="R_10 1с - Binary" val="1HZ10V" id="1HZ10V" data="Binary" class="sel sels"><img
+                            class="imgsel" src="img/Binary.png" width="18px" height="18px">Индекс 10 1с</div><br>
+                    <div title="R_100 1с - Binary" val="1HZ100V" id="1HZ100V" data="Binary" class="sel sels"><img
+                            class="imgsel" src="img/Binary.png" width="18px" height="18px">Индекс 100 1с</div><br>
+                    <div title="R_10 - Binary" val="R_10" id="R_10" data="Binary" class="sel sels"><img class="imgsel"
+                            src="img/Binary.png" width="18px" height="18px">Индекс 10</div><br>
+                    <div title="R_25 - Binary" val="R_25" id="R_25" data="Binary" class="sel sels"><img class="imgsel"
+                            src="img/Binary.png" width="18px" height="18px">Индекс 25</div><br>
+                    <div title="R_50 - Binary" val="R_50" id="R_50" data="Binary" class="sel sels"><img class="imgsel"
+                            src="img/Binary.png" width="18px" height="18px">Индекс 50</div><br>
+                    <div title="R_75 - Binary" val="R_75" id="R_75" data="Binary" class="sel sels"><img class="imgsel"
+                            src="img/Binary.png" width="18px" height="18px">Индекс 75</div><br>
+                    <div title="R_100 - Binary" val="R_100" id="R_100" data="Binary" class="sel sels"><img
+                            class="imgsel" src="img/Binary.png" width="18px" height="18px">Индекс 100</div><br>
+
+
+
+
+                    <div title="RD/BEAR - Binary" val="RDBEAR" id="RDBEAR" data="Binary" class="sel sels"><img
+                            class="imgsel" src="img/Binary.png" width="18px" height="18px">Медвежий индекс</div>
+                    <div title="RD/BULL - Binary" val="RDBULL" id="RDBULL" data="Binary" class="sel sels"><img
+                            class="imgsel" src="img/Binary.png" width="18px" height="18px">Бычий индекс</div>
+                </div>
+            </div>
+        </li>
+    </ul>
+    <canvas id="valx" width="1920" height="920" style="
   position: absolute;"></canvas>
-  <script src="js/javas_new_footprint.js"></script>
+    <script src="js/javas_new_footprint.js"></script>
 </body>
 
 </html>
