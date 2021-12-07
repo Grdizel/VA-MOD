@@ -1,0 +1,141 @@
+<html>
+<head>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-RV8TQCV4DV"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-RV8TQCV4DV');
+  </script>
+
+  <!-- Yandex.Metrika counter -->
+  <script type="text/javascript" >
+    (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+      m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+    (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+    ym(54036289, "init", {
+      clickmap:true,
+      trackLinks:true,
+      accurateTrackBounce:true,
+      webvisor:true
+    });
+  </script>
+  <noscript><div><img src="https://mc.yandex.ru/watch/54036289" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+  <!-- /Yandex.Metrika counter -->
+  <meta name="yandex-verification" content="089677fdc7bce8d7" />
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <title>Мод анализ объемов рынка - горизонтальный и вертикальный объем</title>
+  <meta name="viewport" content="width=device-width" >
+  <meta name="keywords" content="forex объемы, индикатор объема свечи forex" >
+  <meta name="description" content="Вертикальный и горизонтальный объем - Формирование рынка определяется тремя факторами – объемом, ценой и временем. Ежедневно внутри рынка развивается определенная область стоимости в соответствии с законом равновесия, который предполагает определенное количество продавцов и покупателей." >
+  <meta name="AUTHOR" CONTENT="Бывалый Трейдер" >
+  <meta name="MOD" CONTENT="Mr_DIV" >
+  <meta name="copyright" content="© 2017 Бывалый Трейдер">
+  <link rel="icon" type="image/png" href="icon.png"/>
+  <link rel="shortcut icon" type="image/png" href="icon.png"/>
+  <script src="js/jquery-3.2.1.min.js" ></script>
+  <script src="js/jquery-ui.min.js" ></script>
+  <link rel="stylesheet" href="css/styleshi.css" >
+
+</head>
+
+<body>
+<!-- <div class="tradingview-widget-container"> -->
+
+<!-- </div> -->
+<canvas id="valx" width="1920" height="920"></canvas>
+
+<div class="divinp" >
+  <div class="select selectdiv" >
+    <div id="pair" val="EURO" class="sel" ><img class="imgsel" src="img/Binomo.png" width="18px" height="18px" />EUR/USD</div>
+    <div class="divscrol" >
+      <div title="EUR/USD - Binomo" val="EURO" id="EURO" data="Binomo" class="sel sels"><img class="imgsel" src="img/Binomo.png" width="18px" height="18px">EUR/USD</div>
+      <div title="USD/JPY - Binomo" val="USD/JPY" id="USD_JPY" data="Binomo" class="sel sels"><img class="imgsel" src="img/Binomo.png" `="" width="18px" height="18px">USD/JPY</div>
+      <div title="AUD/USD - Binomo" val="AUD/USD" id="AUD_USD" data="Binomo" class="sel sels"><img class="imgsel" src="img/Binomo.png" width="18px" height="18px">AUD/USD</div>
+      <div title="AUD/CAD - Binomo" val="AUD/CAD" id="AUD_CAD" data="Binomo" class="sel sels"><img class="imgsel" src="img/Binomo.png" width="18px" height="18px">AUD/CAD</div>
+      <div title="USD/CHF - Binomo" val="USD/CHF" id="USD_CHF" data="Binomo" class="sel sels"><img class="imgsel" src="img/Binomo.png" width="18px" height="18px">USD/CHF</div>
+      <div title="USD/CAD - Binomo" val="USD/CAD" id="USD_CAD" data="Binomo" class="sel sels"><img class="imgsel" src="img/Binomo.png" width="18px" height="18px">USD/CAD</div>
+      <div title="NZD/USD - Binomo" val="NZD/USD" id="NZD_USD" data="Binomo" class="sel sels"><img class="imgsel" src="img/Binomo.png" width="18px" height="18px">NZD/USD</div>
+      <div title="EUR/JPY - Binomo" val="EUR/JPY" id="EUR_JPY" data="Binomo" class="sel sels"><img class="imgsel" src="img/Binomo.png" width="18px" height="18px">EUR/JPY</div>
+      <div title="AUD/JPY - Binomo" val="AUD/JPY" id="AUD_JPY" data="Binomo" class="sel sels"><img class="imgsel" src="img/Binomo.png" width="18px" height="18px">AUD/JPY</div>
+      <div title="GBP/JPY - Binomo" val="GBP/JPY" id="GBP_JPY" data="Binomo" class="sel sels"><img class="imgsel" src="img/Binomo.png" width="18px" height="18px">GBP/JPY</div>
+      <div title="GBP/USD - Binomo" val="GBP/USD" id="GBP_USD" data="Binomo" class="sel sels"><img class="imgsel" src="img/Binomo.png" width="18px" height="18px">GBP/USD</div>
+      <div title="ALTIDX - Binomo" val="ALTHUOB/BTC-CXDX" id="ALTHUOB_BTC-CXDX" data="Binomo" class="sel sels" ><img class="imgsel" src="img/Binomo.png" width="18px" height="18px" />ALT/IDX</div>
+      <div title="CRYPTO IDX" val="Z-CRY/IDX" id="Z-CRY_IDX" data="Binomo" class="sel sels"><img class="imgsel" src="img/Binomo.png" width="18px" height="18px">CRYPTO</div>
+      <!--<div title="BTC/USD - Binomo" val="XBT/USD" id="XBT_USD" data="Binomo" class="sel sels">
+                                      <img class="imgsel" src="img/Binomo.png" width="18px" height="18px" />BTC/USD</div><br>
+                                      <div title="LTC/USD - Binomo" val="LTC/USD" id="LTC_USD" data="Binomo" class="sel sels">
+                                      <img class="imgsel" src="img/Binomo.png" width="18px" height="18px" />LTC/USD</div><br> -->
+      <!-- <div title="EURUSD-OTC" val="EURUSD-OTC" id="EURUSD-OTC" data="Binomo" class="sel sels"> -->
+      <!-- <img class="imgsel" src="img/Binomo.png" width="18px" height="18px">EURUSD-OTC</div><br> -->
+      <!-- <div title="AUDCAD-OTC" val="AUDCAD-OTC" id="AUDCAD-OTC" data="Binomo" class="sel sels"> -->
+      <!-- <img class="imgsel" src="img/Binomo.png" width="18px" height="18px">AUDCAD-OTC</div><br> -->
+      <!-- <div title="USDJPY-OTC" val="USDJPY-OTC" id="USDJPY-OTC" data="Binomo" class="sel sels"> -->
+      <!-- <img class="imgsel" src="img/Binomo.png" width="18px" height="18px">USDJPY-OTC</div><br> -->
+      <!-- <div title="GBPUSD-OTC" val="GBPUSD-OTC" id="GBPUSD-OTC" data="Binomo" class="sel sels"> -->
+      <!-- <img class="imgsel" src="img/Binomo.png" width="18px" height="18px">GBPUSD-OTC</div><br> -->
+      <div title="AUD/CAD-OTC - Binomo" val="Z-AUD/CAD" id="Z-AUD_CAD" data="Binomo" class="sel sels"><img class="imgsel" src="img/Binomo.png" width="18px" height="18px" />Z-AUD/CAD (OTC)</div>
+      <div title="EUR/USD-OTC - Binomo" val="Z-EUR/USD" id="Z-EUR_USD" data="Binomo" class="sel sels"><img class="imgsel" src="img/Binomo.png" width="18px" height="18px" />Z-EUR/USD (OTC)</div>
+      <div title="EUR/CAD-OTC - Binomo" val="Z-EUR/CAD" id="Z-EUR_CAD" data="Binomo" class="sel sels"><img class="imgsel" src="img/Binomo.png" width="18px" height="18px" />Z-EUR/CAD (OTC)</div>
+      <div title="USD/JPY-OTC - Binomo" val="Z-USD/JPY" id="Z-USD_JPY" data="Binomo" class="sel sels"><img class="imgsel" src="img/Binomo.png" width="18px" height="18px" />Z-USD/JPY (OTC)</div>
+      <div title="GBP/USD-OTC - Binomo" val="Z-GBP/USD" id="Z-GBP_USD" data="Binomo" class="sel sels"><img class="imgsel" src="img/Binomo.png" width="18px" height="18px" />Z-GBP/USD (OTC)</div>
+      <div title="GBP/JPY-OTC - Binomo" val="Z-GBP/JPY" id="Z-GBP_JPY" data="Binomo" class="sel sels"><img class="imgsel" src="img/Binomo.png" width="18px" height="18px" />Z-GBP/JPY (OTC)</div>
+    </div></div>
+  <select id="size" class="select" >
+    <option value="15" id="15" >15c.</option>
+    <option value="60" id="60" >M1</option>
+    <option value="120" id="60" >M2</option>
+    <option value="180" id="60" >M3</option>
+    <option value="240" id="60" >M4</option>
+    <option value="300" id="300" >M5</option>
+    <option value="600" id="600" >M10</option>
+    <option value="900" id="900" >M15</option>
+    <option value="1800" id="1800" >M30</option>
+    <option value="3600" id="3600" >H1</option>
+    <option value="14400" id="14400" >H4</option>
+    <option value="86400" id="86400" >D1</option>
+    <option value="604800" id="604800" >W1</option>
+  </select>
+  <input id="period" value="10" placeholder="Период" class="select" />
+  <br>
+  <div class="hiden" id="url1">
+    <input class="checkbox" type="checkbox" id="open_menu" title="Показать настройки"><label>меню</label>
+    <br>
+    <!-- <div id="VA_MOD" title="Тут можно скачать последнюю версию и обсудить дальнейшие разработки">Подпишись :)</div> -->
+    <br>
+  </div>
+  <div id="Menu">
+    <select id="background" class="select" title="Выбери желаемый цвет фона">
+      <option value="0" id="21252c" >Родной фон</option>
+      <option value="1" id="000000" >Чёрный фон</option>
+      <option value="2" id="00008b" >Тёмный ультрамариновый фон</option>
+      <option value="3" id="808080" >Серый фон</option>
+      <option value="4" id="686c5e" >Серый бетон фон</option>
+      <option value="5" id="964b00" >Коричневый фон</option>
+      <option value="6" id="ffd700" >Золотой фон</option>
+      <!-- <option value="7" id="blok_shema" >Блок схема</option> -->
+      <option value="8" id="none_fon" >Прозрачный</option>
+
+    </select>
+
+    <input class="checkbox" type="checkbox" id="acumulate"><label>внутрикластерный расчёт max</label>
+    <br>
+    <input class="checkbox" type="checkbox" id="colors"><label>альтернативная раскраска кластеров</label>
+    <br>
+    <input type="number" id="clusterShift" value="0" min="1" max="100"><label>смещение по кластера</label>
+    <br>
+  </div>
+  <div id="Strelki_On" hidden="true" >
+    <!-- <div class="str_green"><img id="upa" src="img/upa.png" width="150" height="150"></div> -->
+    <!-- <div class="str_red"><img id="downa" src="img/downa.png" width="150" height="150"></div> -->
+    <div class="close_1"><label id="close_1"></label></div>
+  </div>
+</div>
+<div class="preload" ></div>
+<script src="js/javas_new_footprint.js" ></script>
+</body>
+</html>
