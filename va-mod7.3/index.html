@@ -1,15 +1,5 @@
 <html>
 <head>
-	<!-- Global site tag (gtag.js) - Google Analytics -->
-	<script async src="https://www.googletagmanager.com/gtag/js?id=G-RV8TQCV4DV"></script>
-	<script>
-	  window.dataLayer = window.dataLayer || [];
-	  function gtag(){dataLayer.push(arguments);}
-	  gtag('js', new Date());
-
-	  gtag('config', 'G-RV8TQCV4DV');
-	</script>
-
 <!-- Yandex.Metrika counter -->
 <script type="text/javascript" >
    (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
@@ -51,8 +41,31 @@
 <canvas id="valx" ></canvas>
 <div class="divinp" >
   <div class="select selectdiv" >
+	<!-- <div id="pair" val="EUR/USD" class="sel" ><img class="imgsel" src="img/Intradebar.bmp" width="18px" height="18px" />EUR/USD</div> -->
 	<div id="pair" val="EURO" class="sel" ><img class="imgsel" src="img/Binomo.png" width="18px" height="18px" />EUR/USD</div>
-	<div class="divscrol" >
+		<div class="divscrol" >
+		<div title="AUD/CAD - Intradebar" val="int-AUD/CAD" id="int-AUD_CAD" data="Intradebar" class="sel sels" ><img class="imgsel" src="img/Intradebar.bmp" width="18px" height="18px" />AUD/CAD</div>
+		<div title="AUD/CHF - Intradebar" val="int-AUD/CHF" id="int-AUD_CHF" data="Intradebar" class="sel sels" ><img class="imgsel" src="img/Intradebar.bmp" width="18px" height="18px" />AUD/CHF</div>
+		<div title="AUD/JPY - Intradebar" val="int-AUD/JPY" id="int-AUD_JPY" data="Intradebar" class="sel sels" ><img class="imgsel" src="img/Intradebar.bmp" width="18px" height="18px" />AUD/JPY</div>
+		<div title="AUD/NZD - Intradebar" val="int-AUD/NZD" id="int-AUD_NZD" data="Intradebar" class="sel sels" ><img class="imgsel" src="img/Intradebar.bmp" width="18px" height="18px" />AUD/NZD</div>
+		<div title="AUD/USD - Intradebar" val="int-AUD/USD" id="int-AUD_USD" data="Intradebar" class="sel sels" ><img class="imgsel" src="img/Intradebar.bmp" width="18px" height="18px" />AUD/USD</div>
+		<div title="CAD/JPY - Intradebar" val="int-CAD/JPY" id="int-CAD_JPY" data="Intradebar" class="sel sels" ><img class="imgsel" src="img/Intradebar.bmp" width="18px" height="18px" />CAD/JPY</div>
+		<div title="EUR/AUD - Intradebar" val="int-EUR/AUD" id="int-EUR_AUD" data="Intradebar" class="sel sels" ><img class="imgsel" src="img/Intradebar.bmp" width="18px" height="18px" />EUR/AUD</div>
+		<div title="EUR/CAD - Intradebar" val="int-EUR/CAD" id="int-EUR_CAD" data="Intradebar" class="sel sels" ><img class="imgsel" src="img/Intradebar.bmp" width="18px" height="18px" />EUR/CAD</div>
+		<div title="EUR/CHF - Intradebar" val="int-EUR/CHF" id="int-EUR_CHF" data="Intradebar" class="sel sels" ><img class="imgsel" src="img/Intradebar.bmp" width="18px" height="18px" />EUR/CHF</div>
+		<div title="EUR/GBP - Intradebar" val="int-EUR/GBP" id="int-EUR_GBP" data="Intradebar" class="sel sels" ><img class="imgsel" src="img/Intradebar.bmp" width="18px" height="18px" />EUR/GBP</div>
+		<div title="EUR/JPY - Intradebar" val="int-EUR/JPY" id="int-EUR_JPY" data="Intradebar" class="sel sels" ><img class="imgsel" src="img/Intradebar.bmp" width="18px" height="18px" />EUR/JPY</div>
+		<div title="EUR/USD - Intradebar" val="int-EUR/USD" id="int-EUR_USD" data="Intradebar" class="sel sels" ><img class="imgsel" src="img/Intradebar.bmp" width="18px" height="18px" />EUR/USD</div>
+		<div title="GBP/AUD - Intradebar" val="int-GBP/AUD" id="int-GBP_AUD" data="Intradebar" class="sel sels" ><img class="imgsel" src="img/Intradebar.bmp" width="18px" height="18px" />GBP/AUD</div>
+		<div title="GBP/CHF - Intradebar" val="int-GBP/CHF" id="int-GBP_CHF" data="Intradebar" class="sel sels" ><img class="imgsel" src="img/Intradebar.bmp" width="18px" height="18px" />GBP/CHF</div>
+		<div title="GBP/JPY - Intradebar" val="int-GBP/JPY" id="int-GBP_JPY" data="Intradebar" class="sel sels" ><img class="imgsel" src="img/Intradebar.bmp" width="18px" height="18px" />GBP/JPY</div>
+		<div title="GBP/NZD - Intradebar" val="int-GBP/NZD" id="int-GBP_NZD" data="Intradebar" class="sel sels" ><img class="imgsel" src="img/Intradebar.bmp" width="18px" height="18px" />GBP/NZD</div>
+		<div title="NZD/JPY - Intradebar" val="int-NZD/JPY" id="int-NZD_JPY" data="Intradebar" class="sel sels" ><img class="imgsel" src="img/Intradebar.bmp" width="18px" height="18px" />NZD/JPY</div>
+		<div title="NZD/USD - Intradebar" val="int-NZD/USD" id="int-NZD_USD" data="Intradebar" class="sel sels" ><img class="imgsel" src="img/Intradebar.bmp" width="18px" height="18px" />NZD/USD</div>
+		<div title="USD/CAD - Intradebar" val="int-USD/CAD" id="int-USD_CAD" data="Intradebar" class="sel sels" ><img class="imgsel" src="img/Intradebar.bmp" width="18px" height="18px" />USD/CAD</div>
+		<div title="USD/CHF - Intradebar" val="int-USD/CHF" id="int-USD_CHF" data="Intradebar" class="sel sels" ><img class="imgsel" src="img/Intradebar.bmp" width="18px" height="18px" />USD/CHF</div>
+		<div title="USD/JPY - Intradebar" val="int-USD/JPY" id="int-USD_JPY" data="Intradebar" class="sel sels" ><img class="imgsel" src="img/Intradebar.bmp" width="18px" height="18px" />USD/JPY</div>
+
 		<div title="AUD/CAD - Binomo" val="AUD/CAD" id="AUD_CAD" data="Binomo" class="sel sels" ><img class="imgsel" src="img/Binomo.png" width="18px" height="18px" />AUD/CAD</div>
 		<div title="AUD/JPY - Binomo" val="AUD/JPY" id="AUD_JPY" data="Binomo" class="sel sels" ><img class="imgsel" src="img/Binomo.png" width="18px" height="18px" />AUD/JPY</div>
 		<div title="AUD/USD - Binomo" val="AUD/USD" id="AUD_USD" data="Binomo" class="sel sels" ><img class="imgsel" src="img/Binomo.png" width="18px" height="18px" />AUD/USD</div>
