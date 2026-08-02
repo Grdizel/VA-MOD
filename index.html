@@ -44,10 +44,12 @@
   <div class="select selectdiv" >
 	<!-- <div id="pair" val="EUR/USD" class="sel" ><img class="imgsel" src="img/Intradebar.bmp" width="18px" height="18px" />EUR/USD</div> -->
 	<!-- <div id="pair" val="EURO" class="sel" ><img class="imgsel" src="img/Binomo.png" width="18px" height="18px" />EUR/USD</div> -->
-	<div id="pair" val="frxEURUSD" class="sel" ><img class="imgsel" src="img/Binary.png" width="18px" height="18px" />EUR/USD</div>
+	<!-- <div id="pair" val="frxEURUSD" class="sel" ><img class="imgsel" src="img/Binary.png" width="18px" height="18px" />EUR/USD</div> -->
+	<div id="pair" val="R_100" data="Binary" class="sel" ><img class="imgsel" src="img/Binary.png" width="18px" height="18px" />Индекс 100</div>
+	
 		<div class="divscrol" >
 		<div title="EUR/USD - Binary" val="frxEURUSD" id="frxEURUSD" data="Binary" class="sel sels"><img class="imgsel" src="img/Binary.png" width="18px" height="18px" />EUR/USD</div>
-		<div title="EUR/AUD - Binary" val="frxEURAUD" id="frxEURAUD" data="Binary" class="sel sels"><img class="imgsel" src="img/Binary.png" width="18px" height="18px" />EUR/AUD</div>
+		<!-- <div title="EUR/AUD - Binary" val="frxEURAUD" id="frxEURAUD" data="Binary" class="sel sels"><img class="imgsel" src="img/Binary.png" width="18px" height="18px" />EUR/AUD</div>
 		<div title="EUR/CAD - Binary" val="frxEURCAD" id="frxEURCAD" data="Binary" class="sel sels"><img class="imgsel" src="img/Binary.png" width="18px" height="18px" />EUR/CAD</div>
 		<div title="EUR/CHF - Binary" val="frxEURCHF" id="frxEURCHF" data="Binary" class="sel sels"><img class="imgsel" src="img/Binary.png" width="18px" height="18px" />EUR/CHF</div>
 		<div title="EUR/GBP - Binary" val="frxEURGBP" id="frxEURGBP" data="Binary" class="sel sels"><img class="imgsel" src="img/Binary.png" width="18px" height="18px" />EUR/GBP</div>
@@ -123,7 +125,7 @@
 		<div title="Crash_500 - Binary" val="CRASH500" id="CRASH500" data="Binary" class="sel sels"><img class="imgsel" src="img/Binary.png" width="18px" height="18px" />Crash 500 Index</div>
 		<div title="Crash_1000 - Binary" val="CRASH1000" id="CRASH1000" data="Binary" class="sel sels"><img class="imgsel" src="img/Binary.png" width="18px" height="18px" />Crash 1000 Index</div>
 		<div title="RD/BEAR - Binary" val="RDBEAR" id="RDBEAR" data="Binary" class="sel sels"><img class="imgsel" src="img/Binary.png" width="18px" height="18px" />Медвежий индекс</div>
-		<div title="RD/BULL - Binary" val="RDBULL" id="RDBULL" data="Binary" class="sel sels"><img class="imgsel" src="img/Binary.png" width="18px" height="18px" />Бычий индекс</div>
+		<div title="RD/BULL - Binary" val="RDBULL" id="RDBULL" data="Binary" class="sel sels"><img class="imgsel" src="img/Binary.png" width="18px" height="18px" />Бычий индекс</div> -->
 
 		<!-- <div title="EUR/USD - Intradebar" val="int-EUR/USD" id="int-EUR_USD" data="Intradebar" class="sel sels" ><img class="imgsel" src="img/Intradebar.bmp" width="18px" height="18px" />EUR/USD</div> -->
 		<!-- <div title="EUR/AUD - Intradebar" val="int-EUR/AUD" id="int-EUR_AUD" data="Intradebar" class="sel sels" ><img class="imgsel" src="img/Intradebar.bmp" width="18px" height="18px" />EUR/AUD</div> -->
@@ -290,6 +292,9 @@
 		<br>
 	</div>
 	<div id="Menu">
+	<label>Тики истории:
+		<input type="number" id="ticks_count" value="0" min="100" step="100">
+	</label>
 	  <!-- <select id="broker" class="select" title="Выбери Брокера"> -->
 		<!-- <option value="0" id="Binary" >Binary</option> -->
 		<!-- <option value="1" id="Intradebar" >Intradebar</option> -->
@@ -315,15 +320,15 @@
 		<br>
 		<input class="checkbox" type="checkbox" id="max_obj" title="Включить значения максимального объёма над каждой свечкой"><label>Макс. объём</label>
 		<br>
-		<input class="checkbox" type="checkbox" id="strelki_procent" title="Отображает маленькие стрелки в зависимости от цвета свечи. Если свеча зелёная значит внизу 100%. Если красная то вверху 100%. Чем больше процент тем лучше."><label>Показать маленькие стрелки</label>
+		<input class="checkbox" type="checkbox" id="strelki_procent" title="Отображает маленькие стрелки в зависимости от цвета свечи. Если свеча зелёная значит внизу 100%. Если красная то вверху 100%. Чем больше процент тем лучше."><label>Маленькие стрелки</label>
+		<br>
+		<input class="checkbox" type="checkbox" id="strelki_check" title="Отображает стрелку в зависимости от закрытия последней свечи выше или ниже максимального объёма в ней."><label>Большие стрелки</label>
 		<br>
 		<input class="checkbox" type="checkbox" id="max_obj_color" title="Если закрытие свечи выше максимального объёма то окрасить объём залёный иначе красный"><label>Цвет макс. объёма</label>
 		<br>
 		<input class="checkbox" type="checkbox" id="odinak" title="Искать такой же уровень в соседних свечах и боковой гистограмме"><label>Поиск одинаковых значений</label>
 		<br>
 		<input class="checkbox" type="checkbox" id="poc" title="Показывает на левой гисторамме максимальные значения если они больше 6"><label>включить POC</label>
-		<br>
-		<input class="checkbox" type="checkbox" id="strelki_check" title="Отображает стрелку в зависимости от закрытия последней свечи выше или ниже максимального объёма в ней."><label>Показать стрелки</label>
 		<br>
 		<input class="checkbox" type="checkbox" id="blok_shema" title="Отображает на фоне картинку ориентир."><label>картинка фоном</label>
 		<br>
@@ -335,7 +340,7 @@
 		<input class="checkbox" type="checkbox" id="gorizontal_on" title="Отображает линии выбранных уровней (круглые)"><label>Круглые</label>
 		<br>
 		<input type="number" id="okrugl" value="8" min="0" max="16" title="Сколько знаков в котировке оставить после запятой">
-		<input class="checkbox" type="checkbox" id="okrugl_on" title="Включить откругление значений котировки  до меньшей (для каждой пары индивидуальное значение)"><label>округление</label>
+		<input class="checkbox" type="checkbox" id="okrugl_on" title="Включить обрезку значений котировки до указанного колличества знаков после запятой (для каждой пары индивидуальное значение)"><label>обрезка</label>
 		<input type="list" id="tik" value="0" title="Все значения выбранной пары с сервера">
 		<input type="list" id="tikokrugl" value="0" title="Котировка после округления">
 		
