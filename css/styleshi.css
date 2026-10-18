@@ -184,7 +184,9 @@ background-size: 100% auto;
     pointer-events: none;
 }
 
-/* Возвращаем кликабельность самим элементам управления */
-#Menu input, #Menu select, #Menu button, .divinp input, .divinp select {
+/* Возвращаем кликабельность ВСЕМ интерактивным элементам */
+#Menu input, #Menu select, #Menu button, 
+.divinp input, .divinp select, .divinp button,
+#pair, .divscrol, .sel, .sels {
     pointer-events: auto;
 }
