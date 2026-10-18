@@ -30,16 +30,38 @@
 	  <link rel="shortcut icon" type="image/png" href="icon.png"/>
   <script src="js/jquery-3.2.1.min.js" ></script>
   <script src="js/jquery-ui.min.js" ></script>
-  <script src="js/tv.js" ></script>
+  <script src="js/lightweight-charts.js" ></script>
+  <script src="js/drawing-tools.js" ></script>
+  
+<script type="module">
+    import { DrawingPlugin } from 'https://cdn.jsdelivr.net/npm/lwc-plugin-drawing-tools@1.0.0/+esm';
+    // Сохраняем плагин в глобальную переменную, чтобы ваш основной скрипт мог его использовать
+    window.DrawingPlugin = DrawingPlugin;
+</script>
+
 <link rel="stylesheet" href="css/styleshi.css" >
 
 </head>
 
 <body>
-<!-- <div class="tradingview-widget-container"> -->
 
-<!-- </div> -->
 <canvas id="valx" ></canvas>
+
+<!-- Контейнер для графика Lightweight Charts -->
+<!-- <div id="tradingview_61bf3" style="position:absolute; top:50px; left:15%; width:85%; height:600px; z-index:10; display:none; background:#21252c;"></div> -->
+<!-- <div id="tradingview_61bf3" style="position:absolute; top:50px; left:15%; width:85%; height:calc(100vh - 80px); z-index:10; display:none; background:#21252c;"></div> -->
+<div id="tradingview_61bf3" style="position:absolute; top:0px; left:0px; width:100vw; height:100vh; z-index:10; display:none; background:#21252c;"></div>
+<!-- ⬇️ ДОБАВИТЬ ПАНЕЛЬ ИНСТРУМЕНТОВ ⬇️ -->
+<div id="drawing-toolbar" style="position: absolute; top: 60px; left: 16%; z-index: 20; display: none; flex-direction: column; gap: 5px;">
+    <button class="draw-btn" data-tool="trend-line" title="Трендовая линия">📈</button>
+    <button class="draw-btn" data-tool="horizontal-line" title="Горизонтальная линия">➖</button>
+    <button class="draw-btn" data-tool="vertical-line" title="Вертикальная линия">📏</button>
+    <button class="draw-btn" data-tool="rectangle" title="Прямоугольник">⬛</button>
+    <button class="draw-btn" data-tool="fib-retracement" title="Коррекция Фибоначчи">🎯</button>
+    <button class="draw-btn" data-tool="clear" title="Очистить всё" style="margin-top: 15px; background: #d75c48;">🧹</button>
+</div>
+
+
 <div class="divinp" >
   <div class="select selectdiv" >
 	<!-- <div id="pair" val="EUR/USD" class="sel" ><img class="imgsel" src="img/Intradebar.bmp" width="18px" height="18px" />EUR/USD</div> -->
@@ -333,6 +355,8 @@
 		<input class="checkbox" type="checkbox" id="blok_shema" title="Отображает на фоне картинку ориентир."><label>картинка фоном</label>
 		<br>
 		<input class="checkbox" type="checkbox" id="trading_view_graff" title="Показать граффик от TradingView в реальном времени."><label>График TradingView</label>
+		<br>
+		<input class="checkbox" type="checkbox" id="drawing_tools_on" title="Показать панель инструментов для рисования на графике"><label>Панель рисования</label>
 		<br>
 		<input class="checkbox" type="checkbox" id="onetiksec_on" title="Собирает только последний тик с каждой секунды"><label>Один тик в секунду</label>
 		<br>

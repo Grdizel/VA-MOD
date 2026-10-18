@@ -137,3 +137,54 @@ background-repeat: none;
 background-size: 100% auto;
 -o-background-size: 100% auto;
 }
+.draw-btn {
+    width: 40px;
+    height: 40px;
+    background-color: #2e3e52;
+    color: white;
+    border: 1px solid #4a5d76;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+}
+.draw-btn:hover {
+    background-color: #3b4d65;
+}
+.draw-btn.active {
+    background-color: #2196F3;
+    border-color: #2196F3;
+    box-shadow: 0 0 5px #2196F3;
+}
+/* Поднимаем канвас визуально наверх, но отключаем перехват мыши */
+#valx {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 15; /* Выше графика (10) */
+    pointer-events: none !important; /* Клики проходят сквозь канвас к графику */
+}
+
+/* График TradingView */
+#tradingview_61bf3 {
+    z-index: 10;
+    pointer-events: auto !important; /* График принимает клики и мышь */
+}
+
+/* Панель рисования остается на самом верху и кликабельной */
+#drawing-toolbar {
+    pointer-events: auto !important;
+    z-index: 25 !important; 
+}
+/* Делаем невидимые области меню прозрачными для кликов мыши */
+#Menu, .divinp {
+    pointer-events: none;
+}
+
+/* Возвращаем кликабельность самим элементам управления */
+#Menu input, #Menu select, #Menu button, .divinp input, .divinp select {
+    pointer-events: auto;
+}
